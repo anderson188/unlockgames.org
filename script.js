@@ -29,16 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       const selectedLang = this.dataset.lang;
-      const currentPath = window.location.pathname.split('/').pop();
-      let newPath = currentPath;
-
-      // Handle index.html specially
-      if (currentPath === 'index.html' || currentPath === '') {
-        newPath = `index-${selectedLang}.html`;
-      } else {
-        const baseName = currentPath.split('.')[0];
-        newPath = `${baseName}-${selectedLang}.html`;
-      }
+      // Always redirect to base index page with language suffix
+      let newPath = `index-${selectedLang}.html`;
 
       // Redirect to selected language version
       window.location.href = newPath;
