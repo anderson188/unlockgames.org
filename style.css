@@ -63,6 +63,7 @@ body {
     list-style: none;
     display: flex;
     gap: 20px;
+    position: relative;
 }
 
 .nav-links a {
@@ -73,6 +74,45 @@ body {
 
 .nav-links a:hover {
     color: var(--accent-color);
+}
+
+.language-switcher {
+    position: relative;
+}
+
+.language-switcher > a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--secondary-color);
+    border-radius: 4px;
+    padding: 10px 0;
+    min-width: 120px;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.language-dropdown li {
+    padding: 8px 15px;
+}
+
+.language-dropdown a {
+    color: var(--text-color);
+    white-space: nowrap;
+}
+
+.language-dropdown a:hover {
+    color: var(--accent-color);
+}
+
+.language-switcher:hover .language-dropdown {
+    display: block;
 }
 
 /* Hero Section */
