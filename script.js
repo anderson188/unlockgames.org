@@ -28,12 +28,23 @@ document.addEventListener('DOMContentLoaded', () => {
   languageLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
-      const selectedLang = this.dataset.lang;
-      // Always redirect to base index page with language suffix
+      // Get language code with fallback to 'en'
+      const selectedLang = this.getAttribute('data-lang') || 'en';
+      
+      // Generate new path directly based on selected language
       let newPath = `index-${selectedLang}.html`;
+      if (selectedLang === 'en') {
+        newPath = 'index.html'; // Default language
+      }
 
-      // Redirect to selected language version
-      window.location.href = newPath;
+      // Only redirect if not already on the target page
+      if (!window.location.pathname.endsWith(newPath)) {
+        // Add small delay to ensure click is processed
+        setTimeout(() => {
+          // Force reload by adding timestamp to URL
+          window.location.href = newPath + '?t=' + Date.now();
+        }, 100);
+      }
     });
   });
 
@@ -77,9 +88,3 @@ const updateMetaTags = (title, description) => {
   document.title = title;
   document.querySelector('meta[name="description"]').content = description;
 };
-
-// Initial SEO setup
-updateMetaTags(
-  'UnlockGames - Play Free Online Games',
-  'Play the best free online games at UnlockGames. Enjoy a wide variety of fun and exciting games including Sprunki Phase 8, Squid Challenge, Tsunami Race and more!'
-);
