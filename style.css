@@ -111,7 +111,7 @@ body {
     color: var(--accent-color);
 }
 
-.language-switcher:hover .language-dropdown {
+.language-switcher.active .language-dropdown {
     display: block;
 }
 

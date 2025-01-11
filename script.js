@@ -1,5 +1,51 @@
-// Game card click handler
+// Language switcher and game functionality
 document.addEventListener('DOMContentLoaded', () => {
+  // Language switcher
+  const languageSwitcher = document.querySelector('.language-switcher');
+  const dropdown = document.querySelector('.language-dropdown');
+
+  // Toggle dropdown
+  languageSwitcher.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    this.classList.toggle('active');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!languageSwitcher.contains(e.target)) {
+      languageSwitcher.classList.remove('active');
+    }
+  });
+
+  // Prevent dropdown from closing when clicking inside
+  dropdown.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+
+  // Language selection handler
+  const languageLinks = document.querySelectorAll('.language-dropdown a');
+  languageLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const selectedLang = this.dataset.lang;
+      const currentPath = window.location.pathname.split('/').pop();
+      let newPath = currentPath;
+
+      // Handle index.html specially
+      if (currentPath === 'index.html' || currentPath === '') {
+        newPath = `index-${selectedLang}.html`;
+      } else {
+        const baseName = currentPath.split('.')[0];
+        newPath = `${baseName}-${selectedLang}.html`;
+      }
+
+      // Redirect to selected language version
+      window.location.href = newPath;
+    });
+  });
+
+  // Game card click handler
   const gameCards = document.querySelectorAll('.game-card');
   const gameContainer = document.querySelector('.game-container iframe');
   const fullscreenBtn = document.getElementById('fullscreen-btn');
