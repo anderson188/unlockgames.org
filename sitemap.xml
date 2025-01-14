@@ -1,58 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
+		<!--	created with www.mysitemapgenerator.com	-->
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-  <loc>https://unlockgames.org/</loc>
-  <lastmod>2025-01-12T01:41:16+00:00</lastmod>
-  <priority>1.00</priority>
+	<loc>https://unlockgames.org/</loc>
+	<lastmod>2025-01-14T05:19:04+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://unlockgames.org/blog.html</loc>
-  <lastmod>2025-01-12T01:41:17+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://unlockgames.org/blog.html</loc>
+	<lastmod>2025-01-14T05:19:04+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-<url>
-  <loc>https://unlockgames.org/support.html</loc>
-  <lastmod>2025-01-12T01:41:17+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://unlockgames.org/privacy.html</loc>
+	<lastmod>2025-01-14T05:19:04+01:00</lastmod>
+	<priority>0.2</priority>
 </url>
 <url>
-  <loc>https://unlockgames.org/privacy.html</loc>
-  <lastmod>2025-01-12T01:41:18+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://unlockgames.org/contact.html</loc>
+	<lastmod>2025-01-14T05:19:04+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://unlockgames.org/index-ru.html</loc>
-  <lastmod>2024-01-30T00:00:00+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://unlockgames.org/blog-2player-chess.html</loc>
+	<lastmod>2025-01-14T05:19:04+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://unlockgames.org/contact.html</loc>
-  <lastmod>2025-01-12T01:41:18+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://unlockgames.org/blog-tiny-fishing.html</loc>
+	<lastmod>2025-01-14T05:19:04+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://unlockgames.org/blog-2player-chess.html</loc>
-  <lastmod>2025-01-12T01:41:18+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://unlockgames.org/blog-block-puzzle-travel.html</loc>
+	<lastmod>2025-01-14T05:19:04+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://unlockgames.org/blog-tiny-fishing.html</loc>
-  <lastmod>2025-01-12T01:41:18+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://unlockgames.org/blog-chicken-scream.html</loc>
+	<lastmod>2025-01-14T05:19:04+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://unlockgames.org/blog-block-puzzle-travel.html</loc>
-  <lastmod>2025-01-12T01:41:18+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://unlockgames.org/blog-slime-jumper.html</loc>
+	<lastmod>2025-01-14T05:19:04+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
-
-
+<url>
+	<loc>https://unlockgames.org/blog-make-america-great-again.html</loc>
+	<lastmod>2025-01-14T05:19:04+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://unlockgames.org/support.html</loc>
+	<lastmod>2025-01-14T05:19:05+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
 </urlset>
