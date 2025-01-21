@@ -81,23 +81,35 @@
     <main class="container">
         <section class="game-section">
             <h2 id="featured-game-title">Today's unlock Game ：Tiny Fishing</h2>
-            <div class="game-container">
-                <iframe id="featured-game-frame" src="https://www.twoplayergames.org/embed/tiny-fishing" style="width: 100%; height: 100%;" frameborderframeborder="0" allow="gamepad *; fullscreen *" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals"></iframe>
-                <button id="fullscreen-btn" class="fullscreen-btn" title="full screen">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
-                    </svg>
-                </button>
-            </div>
+<div class="game-container">
+    <div class="game-progress">
+        <div class="progress-bar"></div>
+    </div>
+    <iframe id="game-iframe" src="https://www.twoplayergames.org/embed/tiny-fishing" onload="showLoadingProgress(this)"></iframe>
+    <button id="fullscreen-btn">
+        <svg viewBox="0 0 24 24">
+            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+        </svg>
+    </button>
+</div>
+
+<!-- Lazy Loading Images -->
+<noscript>
+    <style>
+        img.lazyload {
+            display: none;
+        }
+    </style>
+</noscript>
         </section>
 
 </main>
 
 <section class="game-list">
   <h2>Popular Game Recommendations</h2>
-  <div class="games-grid">
-    <div class="game-card" data-src="https://html5.gamedistribution.com/6c943823fcb94f53a8a0c51f796736aa/">
-      <img src="assets/2playerchess.png" alt="2Player Online Chess">
+    <div class="games-grid">
+        <div class="game-card" data-src="https://html5.gamedistribution.com/6c943823fcb94f53a8a0c51f796736aa/">
+            <img class="lazyload" data-src="assets/2playerchess.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="2Player Online Chess">
       <h3>2Player Online Chess</h3>
     </div>
     <div class="game-card" data-src="https://html5.gamedistribution.com/rvvASMiM/c00367094b8f41ae87c61fe5b351bd37/index.html">
@@ -147,6 +159,127 @@
 
   </div>
 </section>
+
+    <section class="faq-section">
+        <h2>FAQ</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>1. What is Unlock Games?</span>
+                    <div class="arrow">▼</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Unlock Games is the best free online games platform offering a wide variety of fun and challenging games for teens and players of all ages. Enjoy popular multiplayer games like 2 Player Chess, action-packed games like Squid Challenge, and creative puzzle games like Block Puzzle Travel. With new free games added weekly, there's always something exciting to play!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>2. Do I need to create an account to play?</span>
+                    <div class="arrow">▼</div>
+                </div>
+                <div class="faq-answer">
+                    <p>No account is needed! All free online games on Unlock Games are completely free to play without any registration. Enjoy instant access to popular multiplayer games, puzzle games, and action games. Just visit our website and start playing your favorite games like 2 Player Chess, Slime Jumper, and Chicken Scream instantly!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>3. Are Unlock Games safe for kids?</span>
+                    <div class="arrow">▼</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, Unlock Games is a safe and family-friendly platform for free online games. We carefully select games that are appropriate for all ages, including popular puzzle games like Block Puzzle Travel and action games like Squid Challenge. Our collection of multiplayer games and single-player games are perfect for teens and kids looking for fun and challenging online games.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>4. Can I play Unlock Games on mobile?</span>
+                    <div class="arrow">▼</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! Our free online games are optimized for both desktop and mobile devices. You can enjoy popular multiplayer games like 2 Player Chess, action games like Squid Challenge, and puzzle games like Block Puzzle Travel on your smartphones and tablets without any downloads or installations. All games work perfectly on both iOS and Android devices!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>5. How often are new games added?</span>
+                    <div class="arrow">▼</div>
+                </div>
+                <div class="faq-answer">
+                    <p>We regularly update our game collection with new and exciting titles. Every week we add fresh multiplayer games, challenging puzzle games, and thrilling action games. Check back often to discover the latest additions to our growing library of free online games like 2 Player Chess, Squid Challenge, and Block Puzzle Travel. Our team works hard to bring you the best free games for teens and players of all ages!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .faq-section {
+            padding: 40px 20px;
+            background: #333;
+        }
+        .faq-section h2 {
+            color: #fff;
+        }
+        .faq-question span {
+            font-weight: bold;
+            color: #fff;
+        }
+        .faq-answer {
+            color: #fff;
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            cursor: pointer;
+            background: #444;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .faq-question:hover {
+            background: #555;
+        }
+        .faq-question span {
+            font-weight: bold;
+            color: #fff;
+        }
+        .faq-answer {
+            color: #fff;
+        }
+        .faq-question .arrow {
+            transition: transform 0.3s ease;
+            color: #fff;
+        }
+        .faq-answer {
+            display: none;
+            padding: 15px;
+            background: #444;
+            border-top: 1px solid #555;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        .faq-item.active .arrow {
+            transform: rotate(180deg);
+        }
+    </style>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
 
     <footer class="footer">
         <div class="container">
