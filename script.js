@@ -41,8 +41,32 @@ document.addEventListener('DOMContentLoaded', () => {
       fetch(newPath)
         .then(response => response.text())
         .then(html => {
-          document.documentElement.innerHTML = html;
+          const parser = new DOMParser();
+          const newDoc = parser.parseFromString(html, 'text/html');
+          
+          // 保留当前导航栏和脚本
+          const oldHeader = document.querySelector('nav');
+          const oldScripts = document.querySelectorAll('script');
+          
+          // 更新主要内容区域
+          document.querySelector('main').outerHTML = newDoc.querySelector('main').outerHTML;
+          
+          // 更新页面标题和元标签
+          document.title = newDoc.title;
+          document.querySelector('meta[name="description"]').content = newDoc.querySelector('meta[name="description"]').content;
+          
+          // 保留原有导航栏
+          oldHeader.parentNode.replaceChild(oldHeader, document.querySelector('nav'));
+          
+          // 保留并重新初始化脚本
+          oldScripts.forEach(oldScript => {
+            const newScript = document.createElement('script');
+            newScript.textContent = oldScript.textContent;
+            document.body.appendChild(newScript);
+          });
+          
           history.replaceState(null, '', newPath);
+          initLanguageSwitcher(); // 重新初始化语言切换功能
         })
         .catch(error => console.error('Error loading language:', error));
     });
