@@ -37,14 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
         newPath = 'index.html'; // Default language
       }
 
-      // Only redirect if not already on the target page
-      if (!window.location.pathname.endsWith(newPath)) {
-        // Add small delay to ensure click is processed
-        setTimeout(() => {
-          // Force reload by adding timestamp to URL
-          window.location.href = newPath + '?t=' + Date.now();
-        }, 100);
-      }
+      // Update page language without redirect
+      fetch(newPath)
+        .then(response => response.text())
+        .then(html => {
+          document.documentElement.innerHTML = html;
+          history.replaceState(null, '', newPath);
+        })
+        .catch(error => console.error('Error loading language:', error));
     });
   });
 
