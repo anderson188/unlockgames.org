@@ -5,8 +5,17 @@
 -->
 <head>
     <meta charset=utf-8>
-<meta http-equiv="content-security-policy" content="default-src 'self'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'self' 'unsafe-inline' data: https://connect.facebook.net https://static.cloudflareinsights.com https://vbbev5.maxconvtrk.com; connect-src 'self' https://vbbev5.maxconvtrk.com; object-src 'self' data:; frame-src 'self' data:;">
-
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://vbbev5.maxconvtrk.com; 
+    font-src 'self' data:; 
+    img-src 'self' data: https://vbbev5.maxconvtrk.com; 
+    style-src 'self' 'unsafe-inline'; 
+    media-src 'self' data:; 
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' data: https://connect.facebook.net https://static.cloudflareinsights.com https://vbbev5.maxconvtrk.com; 
+    connect-src 'self' https://vbbev5.maxconvtrk.com https://*.facebook.com https://*.cloudflareinsights.com; 
+    object-src 'self' data:; 
+    frame-src 'self' data: https://vbbev5.maxconvtrk.com; 
+    frame-ancestors 'self';">
+    
 
 
     <!--Optional, send client hints to get accurate device data-->
