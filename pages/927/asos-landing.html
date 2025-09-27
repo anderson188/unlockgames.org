@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASOS - Massive Fashion Sale | Up to 70% OFF</title>
+    <meta name="description" content="HUGE ASOS Sale! Get up to 70% OFF on trendy fashion items. Limited time offer - Shop now and save big!">
+    <meta name="keywords" content="ASOS sale, fashion discount, trendy clothes, cheap fashion, ASOS coupon">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.asos.com/">
+    <meta property="og:title" content="ASOS - 时尚购物平台">
+    <meta property="og:description" content="发现最新的时尚潮流，在ASOS找到你的完美造型">
+    <meta property="og:image" content="https://images.asos-media.com/products/asos-design-oversized-t-shirt-in-black/205441829-1-black">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.asos.com/">
+    <meta property="twitter:title" content="ASOS - 时尚购物平台">
+    <meta property="twitter:description" content="发现最新的时尚潮流，在ASOS找到你的完美造型">
+    <meta property="twitter:image" content="https://images.asos-media.com/products/asos-design-oversized-t-shirt-in-black/205441829-1-black">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #000;
+            color: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .language-switcher {
+            position: relative;
+        }
+
+        .language-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+
+        .language-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: none;
+            min-width: 150px;
+            z-index: 1001;
+        }
+
+        .language-dropdown.show {
+            display: block;
+        }
+
+        .language-option {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            border: none;
+            background: none;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.3s;
+            color: #333;
+        }
+
+        .language-option:hover {
+            background: #f5f5f5;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #ccc;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 50%, #ffa8a8 100%);
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .sale-badge {
+            display: inline-block;
+            background: #fff;
+            color: #ff6b6b;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .discount-text {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .hero .subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            background: #333;
+        }
+
+        .urgency-text {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #000;
+            font-weight: 900;
+        }
+
+        .products-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            background: #f5f5f5;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .original-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 14px;
+        }
+
+        .sale-price {
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #ff6b6b;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #000;
+            font-weight: 900;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff6b6b;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #000;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 80px 0;
+        }
+
+        .categories h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #000;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 300px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .category-item:hover {
+            transform: scale(1.05);
+        }
+
+        .category-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: #fff;
+            padding: 30px 20px 20px;
+        }
+
+        .category-overlay h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: #000;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .newsletter-form button {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #ccc;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            color: #ccc;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                max-width: 300px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            background: #f0f0f0;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .trust-badges h3 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .badge-icon {
+            font-size: 24px;
+        }
+
+        /* Brand Story Section */
+        .brand-story {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-text h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            color: #000;
+            font-weight: 900;
+        }
+
+        .story-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .achievement-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 900;
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Customer Reviews Section */
+        .customer-reviews {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .customer-reviews h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #000;
+            font-weight: 900;
+        }
+
+        .reviews-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .review-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #ff6b6b;
+            transition: transform 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .review-stars {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .reviewer-location {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .overall-rating {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .rating-score {
+            margin-bottom: 20px;
+        }
+
+        .score-number {
+            font-size: 72px;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .score-stars {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .score-label {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .rating-details {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .rating-stat {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .rating-stat strong {
+            font-size: 24px;
+            font-weight: 900;
+        }
+
+        /* Mobile Responsive for new sections */
+        @media (max-width: 768px) {
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .story-text h2 {
+                font-size: 32px;
+            }
+
+            .achievement-stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rating-details {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ASOS</div>
+                <div class="language-switcher">
+                    <button class="language-btn" onclick="toggleLanguageDropdown()">
+                        <span id="current-lang">EN</span>
+                        <span>▼</span>
+                    </button>
+                    <div class="language-dropdown" id="language-dropdown">
+                        <button class="language-option" onclick="changeLanguage('en')">English</button>
+                        <button class="language-option" onclick="changeLanguage('es')">Español</button>
+                        <button class="language-option" onclick="changeLanguage('de')">Deutsch</button>
+                        <button class="language-option" onclick="changeLanguage('fr')">Français</button>
+                        <button class="language-option" onclick="changeLanguage('zh')">中文</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="sale-badge fade-in-up" data-translate="sale-badge">🔥 LIMITED TIME SALE</div>
+                <h1 class="fade-in-up" data-translate="hero-title">MASSIVE FASHION SALE</h1>
+                <div class="discount-text fade-in-up" data-translate="discount-text">UP TO 70% OFF EVERYTHING!</div>
+                <p class="subtitle fade-in-up" data-translate="hero-subtitle">Don't miss out on the biggest fashion deals of the year. Shop now before it's too late!</p>
+                <a href="https://www.asos.com/?af_sub1=41970&MID=41970&ranMID=41970&pubref=72TUVYXq3u4&af_adset_id=41970&af_sub_siteID=72TUVYXq3u4-9UmN7IaTjgGdNu2pIq5GPA&siteID=72TUVYXq3u4-9UmN7IaTjgGdNu2pIq5GPA&pid=rakuten_int&is_retargeting=true&ranSiteID=72TUVYXq3u4-9UmN7IaTjgGdNu2pIq5GPA&af_click_lookback=30d&utm_content=10&utm_source=RAN&utm_medium=affiliate&channelref=Affiliate&link=10&source=linkshare&publisher=BonusArrive&AFFID=unassigned&utm_campaign=BonusArrive&ranEAID=72TUVYXq3u4&deep_link_value=https%3A%2F%2Fwww.asos.com&clickid=72TUVYXq3u4-9UmN7IaTjgGdNu2pIq5GPA&af_reengagement_window=30d&promo=1297744&utm_term=1&af_inactivity_window=0d&c=Rakuten%20Affiliates" 
+                   class="cta-button" target="_blank" data-translate="shop-now">SHOP NOW & SAVE</a>
+                <div class="urgency-text fade-in-up" data-translate="urgency-text">⏰ Sale ends in 48 hours - Don't wait!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <h2 data-translate="products-title">🔥 HOT DEALS - UP TO 70% OFF</h2>
+            <p class="products-subtitle" data-translate="products-subtitle">Limited time offers on trending fashion items</p>
+            
+            <div class="product-grid">
+                <div class="product-card" onclick="redirectToASOS()">
+                    <div class="discount-badge">-60%</div>
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=320&h=400&fit=crop&crop=center" alt="Trendy T-Shirt" class="product-image">
+                    <div class="product-info">
+                        <div class="product-title">Trendy Oversized T-Shirt</div>
+                        <div class="product-price">
+                            <span class="original-price">$45</span>
+                            <span class="sale-price">$18</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="redirectToASOS()">
+                    <div class="discount-badge">-50%</div>
+                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=320&h=400&fit=crop&crop=center" alt="High Waist Jeans" class="product-image">
+                    <div class="product-info">
+                        <div class="product-title">High Waist Light Blue Jeans</div>
+                        <div class="product-price">
+                            <span class="original-price">$89</span>
+                            <span class="sale-price">$45</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="redirectToASOS()">
+                    <div class="discount-badge">-40%</div>
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=320&h=400&fit=crop&crop=center" alt="White Sneakers" class="product-image">
+                    <div class="product-info">
+                        <div class="product-title">Classic White Sneakers</div>
+                        <div class="product-price">
+                            <span class="original-price">$120</span>
+                            <span class="sale-price">$72</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="redirectToASOS()">
+                    <div class="discount-badge">-55%</div>
+                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=320&h=400&fit=crop&crop=center" alt="Red Dress" class="product-image">
+                    <div class="product-info">
+                        <div class="product-title">Elegant Red Midi Dress</div>
+                        <div class="product-price">
+                            <span class="original-price">$95</span>
+                            <span class="sale-price">$43</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="redirectToASOS()">
+                    <div class="discount-badge">-65%</div>
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=320&h=400&fit=crop&crop=center" alt="Black Jacket" class="product-image">
+                    <div class="product-info">
+                        <div class="product-title">Stylish Black Leather Jacket</div>
+                        <div class="product-price">
+                            <span class="original-price">$180</span>
+                            <span class="sale-price">$63</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="redirectToASOS()">
+                    <div class="discount-badge">-45%</div>
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=320&h=400&fit=crop&crop=center" alt="Brown Bag" class="product-image">
+                    <div class="product-info">
+                        <div class="product-title">Trendy Brown Crossbody Bag</div>
+                        <div class="product-price">
+                            <span class="original-price">$65</span>
+                            <span class="sale-price">$36</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="https://www.asos.com/?af_sub1=41970&MID=41970&ranMID=41970&pubref=72TUVYXq3u4&af_adset_id=41970&af_sub_siteID=72TUVYXq3u4-9UmN7IaTjgGdNu2pIq5GPA&siteID=72TUVYXq3u4-9UmN7IaTjgGdNu2pIq5GPA&pid=rakuten_int&is_retargeting=true&ranSiteID=72TUVYXq3u4-9UmN7IaTjgGdNu2pIq5GPA&af_click_lookback=30d&utm_content=10&utm_source=RAN&utm_medium=affiliate&channelref=Affiliate&link=10&source=linkshare&publisher=BonusArrive&AFFID=unassigned&utm_campaign=BonusArrive&ranEAID=72TUVYXq3u4&deep_link_value=https%3A%2F%2Fwww.asos.com&clickid=72TUVYXq3u4-9UmN7IaTjgGdNu2pIq5GPA&af_reengagement_window=30d&promo=1297744&utm_term=1&af_inactivity_window=0d&c=Rakuten%20Affiliates" 
+                   class="cta-button" target="_blank" data-translate="view-all-deals">VIEW ALL DEALS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="container">
+            <h3 data-translate="why-choose">Why Choose ASOS?</h3>
+            <div class="badges">
+                <div class="badge">
+                    <span class="badge-icon">🚚</span>
+                    <span data-translate="free-shipping">Free Shipping</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">↩️</span>
+                    <span data-translate="returns">30-Day Returns</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">💳</span>
+                    <span data-translate="secure-payment">Secure Payment</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">⭐</span>
+                    <span data-translate="global-rating">Global Rating 4.8/5</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story Section -->
+    <section class="brand-story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2 data-translate="brand-story-title">ASOS: Redefining Fashion Since 2000</h2>
+                    <p data-translate="brand-story-p1">Founded in London in 2000, ASOS (As Seen On Screen) has revolutionized the fashion industry by bringing the latest trends directly to your doorstep. What started as a small online platform has grown into a global fashion powerhouse, serving over 26 million customers across 200+ countries.</p>
+                    <p data-translate="brand-story-p2">Our mission is simple: to make fashion accessible to everyone, everywhere. We believe that style knows no boundaries, and our diverse range of 85,000+ products reflects this philosophy. From emerging designers to established brands, ASOS curates the world's most exciting fashion.</p>
+                    <div class="achievement-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">24+</div>
+                            <div class="stat-label" data-translate="stat-years">Years of Excellence</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">26M+</div>
+                            <div class="stat-label" data-translate="stat-customers">Active Customers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">85K+</div>
+                            <div class="stat-label" data-translate="stat-products">Products Available</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label" data-translate="stat-countries">Countries Served</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&h=600&fit=crop&crop=center" alt="ASOS Fashion Store">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 data-translate="features-title">Why Shop at ASOS?</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🛍️</div>
+                    <h3 data-translate="feature1-title">85,000+ Products</h3>
+                    <p data-translate="feature1-desc">Huge selection of trendy fashion items from top brands worldwide</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🚚</div>
+                    <h3 data-translate="feature2-title">Free Worldwide Shipping</h3>
+                    <p data-translate="feature2-desc">Fast and free delivery to over 200 countries and regions</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">💸</div>
+                    <h3 data-translate="feature3-title">Amazing Discounts</h3>
+                    <p data-translate="feature3-desc">Up to 70% off on thousands of items - Limited time offer!</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">⭐</div>
+                    <h3 data-translate="feature4-title">Trusted by Millions</h3>
+                    <p data-translate="feature4-desc">Over 26 million active customers worldwide love ASOS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 data-translate="categories-title">Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-item" onclick="redirectToASOS()">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=300&h=400&fit=crop&crop=center" alt="Women's Fashion">
+                    <div class="category-overlay">
+                        <h3 data-translate="category-women">Women's Fashion</h3>
+                        <p data-translate="category-women-desc">Discover the latest trends</p>
+                    </div>
+                </div>
+                <div class="category-item" onclick="redirectToASOS()">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop&crop=center" alt="Men's Fashion">
+                    <div class="category-overlay">
+                        <h3 data-translate="category-men">Men's Fashion</h3>
+                        <p data-translate="category-men-desc">Show your style</p>
+                    </div>
+                </div>
+                <div class="category-item" onclick="redirectToASOS()">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=400&fit=crop&crop=center" alt="Shoes">
+                    <div class="category-overlay">
+                        <h3 data-translate="category-shoes">Shoes & Sneakers</h3>
+                        <p data-translate="category-shoes-desc">Comfort meets style</p>
+                    </div>
+                </div>
+                <div class="category-item" onclick="redirectToASOS()">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=400&fit=crop&crop=center" alt="Accessories">
+                    <div class="category-overlay">
+                        <h3 data-translate="category-accessories">Accessories</h3>
+                        <p data-translate="category-accessories-desc">Complete your look</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="customer-reviews">
+        <div class="container">
+            <h2 data-translate="reviews-title">What Our Customers Say</h2>
+            <p class="reviews-subtitle" data-translate="reviews-subtitle">Join millions of satisfied customers worldwide</p>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <div class="review-text" data-translate="review1-text">"Amazing quality and fast shipping! I've been shopping with ASOS for 3 years and never been disappointed. The clothes always fit perfectly and the prices are unbeatable."</div>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">👩</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name" data-translate="review1-name">Sarah M.</div>
+                            <div class="reviewer-location" data-translate="review1-location">New York, USA</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <div class="review-text" data-translate="review2-text">"The best online fashion store! Great variety, excellent customer service, and the 30-day return policy gives me peace of mind. Highly recommended!"</div>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">👨</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name" data-translate="review2-name">James L.</div>
+                            <div class="reviewer-location" data-translate="review2-location">London, UK</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <div class="review-text" data-translate="review3-text">"Love the trendy styles and reasonable prices! The free shipping worldwide is a game-changer. My wardrobe has never looked better!"</div>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">👩</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name" data-translate="review3-name">Emma K.</div>
+                            <div class="reviewer-location" data-translate="review3-location">Sydney, Australia</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <div class="review-text" data-translate="review4-text">"Fantastic selection of brands and styles! The size guide is super helpful and the quality exceeds my expectations every time."</div>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">👨</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name" data-translate="review4-name">Michael R.</div>
+                            <div class="reviewer-location" data-translate="review4-location">Toronto, Canada</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <div class="review-text" data-translate="review5-text">"ASOS has become my go-to fashion destination! The latest trends, great deals, and excellent service. What more could you ask for?"</div>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">👩</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name" data-translate="review5-name">Lisa T.</div>
+                            <div class="reviewer-location" data-translate="review5-location">Berlin, Germany</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <div class="review-text" data-translate="review6-text">"Outstanding customer service and product quality! The app is easy to use and I love getting notifications about new arrivals and sales."</div>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">👨</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name" data-translate="review6-name">David C.</div>
+                            <div class="reviewer-location" data-translate="review6-location">Madrid, Spain</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="overall-rating">
+                <div class="rating-score">
+                    <div class="score-number">4.8</div>
+                    <div class="score-stars">⭐⭐⭐⭐⭐</div>
+                    <div class="score-label" data-translate="overall-rating">Overall Rating</div>
+                </div>
+                <div class="rating-details">
+                    <div class="rating-stat">
+                        <span data-translate="rating-based">Based on</span>
+                        <strong>2.3M+</strong>
+                        <span data-translate="rating-reviews">reviews</span>
+                    </div>
+                    <div class="rating-stat">
+                        <span data-translate="rating-satisfaction">98%</span>
+                        <span data-translate="rating-satisfied">customer satisfaction</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2 data-translate="newsletter-title">Subscribe to Our Fashion Newsletter</h2>
+            <p data-translate="newsletter-subtitle">Get the latest fashion trends and exclusive offers first</p>
+            <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" data-translate="newsletter-subscribe">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-translate="footer-shopping">Shopping Guide</h3>
+                    <a href="#" data-translate="footer-delivery">Delivery Info</a>
+                    <a href="#" data-translate="footer-returns">Returns Policy</a>
+                    <a href="#" data-translate="footer-sizing">Size Guide</a>
+                    <a href="#" data-translate="footer-payment">Payment Methods</a>
+                </div>
+                <div class="footer-section">
+                    <h3 data-translate="footer-customer">Customer Service</h3>
+                    <a href="#" data-translate="footer-contact">Contact Us</a>
+                    <a href="#" data-translate="footer-faq">FAQ</a>
+                    <a href="#" data-translate="footer-tracking">Order Tracking</a>
+                    <a href="#" data-translate="footer-feedback">Feedback</a>
+                </div>
+                <div class="footer-section">
+                    <h3 data-translate="footer-about">About ASOS</h3>
+                    <a href="#" data-translate="footer-company">Company Info</a>
+                    <a href="#" data-translate="footer-careers">Careers</a>
+                    <a href="#" data-translate="footer-partners">Partners</a>
+                    <a href="#" data-translate="footer-responsibility">Corporate Responsibility</a>
+                </div>
+                <div class="footer-section">
+                    <h3 data-translate="footer-follow">Follow Us</h3>
+                    <a href="#" data-translate="footer-instagram">Instagram</a>
+                    <a href="#" data-translate="footer-facebook">Facebook</a>
+                    <a href="#" data-translate="footer-twitter">Twitter</a>
+                    <a href="#" data-translate="footer-youtube">YouTube</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-translate="footer-copyright">&copy; 2024 ASOS. All rights reserved. ASOS is a leading global fashion platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 多语言翻译数据
+        const translations = {
+            en: {
+                'sale-badge': '🔥 LIMITED TIME SALE',
+                'hero-title': 'MASSIVE FASHION SALE',
+                'discount-text': 'UP TO 70% OFF EVERYTHING!',
+                'hero-subtitle': "Don't miss out on the biggest fashion deals of the year. Shop now before it's too late!",
+                'shop-now': 'SHOP NOW & SAVE',
+                'urgency-text': '⏰ Sale ends in 48 hours - Don\'t wait!',
+                'products-title': '🔥 HOT DEALS - UP TO 70% OFF',
+                'products-subtitle': 'Limited time offers on trending fashion items',
+                'view-all-deals': 'VIEW ALL DEALS',
+                'why-choose': 'Why Choose ASOS?',
+                'free-shipping': 'Free Shipping',
+                'returns': '30-Day Returns',
+                'secure-payment': 'Secure Payment',
+                'global-rating': 'Global Rating 4.8/5',
+                'features-title': 'Why Shop at ASOS?',
+                'feature1-title': '85,000+ Products',
+                'feature1-desc': 'Huge selection of trendy fashion items from top brands worldwide',
+                'feature2-title': 'Free Worldwide Shipping',
+                'feature2-desc': 'Fast and free delivery to over 200 countries and regions',
+                'feature3-title': 'Amazing Discounts',
+                'feature3-desc': 'Up to 70% off on thousands of items - Limited time offer!',
+                'feature4-title': 'Trusted by Millions',
+                'feature4-desc': 'Over 26 million active customers worldwide love ASOS',
+                'categories-title': 'Shop by Category',
+                'category-women': 'Women\'s Fashion',
+                'category-women-desc': 'Discover the latest trends',
+                'category-men': 'Men\'s Fashion',
+                'category-men-desc': 'Show your style',
+                'category-shoes': 'Shoes & Sneakers',
+                'category-shoes-desc': 'Comfort meets style',
+                'category-accessories': 'Accessories',
+                'category-accessories-desc': 'Complete your look',
+                'newsletter-title': 'Subscribe to Our Fashion Newsletter',
+                'newsletter-subtitle': 'Get the latest fashion trends and exclusive offers first',
+                'newsletter-subscribe': 'Subscribe',
+                'footer-shopping': 'Shopping Guide',
+                'footer-delivery': 'Delivery Info',
+                'footer-returns': 'Returns Policy',
+                'footer-sizing': 'Size Guide',
+                'footer-payment': 'Payment Methods',
+                'footer-customer': 'Customer Service',
+                'footer-contact': 'Contact Us',
+                'footer-faq': 'FAQ',
+                'footer-tracking': 'Order Tracking',
+                'footer-feedback': 'Feedback',
+                'footer-about': 'About ASOS',
+                'footer-company': 'Company Info',
+                'footer-careers': 'Careers',
+                'footer-partners': 'Partners',
+                'footer-responsibility': 'Corporate Responsibility',
+                'footer-follow': 'Follow Us',
+                'footer-instagram': 'Instagram',
+                'footer-facebook': 'Facebook',
+                'footer-twitter': 'Twitter',
+                'footer-youtube': 'YouTube',
+                'footer-copyright': '© 2024 ASOS. All rights reserved. ASOS is a leading global fashion platform.',
+                'brand-story-title': 'ASOS: Redefining Fashion Since 2000',
+                'brand-story-p1': 'Founded in London in 2000, ASOS (As Seen On Screen) has revolutionized the fashion industry by bringing the latest trends directly to your doorstep. What started as a small online platform has grown into a global fashion powerhouse, serving over 26 million customers across 200+ countries.',
+                'brand-story-p2': 'Our mission is simple: to make fashion accessible to everyone, everywhere. We believe that style knows no boundaries, and our diverse range of 85,000+ products reflects this philosophy. From emerging designers to established brands, ASOS curates the world\'s most exciting fashion.',
+                'stat-years': 'Years of Excellence',
+                'stat-customers': 'Active Customers',
+                'stat-products': 'Products Available',
+                'stat-countries': 'Countries Served',
+                'reviews-title': 'What Our Customers Say',
+                'reviews-subtitle': 'Join millions of satisfied customers worldwide',
+                'review1-text': '"Amazing quality and fast shipping! I\'ve been shopping with ASOS for 3 years and never been disappointed. The clothes always fit perfectly and the prices are unbeatable."',
+                'review1-name': 'Sarah M.',
+                'review1-location': 'New York, USA',
+                'review2-text': '"The best online fashion store! Great variety, excellent customer service, and the 30-day return policy gives me peace of mind. Highly recommended!"',
+                'review2-name': 'James L.',
+                'review2-location': 'London, UK',
+                'review3-text': '"Love the trendy styles and reasonable prices! The free shipping worldwide is a game-changer. My wardrobe has never looked better!"',
+                'review3-name': 'Emma K.',
+                'review3-location': 'Sydney, Australia',
+                'review4-text': '"Fantastic selection of brands and styles! The size guide is super helpful and the quality exceeds my expectations every time."',
+                'review4-name': 'Michael R.',
+                'review4-location': 'Toronto, Canada',
+                'review5-text': '"ASOS has become my go-to fashion destination! The latest trends, great deals, and excellent service. What more could you ask for?"',
+                'review5-name': 'Lisa T.',
+                'review5-location': 'Berlin, Germany',
+                'review6-text': '"Outstanding customer service and product quality! The app is easy to use and I love getting notifications about new arrivals and sales."',
+                'review6-name': 'David C.',
+                'review6-location': 'Madrid, Spain',
+                'overall-rating': 'Overall Rating',
+                'rating-based': 'Based on',
+                'rating-reviews': 'reviews',
+                'rating-satisfaction': '98%',
+                'rating-satisfied': 'customer satisfaction'
+            },
+            es: {
+                'sale-badge': '🔥 OFERTA POR TIEMPO LIMITADO',
+                'hero-title': 'GRAN VENTA DE MODA',
+                'discount-text': '¡HASTA 70% DE DESCUENTO EN TODO!',
+                'hero-subtitle': 'No te pierdas las mejores ofertas de moda del año. ¡Compra ahora antes de que sea demasiado tarde!',
+                'shop-now': 'COMPRAR AHORA Y AHORRAR',
+                'urgency-text': '⏰ La oferta termina en 48 horas - ¡No esperes!',
+                'products-title': '🔥 OFERTAS CALIENTES - HASTA 70% DE DESCUENTO',
+                'products-subtitle': 'Ofertas por tiempo limitado en artículos de moda populares',
+                'view-all-deals': 'VER TODAS LAS OFERTAS',
+                'why-choose': '¿Por qué elegir ASOS?',
+                'free-shipping': 'Envío Gratis',
+                'returns': 'Devoluciones de 30 Días',
+                'secure-payment': 'Pago Seguro',
+                'global-rating': 'Calificación Global 4.8/5',
+                'features-title': '¿Por qué comprar en ASOS?',
+                'feature1-title': '85,000+ Productos',
+                'feature1-desc': 'Gran selección de artículos de moda de las mejores marcas mundiales',
+                'feature2-title': 'Envío Gratis Mundial',
+                'feature2-desc': 'Entrega rápida y gratuita a más de 200 países y regiones',
+                'feature3-title': 'Descuentos Increíbles',
+                'feature3-desc': 'Hasta 70% de descuento en miles de artículos - ¡Oferta por tiempo limitado!',
+                'feature4-title': 'Confiado por Millones',
+                'feature4-desc': 'Más de 26 millones de clientes activos en todo el mundo aman ASOS',
+                'categories-title': 'Comprar por Categoría',
+                'category-women': 'Moda Femenina',
+                'category-women-desc': 'Descubre las últimas tendencias',
+                'category-men': 'Moda Masculina',
+                'category-men-desc': 'Muestra tu estilo',
+                'category-shoes': 'Zapatos y Zapatillas',
+                'category-shoes-desc': 'Comodidad y estilo',
+                'category-accessories': 'Accesorios',
+                'category-accessories-desc': 'Completa tu look',
+                'newsletter-title': 'Suscríbete a Nuestro Boletín de Moda',
+                'newsletter-subtitle': 'Recibe las últimas tendencias de moda y ofertas exclusivas primero',
+                'newsletter-subscribe': 'Suscribirse',
+                'footer-shopping': 'Guía de Compras',
+                'footer-delivery': 'Información de Entrega',
+                'footer-returns': 'Política de Devoluciones',
+                'footer-sizing': 'Guía de Tallas',
+                'footer-payment': 'Métodos de Pago',
+                'footer-customer': 'Servicio al Cliente',
+                'footer-contact': 'Contáctanos',
+                'footer-faq': 'Preguntas Frecuentes',
+                'footer-tracking': 'Seguimiento de Pedidos',
+                'footer-feedback': 'Comentarios',
+                'footer-about': 'Acerca de ASOS',
+                'footer-company': 'Información de la Empresa',
+                'footer-careers': 'Carreras',
+                'footer-partners': 'Socios',
+                'footer-responsibility': 'Responsabilidad Corporativa',
+                'footer-follow': 'Síguenos',
+                'footer-instagram': 'Instagram',
+                'footer-facebook': 'Facebook',
+                'footer-twitter': 'Twitter',
+                'footer-youtube': 'YouTube',
+                'footer-copyright': '© 2024 ASOS. Todos los derechos reservados. ASOS es una plataforma de moda global líder.',
+                'brand-story-title': 'ASOS: Redefiniendo la Moda desde 2000',
+                'brand-story-p1': 'Fundada en Londres en 2000, ASOS (As Seen On Screen) ha revolucionado la industria de la moda llevando las últimas tendencias directamente a tu puerta. Lo que comenzó como una pequeña plataforma en línea se ha convertido en una potencia de moda global.',
+                'brand-story-p2': 'Nuestra misión es simple: hacer la moda accesible para todos, en todas partes. Creemos que el estilo no conoce fronteras, y nuestra diversa gama de más de 85,000 productos refleja esta filosofía.',
+                'stat-years': 'Años de Excelencia',
+                'stat-customers': 'Clientes Activos',
+                'stat-products': 'Productos Disponibles',
+                'stat-countries': 'Países Atendidos',
+                'reviews-title': 'Lo que Dicen Nuestros Clientes',
+                'reviews-subtitle': 'Únete a millones de clientes satisfechos en todo el mundo',
+                'review1-text': '"¡Calidad increíble y envío rápido! He estado comprando en ASOS durante 3 años y nunca me he decepcionado. La ropa siempre me queda perfecta y los precios son insuperables."',
+                'review1-name': 'Sarah M.',
+                'review1-location': 'Nueva York, USA',
+                'review2-text': '"¡La mejor tienda de moda online! Gran variedad, excelente servicio al cliente, y la política de devolución de 30 días me da tranquilidad. ¡Altamente recomendado!"',
+                'review2-name': 'James L.',
+                'review2-location': 'Londres, Reino Unido',
+                'review3-text': '"¡Me encantan los estilos de moda y los precios razonables! El envío gratuito mundial es un cambio radical. ¡Mi guardarropa nunca se ha visto mejor!"',
+                'review3-name': 'Emma K.',
+                'review3-location': 'Sídney, Australia',
+                'review4-text': '"¡Selección fantástica de marcas y estilos! La guía de tallas es súper útil y la calidad supera mis expectativas cada vez."',
+                'review4-name': 'Michael R.',
+                'review4-location': 'Toronto, Canadá',
+                'review5-text': '"¡ASOS se ha convertido en mi destino de moda favorito! Las últimas tendencias, grandes ofertas y excelente servicio. ¿Qué más se puede pedir?"',
+                'review5-name': 'Lisa T.',
+                'review5-location': 'Berlín, Alemania',
+                'review6-text': '"¡Servicio al cliente excepcional y calidad de producto! La aplicación es fácil de usar y me encanta recibir notificaciones sobre nuevas llegadas y ventas."',
+                'review6-name': 'David C.',
+                'review6-location': 'Madrid, España',
+                'overall-rating': 'Calificación General',
+                'rating-based': 'Basado en',
+                'rating-reviews': 'reseñas',
+                'rating-satisfaction': '98%',
+                'rating-satisfied': 'satisfacción del cliente'
+            },
+            de: {
+                'sale-badge': '🔥 BEGRENZTE ZEIT ANGEBOT',
+                'hero-title': 'MASSIVE MODE SCHLUSSVERKAUF',
+                'discount-text': 'BIS ZU 70% RABATT AUF ALLES!',
+                'hero-subtitle': 'Verpasse nicht die größten Modedeals des Jahres. Kaufe jetzt, bevor es zu spät ist!',
+                'shop-now': 'JETZT KAUFEN & SPAREN',
+                'urgency-text': '⏰ Angebot endet in 48 Stunden - Warte nicht!',
+                'products-title': '🔥 HEIßE DEALS - BIS ZU 70% RABATT',
+                'products-subtitle': 'Zeitlich begrenzte Angebote für trendige Modeartikel',
+                'view-all-deals': 'ALLE DEALS ANSEHEN',
+                'why-choose': 'Warum ASOS wählen?',
+                'free-shipping': 'Kostenloser Versand',
+                'returns': '30-Tage Rückgabe',
+                'secure-payment': 'Sichere Zahlung',
+                'global-rating': 'Globale Bewertung 4.8/5',
+                'features-title': 'Warum bei ASOS einkaufen?',
+                'feature1-title': '85.000+ Produkte',
+                'feature1-desc': 'Riesige Auswahl an trendigen Modeartikeln von Top-Marken weltweit',
+                'feature2-title': 'Kostenloser Weltweiter Versand',
+                'feature2-desc': 'Schnelle und kostenlose Lieferung in über 200 Länder und Regionen',
+                'feature3-title': 'Erstaunliche Rabatte',
+                'feature3-desc': 'Bis zu 70% Rabatt auf Tausende von Artikeln - Zeitlich begrenztes Angebot!',
+                'feature4-title': 'Von Millionen Vertraut',
+                'feature4-desc': 'Über 26 Millionen aktive Kunden weltweit lieben ASOS',
+                'categories-title': 'Nach Kategorie Einkaufen',
+                'category-women': 'Damenmode',
+                'category-women-desc': 'Entdecke die neuesten Trends',
+                'category-men': 'Herrenmode',
+                'category-men-desc': 'Zeige deinen Stil',
+                'category-shoes': 'Schuhe & Sneaker',
+                'category-shoes-desc': 'Komfort trifft auf Stil',
+                'category-accessories': 'Accessoires',
+                'category-accessories-desc': 'Vervollständige deinen Look',
+                'newsletter-title': 'Abonniere unseren Moden-Newsletter',
+                'newsletter-subtitle': 'Erhalte die neuesten Modetrends und exklusive Angebote zuerst',
+                'newsletter-subscribe': 'Abonnieren',
+                'footer-shopping': 'Einkaufsführer',
+                'footer-delivery': 'Lieferinformationen',
+                'footer-returns': 'Rückgaberichtlinie',
+                'footer-sizing': 'Größentabelle',
+                'footer-payment': 'Zahlungsmethoden',
+                'footer-customer': 'Kundenservice',
+                'footer-contact': 'Kontakt',
+                'footer-faq': 'FAQ',
+                'footer-tracking': 'Bestellverfolgung',
+                'footer-feedback': 'Feedback',
+                'footer-about': 'Über ASOS',
+                'footer-company': 'Unternehmensinfo',
+                'footer-careers': 'Karriere',
+                'footer-partners': 'Partner',
+                'footer-responsibility': 'Unternehmensverantwortung',
+                'footer-follow': 'Folge uns',
+                'footer-instagram': 'Instagram',
+                'footer-facebook': 'Facebook',
+                'footer-twitter': 'Twitter',
+                'footer-youtube': 'YouTube',
+                'footer-copyright': '© 2024 ASOS. Alle Rechte vorbehalten. ASOS ist eine führende globale Modemarktplatz.'
+            },
+            fr: {
+                'sale-badge': '🔥 VENTE LIMITÉE',
+                'hero-title': 'MASSIVE VENTE DE MODE',
+                'discount-text': 'JUSQU\'À 70% DE RÉDUCTION SUR TOUT!',
+                'hero-subtitle': 'Ne manquez pas les meilleures offres de mode de l\'année. Achetez maintenant avant qu\'il ne soit trop tard!',
+                'shop-now': 'ACHETER MAINTEN ET ÉCONOMISER',
+                'urgency-text': '⏰ La vente se termine dans 48 heures - N\'attendez pas!',
+                'products-title': '🔥 OFFRES CHAUDES - JUSQU\'À 70% DE RÉDUCTION',
+                'products-subtitle': 'Offres à durée limitée sur des articles de mode tendance',
+                'view-all-deals': 'VOIR TOUTES LES OFFRES',
+                'why-choose': 'Pourquoi choisir ASOS?',
+                'free-shipping': 'Livraison Gratuite',
+                'returns': 'Retours de 30 Jours',
+                'secure-payment': 'Paiement Sécurisé',
+                'global-rating': 'Note Globale 4.8/5',
+                'features-title': 'Pourquoi acheter chez ASOS?',
+                'feature1-title': '85,000+ Produits',
+                'feature1-desc': 'Énorme sélection d\'articles de mode tendance des meilleures marques mondiales',
+                'feature2-title': 'Livraison Mondiale Gratuite',
+                'feature2-desc': 'Livraison rapide et gratuite dans plus de 200 pays et régions',
+                'feature3-title': 'Remises Incroyables',
+                'feature3-desc': 'Jusqu\'à 70% de réduction sur des milliers d\'articles - Offre à durée limitée!',
+                'feature4-title': 'Fait Confiance par des Millions',
+                'feature4-desc': 'Plus de 26 millions de clients actifs dans le monde aiment ASOS',
+                'categories-title': 'Acheter par Catégorie',
+                'category-women': 'Mode Féminine',
+                'category-women-desc': 'Découvrez les dernières tendances',
+                'category-men': 'Mode Masculine',
+                'category-men-desc': 'Montrez votre style',
+                'category-shoes': 'Chaussures & Sneakers',
+                'category-shoes-desc': 'Confort et style',
+                'category-accessories': 'Accessoires',
+                'category-accessories-desc': 'Complétez votre look',
+                'newsletter-title': 'Abonnez-vous à Notre Newsletter Mode',
+                'newsletter-subtitle': 'Recevez les dernières tendances mode et offres exclusives en premier',
+                'newsletter-subscribe': 'S\'abonner',
+                'footer-shopping': 'Guide d\'Achat',
+                'footer-delivery': 'Informations de Livraison',
+                'footer-returns': 'Politique de Retour',
+                'footer-sizing': 'Guide des Tailles',
+                'footer-payment': 'Méthodes de Paiement',
+                'footer-customer': 'Service Client',
+                'footer-contact': 'Nous Contacter',
+                'footer-faq': 'FAQ',
+                'footer-tracking': 'Suivi de Commande',
+                'footer-feedback': 'Commentaires',
+                'footer-about': 'À Propos d\'ASOS',
+                'footer-company': 'Info Entreprise',
+                'footer-careers': 'Carrières',
+                'footer-partners': 'Partenaires',
+                'footer-responsibility': 'Responsabilité d\'Entreprise',
+                'footer-follow': 'Suivez-nous',
+                'footer-instagram': 'Instagram',
+                'footer-facebook': 'Facebook',
+                'footer-twitter': 'Twitter',
+                'footer-youtube': 'YouTube',
+                'footer-copyright': '© 2024 ASOS. Tous droits réservés. ASOS est une plateforme de mode mondiale leader.'
+            },
+            zh: {
+                'sale-badge': '🔥 限时特惠',
+                'hero-title': '大型时尚促销',
+                'discount-text': '全场最高7折优惠！',
+                'hero-subtitle': '不要错过今年最大的时尚优惠。现在就购买，机不可失！',
+                'shop-now': '立即购买省钱',
+                'urgency-text': '⏰ 促销还剩48小时 - 不要等待！',
+                'products-title': '🔥 热门优惠 - 最高7折',
+                'products-subtitle': '热门时尚单品的限时优惠',
+                'view-all-deals': '查看所有优惠',
+                'why-choose': '为什么选择ASOS？',
+                'free-shipping': '免费配送',
+                'returns': '30天退换',
+                'secure-payment': '安全支付',
+                'global-rating': '全球评分 4.8/5',
+                'features-title': '为什么在ASOS购物？',
+                'feature1-title': '85,000+ 产品',
+                'feature1-desc': '来自全球顶级品牌的大量时尚单品选择',
+                'feature2-title': '全球免费配送',
+                'feature2-desc': '快速免费配送至全球200多个国家和地区',
+                'feature3-title': '惊人折扣',
+                'feature3-desc': '数千种商品最高7折优惠 - 限时特惠！',
+                'feature4-title': '数百万用户信赖',
+                'feature4-desc': '全球超过2600万活跃用户喜爱ASOS',
+                'categories-title': '按分类购物',
+                'category-women': '女装时尚',
+                'category-women-desc': '发现最新潮流趋势',
+                'category-men': '男装时尚',
+                'category-men-desc': '展现你的风格',
+                'category-shoes': '鞋履运动鞋',
+                'category-shoes-desc': '舒适与时尚并存',
+                'category-accessories': '配饰',
+                'category-accessories-desc': '完善你的造型',
+                'newsletter-title': '订阅我们的时尚资讯',
+                'newsletter-subtitle': '第一时间获取最新时尚趋势和独家优惠信息',
+                'newsletter-subscribe': '订阅',
+                'footer-shopping': '购物指南',
+                'footer-delivery': '配送信息',
+                'footer-returns': '退换政策',
+                'footer-sizing': '尺寸指南',
+                'footer-payment': '支付方式',
+                'footer-customer': '客户服务',
+                'footer-contact': '联系我们',
+                'footer-faq': '常见问题',
+                'footer-tracking': '订单查询',
+                'footer-feedback': '投诉建议',
+                'footer-about': '关于ASOS',
+                'footer-company': '公司介绍',
+                'footer-careers': '招聘信息',
+                'footer-partners': '合作伙伴',
+                'footer-responsibility': '企业责任',
+                'footer-follow': '关注我们',
+                'footer-instagram': 'Instagram',
+                'footer-facebook': 'Facebook',
+                'footer-twitter': 'Twitter',
+                'footer-youtube': 'YouTube',
+                'footer-copyright': '© 2024 ASOS. 保留所有权利。ASOS是全球领先的时尚购物平台。',
+                'brand-story-title': 'ASOS：自2000年重新定义时尚',
+                'brand-story-p1': 'ASOS（As Seen On Screen）成立于2000年的伦敦，通过将最新时尚潮流直接送到您的家门口，彻底改变了时尚行业。从一个小型在线平台发展成为一个全球时尚巨头，为200多个国家的2600多万客户提供服务。',
+                'brand-story-p2': '我们的使命很简单：让时尚变得人人可及，无处不在。我们相信风格没有界限，我们多样化的85,000+产品系列体现了这一理念。从新兴设计师到知名品牌，ASOS精心策划着世界上最令人兴奋的时尚。',
+                'stat-years': '卓越岁月',
+                'stat-customers': '活跃客户',
+                'stat-products': '可用产品',
+                'stat-countries': '服务国家',
+                'reviews-title': '客户怎么说',
+                'reviews-subtitle': '加入全球数百万满意的客户',
+                'review1-text': '"质量惊人，发货快速！我在ASOS购物3年了，从未失望过。衣服总是完美合身，价格无与伦比。"',
+                'review1-name': 'Sarah M.',
+                'review1-location': '纽约，美国',
+                'review2-text': '"最好的在线时尚商店！种类丰富，客户服务优秀，30天退货政策让我安心。强烈推荐！"',
+                'review2-name': 'James L.',
+                'review2-location': '伦敦，英国',
+                'review3-text': '"喜欢时尚的风格和合理的价格！全球免费配送改变了游戏规则。我的衣橱从来没有这么好看过！"',
+                'review3-name': 'Emma K.',
+                'review3-location': '悉尼，澳大利亚',
+                'review4-text': '"品牌和风格的选择太棒了！尺码指南超级有用，质量每次都超出我的期望。"',
+                'review4-name': 'Michael R.',
+                'review4-location': '多伦多，加拿大',
+                'review5-text': '"ASOS已成为我的首选时尚目的地！最新趋势，超值优惠，优秀服务。还能要求什么呢？"',
+                'review5-name': 'Lisa T.',
+                'review5-location': '柏林，德国',
+                'review6-text': '"出色的客户服务和产品质量！应用程序易于使用，我喜欢收到新品和销售通知。"',
+                'review6-name': 'David C.',
+                'review6-location': '马德里，西班牙',
+                'overall-rating': '总体评分',
+                'rating-based': '基于',
+                'rating-reviews': '条评价',
+                'rating-satisfaction': '98%',
+                'rating-satisfied': '客户满意度'
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        // 语言切换功能
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('language-dropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            const langCodes = { en: 'EN', es: 'ES', de: 'DE', fr: 'FR', zh: '中文' };
+            document.getElementById('current-lang').textContent = langCodes[lang];
+            
+            // 更新所有翻译文本
+            Object.keys(translations[lang]).forEach(key => {
+                const elements = document.querySelectorAll(`[data-translate="${key}"]`);
+                elements.forEach(element => {
+                    element.textContent = translations[lang][key];
+                });
+            });
+            
+            // 关闭下拉菜单
+            document.getElementById('language-dropdown').classList.remove('show');
+        }
+
+        // 点击外部关闭下拉菜单
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('language-dropdown');
+            const button = document.querySelector('.language-btn');
+            if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // 重定向到ASOS
+        function redirectToASOS() {
+            const asosUrl = 'https://www.asos.com/?af_sub1=41970&MID=41970&ranMID=41970&pubref=72TUVYXq3u4&af_adset_id=41970&af_sub_siteID=72TUVYXq3u4-9UmN7IaTjgGdNu2pIq5GPA&siteID=72TUVYXq3u4-9UmN7IaTjgGdNu2pIq5GPA&pid=rakuten_int&is_retargeting=true&ranSiteID=72TUVYXq3u4-9UmN7IaTjgGdNu2pIq5GPA&af_click_lookback=30d&utm_content=10&utm_source=RAN&utm_medium=affiliate&channelref=Affiliate&link=10&source=linkshare&publisher=BonusArrive&AFFID=unassigned&utm_campaign=BonusArrive&ranEAID=72TUVYXq3u4&deep_link_value=https%3A%2F%2Fwww.asos.com&clickid=72TUVYXq3u4-9UmN7IaTjgGdNu2pIq5GPA&af_reengagement_window=30d&promo=1297744&utm_term=1&af_inactivity_window=0d&c=Rakuten%20Affiliates';
+            window.open(asosUrl, '_blank');
+            trackEvent('click', 'Product', 'Redirect to ASOS');
+        }
+
+        // 处理邮件订阅
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            
+            // 根据当前语言显示不同的提示
+            const messages = {
+                en: 'Thank you for subscribing! We\'ll send you the latest fashion news regularly.',
+                es: '¡Gracias por suscribirte! Te enviaremos las últimas noticias de moda regularmente.',
+                de: 'Vielen Dank für Ihr Abonnement! Wir senden Ihnen regelmäßig die neuesten Modenachrichten.',
+                fr: 'Merci de vous être abonné! Nous vous enverrons régulièrement les dernières nouvelles de mode.',
+                zh: '感谢您的订阅！我们将定期向您发送最新时尚资讯。'
+            };
+            
+            alert(messages[currentLanguage]);
+            redirectToASOS();
+        }
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 页面加载动画
+        window.addEventListener('load', function() {
+            const elements = document.querySelectorAll('.fade-in-up');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+
+        // 跟踪用户行为（用于分析）
+        function trackEvent(eventName, category, action) {
+            // 这里可以添加Google Analytics或其他分析工具的代码
+            console.log('Event tracked:', eventName, category, action);
+        }
+
+        // 为所有CTA按钮添加跟踪
+        document.querySelectorAll('.cta-button, .product-card').forEach(element => {
+            element.addEventListener('click', function() {
+                trackEvent('click', 'CTA', this.textContent || 'Product Click');
+            });
+        });
+
+        // 添加倒计时功能
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const endTime = now + (48 * 60 * 60 * 1000); // 48小时后
+            
+            setInterval(function() {
+                const currentTime = new Date().getTime();
+                const distance = endTime - currentTime;
+                
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                const countdownElement = document.querySelector('.urgency-text');
+                if (countdownElement && distance > 0) {
+                    const timeText = {
+                        en: `⏰ Sale ends in ${hours}h ${minutes}m ${seconds}s - Don't wait!`,
+                        es: `⏰ La oferta termina en ${hours}h ${minutes}m ${seconds}s - ¡No esperes!`,
+                        de: `⏰ Angebot endet in ${hours}h ${minutes}m ${seconds}s - Warte nicht!`,
+                        fr: `⏰ La vente se termine dans ${hours}h ${minutes}m ${seconds}s - N'attendez pas!`,
+                        zh: `⏰ 促销还剩 ${hours}小时${minutes}分钟${seconds}秒 - 不要等待！`
+                    };
+                    countdownElement.textContent = timeText[currentLanguage];
+                }
+            }, 1000);
+        }
+
+        // 启动倒计时
+        updateCountdown();
+    </script>
+</body>
+</html>
