@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .icon { fill: none; stroke: #ef4444; stroke-linecap: round; stroke-linejoin: round; }
+      .bold-icon { stroke-width: 2.5; }
+      .light-icon { stroke-width: 1; opacity: 0.6; }
+    </style>
+    <!-- Snowflake -->
+    <symbol id="flake" viewBox="0 0 20 20">
+      <path d="M10 0v20M0 10h20M3 3l14 14M3 17L17 3" class="icon light-icon"/>
+    </symbol>
+    <!-- Tree -->
+    <symbol id="tree" viewBox="0 0 24 24">
+      <path d="M12 2L4 12h5l-4 8h14l-4-8h5L12 2z" class="icon bold-icon" />
+    </symbol>
+    <!-- Gift -->
+    <symbol id="gift" viewBox="0 0 24 24">
+      <rect x="3" y="8" width="18" height="12" rx="2" class="icon bold-icon"/>
+      <path d="M12 8v12M3 12h18M12 3v5" class="icon bold-icon"/>
+      <path d="M7.5 3c-1.5 0-2.5 1-2.5 2.5S7.5 8 9 8h3V3H7.5zM16.5 3c1.5 0 2.5 1 2.5 2.5S16.5 8 15 8h-3V3h4.5z" class="icon bold-icon"/>
+    </symbol>
+  </defs>
+  
+  <use href="#flake" x="10" y="10" width="16" height="16" />
+  <use href="#tree" x="55" y="15" width="24" height="24" /> <!-- Larger tree -->
+  <use href="#gift" x="25" y="55" width="22" height="22" /> <!-- Larger gift -->
+  <use href="#flake" x="80" y="60" width="14" height="14" />
+  <use href="#tree" x="80" y="85" width="18" height="18" transform="rotate(-10 88 93)" />
+</svg>
