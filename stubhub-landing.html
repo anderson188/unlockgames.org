@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StubHub - World Cup 2026 Tickets & Hot Concerts | Get Yours Now</title>
+<meta name="description" content="Get World Cup 2026 tickets, Bruno Mars, Metallica concerts and more. Best prices, guaranteed tickets. Don't miss out!">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#3f1d9b;--primary-light:#6c3fe0;--accent:#ff4081;--accent-hover:#ff6ba0;
+  --gold:#ffd700;--dark:#0d0d1a;--card-bg:#1a1a2e;--text:#f0f0f5;--text-muted:#a0a0b8;
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+body{font-family:'Inter',system-ui,sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden;cursor:pointer}
+a{color:inherit;text-decoration:none}
+.clickable-overlay{position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;cursor:pointer;display:none}
+
+/* Top Bar */
+.top-bar{background:var(--accent);color:#fff;text-align:center;padding:10px 16px;font-size:14px;font-weight:700;letter-spacing:.5px;animation:pulse-bg 2s ease-in-out infinite}
+@keyframes pulse-bg{0%,100%{background:var(--accent)}50%{background:#e0205f}}
+.top-bar span{text-decoration:underline;margin-left:6px}
+
+/* Nav */
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 5%;background:rgba(13,13,26,.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.06)}
+.logo{display:flex;align-items:center;gap:8px;font-size:26px;font-weight:900;letter-spacing:-1px}
+.logo svg{width:36px;height:36px}
+.nav-links{display:flex;gap:28px;font-size:14px;font-weight:600;color:var(--text-muted)}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--accent);color:#fff;padding:10px 22px;border-radius:50px;font-weight:700;font-size:14px;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.nav-cta:hover{transform:scale(1.05);box-shadow:0 0 24px rgba(255,64,129,.4)}
+
+/* Hero */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:60px 20px}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0d0d1a 0%,#1a0a3e 30%,#2d1566 60%,#0d0d1a 100%);z-index:0}
+.hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(108,63,224,.3) 0%,transparent 70%)}
+.particles{position:absolute;inset:0;z-index:1;overflow:hidden}
+.particle{position:absolute;border-radius:50%;background:rgba(255,215,0,.15);animation:float-up linear infinite}
+@keyframes float-up{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-10vh) scale(1);opacity:0}}
+.hero-content{position:relative;z-index:2;max-width:900px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,215,0,.15);border:1px solid rgba(255,215,0,.3);padding:8px 20px;border-radius:50px;font-size:13px;font-weight:700;color:var(--gold);margin-bottom:24px;text-transform:uppercase;letter-spacing:1.5px}
+.hero-badge .dot{width:8px;height:8px;background:var(--gold);border-radius:50%;animation:blink 1s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(38px,7vw,78px);font-weight:900;line-height:1.05;margin-bottom:20px;background:linear-gradient(135deg,#fff 0%,#e0d0ff 50%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero h1 em{font-style:normal;-webkit-text-fill-color:var(--gold);text-shadow:0 0 40px rgba(255,215,0,.3)}
+.hero p{font-size:clamp(16px,2.2vw,22px);color:var(--text-muted);max-width:650px;margin:0 auto 36px;line-height:1.6}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--accent),#ff6040);color:#fff;padding:18px 48px;border-radius:60px;font-size:18px;font-weight:800;border:none;cursor:pointer;transition:all .3s;box-shadow:0 8px 32px rgba(255,64,129,.35);text-transform:uppercase;letter-spacing:1px}
+.hero-cta:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 12px 48px rgba(255,64,129,.5)}
+.hero-cta svg{width:20px;height:20px;animation:bounce-r 1.5s ease-in-out infinite}
+@keyframes bounce-r{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+.hero-stats{display:flex;justify-content:center;gap:48px;margin-top:48px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:32px;font-weight:900;color:var(--gold)}
+.hero-stat .label{font-size:13px;color:var(--text-muted);margin-top:4px}
+
+/* Countdown */
+.countdown-section{background:linear-gradient(180deg,transparent,rgba(255,215,0,.03));padding:50px 20px 60px;text-align:center}
+.countdown-title{font-size:22px;font-weight:700;margin-bottom:8px;color:var(--gold)}
+.countdown-sub{font-size:14px;color:var(--text-muted);margin-bottom:28px}
+.countdown{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.countdown .unit{background:var(--card-bg);border:1px solid rgba(255,215,0,.15);border-radius:16px;padding:20px 24px;min-width:90px;text-align:center}
+.countdown .unit .val{font-size:36px;font-weight:900;color:#fff}
+.countdown .unit .lbl{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* Section titles */
+.section-title{text-align:center;padding:60px 20px 40px}
+.section-title h2{font-size:clamp(28px,4vw,44px);font-weight:900;margin-bottom:12px}
+.section-title h2 span{color:var(--accent)}
+.section-title p{color:var(--text-muted);font-size:16px;max-width:550px;margin:0 auto}
+
+/* World Cup Feature */
+.wc-feature{max-width:1200px;margin:0 auto;padding:0 20px 70px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.wc-visual{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center}
+.wc-circle{width:min(380px,90%);height:min(380px,90%);border-radius:50%;background:linear-gradient(135deg,rgba(108,63,224,.2),rgba(255,215,0,.1));border:2px solid rgba(255,215,0,.2);display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;animation:glow-pulse 3s ease-in-out infinite}
+@keyframes glow-pulse{0%,100%{box-shadow:0 0 40px rgba(255,215,0,.1)}50%{box-shadow:0 0 80px rgba(255,215,0,.2)}}
+.wc-circle .trophy{font-size:100px;margin-bottom:12px}
+.wc-circle .year{font-size:56px;font-weight:900;color:var(--gold);letter-spacing:-2px}
+.wc-circle .loc{font-size:14px;color:var(--text-muted);margin-top:4px}
+.wc-ring{position:absolute;border-radius:50%;border:1px solid rgba(255,215,0,.08);animation:ring-expand 4s ease-out infinite}
+.wc-ring:nth-child(2){width:110%;height:110%;animation-delay:0s}
+.wc-ring:nth-child(3){width:130%;height:130%;animation-delay:1.3s}
+.wc-ring:nth-child(4){width:150%;height:150%;animation-delay:2.6s}
+@keyframes ring-expand{0%{opacity:.6;transform:scale(.95)}100%{opacity:0;transform:scale(1.1)}}
+.wc-info h3{font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.2;margin-bottom:16px}
+.wc-info h3 span{color:var(--gold)}
+.wc-info p{color:var(--text-muted);line-height:1.7;margin-bottom:24px;font-size:16px}
+.wc-features-list{list-style:none;margin-bottom:32px}
+.wc-features-list li{display:flex;align-items:center;gap:12px;padding:10px 0;font-size:15px;font-weight:600;color:var(--text)}
+.wc-features-list li .check{width:28px;height:28px;background:rgba(108,63,224,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.wc-price{display:flex;align-items:baseline;gap:8px;margin-bottom:28px}
+.wc-price .from{font-size:14px;color:var(--text-muted)}
+.wc-price .amount{font-size:42px;font-weight:900;color:var(--gold)}
+.wc-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),#ffaa00);color:var(--dark);padding:16px 40px;border-radius:60px;font-size:16px;font-weight:800;border:none;cursor:pointer;transition:all .3s;box-shadow:0 6px 28px rgba(255,215,0,.3);text-transform:uppercase;letter-spacing:.5px}
+.wc-btn:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(255,215,0,.45)}
+
+/* Events Grid */
+.events{max-width:1200px;margin:0 auto;padding:0 20px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.event-card{background:var(--card-bg);border-radius:20px;overflow:hidden;transition:all .3s;cursor:pointer;border:1px solid rgba(255,255,255,.05);position:relative}
+.event-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(108,63,224,.2);border-color:rgba(108,63,224,.3)}
+.event-img{height:200px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.event-img .emoji-bg{font-size:80px;position:absolute;opacity:.15}
+.event-img .gradient{position:absolute;inset:0}
+.event-card .hot-tag{position:absolute;top:14px;right:14px;background:var(--accent);color:#fff;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;z-index:2}
+.event-card .followers{position:absolute;top:14px;left:14px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);color:#fff;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;z-index:2;display:flex;align-items:center;gap:4px}
+.event-body{padding:20px}
+.event-body h3{font-size:18px;font-weight:800;margin-bottom:8px;line-height:1.3}
+.event-body .meta{font-size:13px;color:var(--text-muted);margin-bottom:14px;display:flex;flex-direction:column;gap:4px}
+.event-body .meta span{display:flex;align-items:center;gap:6px}
+.event-body .price-row{display:flex;align-items:center;justify-content:space-between}
+.event-body .price{font-size:14px;font-weight:700;color:var(--gold)}
+.event-body .buy-btn{background:var(--primary-light);color:#fff;padding:8px 20px;border-radius:50px;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:all .2s}
+.event-body .buy-btn:hover{background:var(--accent);transform:scale(1.05)}
+
+/* Trust Bar */
+.trust{background:linear-gradient(180deg,transparent,rgba(63,29,155,.1));padding:70px 20px;text-align:center}
+.trust h2{font-size:28px;font-weight:800;margin-bottom:40px}
+.trust-items{display:flex;justify-content:center;gap:50px;flex-wrap:wrap;max-width:1000px;margin:0 auto}
+.trust-item{text-align:center;max-width:220px}
+.trust-item .icon{font-size:42px;margin-bottom:14px}
+.trust-item h4{font-size:16px;font-weight:700;margin-bottom:6px}
+.trust-item p{font-size:13px;color:var(--text-muted);line-height:1.5}
+
+/* Testimonials */
+.reviews{max-width:1000px;margin:0 auto;padding:0 20px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.review-card{background:var(--card-bg);border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,.05)}
+.review-stars{color:var(--gold);font-size:18px;margin-bottom:12px;letter-spacing:2px}
+.review-text{font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:16px;font-style:italic}
+.review-author{font-size:14px;font-weight:700}
+
+/* Final CTA */
+.final-cta{text-align:center;padding:80px 20px 100px;position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,64,129,.1),transparent 70%)}
+.final-cta h2{font-size:clamp(30px,5vw,52px);font-weight:900;margin-bottom:16px;position:relative}
+.final-cta p{font-size:18px;color:var(--text-muted);margin-bottom:36px;position:relative}
+.final-cta .big-btn{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--accent),#ff6040,var(--gold));color:#fff;padding:22px 56px;border-radius:60px;font-size:20px;font-weight:900;border:none;cursor:pointer;transition:all .3s;box-shadow:0 8px 40px rgba(255,64,129,.3);text-transform:uppercase;letter-spacing:1px;position:relative;animation:cta-glow 2s ease-in-out infinite}
+@keyframes cta-glow{0%,100%{box-shadow:0 8px 40px rgba(255,64,129,.3)}50%{box-shadow:0 8px 60px rgba(255,64,129,.55)}}
+.final-cta .big-btn:hover{transform:scale(1.06)}
+
+/* Footer */
+footer{background:rgba(0,0,0,.3);padding:30px 20px;text-align:center;font-size:12px;color:var(--text-muted);border-top:1px solid rgba(255,255,255,.04)}
+
+/* Floating CTA */
+.float-cta{position:fixed;bottom:24px;right:24px;z-index:200;background:var(--accent);color:#fff;padding:14px 28px;border-radius:50px;font-size:14px;font-weight:800;box-shadow:0 6px 28px rgba(255,64,129,.4);cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:8px;animation:float-bounce 2s ease-in-out infinite}
+@keyframes float-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.float-cta:hover{transform:scale(1.08)!important;box-shadow:0 8px 36px rgba(255,64,129,.55)}
+
+/* Urgency Banner */
+.urgency{background:linear-gradient(90deg,var(--primary),var(--accent));padding:14px 20px;text-align:center;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.urgency .fire{animation:shake .5s ease-in-out infinite}
+@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg)}75%{transform:rotate(5deg)}}
+
+/* Responsive */
+@media(max-width:768px){
+  .wc-feature{grid-template-columns:1fr;text-align:center}
+  .wc-visual{order:-1}
+  .wc-features-list{text-align:left;max-width:400px;margin:0 auto 32px}
+  .wc-price{justify-content:center}
+  .hero-stats{gap:24px}
+  .nav-links{display:none}
+  .trust-items{gap:32px}
+  .float-cta{bottom:12px;right:12px;padding:12px 20px;font-size:13px}
+}
+</style>
+</head>
+<body onclick="goToStubHub(event)">
+
+<!-- Urgency Banner -->
+<div class="urgency">
+  <span class="fire">🔥</span>
+  LIMITED TIME: World Cup 2026 Tickets Selling Fast — Secure Yours Before They're Gone!
+  <span class="fire">🔥</span>
+</div>
+
+<!-- Top Bar -->
+<div class="top-bar">
+  🎫 Over 10 Million Tickets Sold Worldwide — FanProtect Guarantee on Every Order<span>Shop Now →</span>
+</div>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="logo">
+    <svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17" stroke="#6c3fe0" stroke-width="2"/><text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="14" font-weight="900" fill="#fff">SH</text></svg>
+    StubHub
+  </a>
+  <div class="nav-links">
+    <a href="#">World Cup</a>
+    <a href="#">Concerts</a>
+    <a href="#">Sports</a>
+    <a href="#">Theater</a>
+  </div>
+  <button class="nav-cta" onclick="goToStubHub(event)">Get Tickets</button>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="particles" id="particles"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Tickets On Sale Now</div>
+    <h1>Your Seat to the World's<br>Biggest <em>Events</em></h1>
+    <p>From FIFA World Cup 2026 to Bruno Mars, Metallica & The Eagles — grab the hottest tickets at the best prices. Every ticket backed by our FanProtect Guarantee.</p>
+    <button class="hero-cta" onclick="goToStubHub(event)">
+      Browse All Tickets
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"/></svg>
+    </button>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">20.7K+</div><div class="label">World Cup Followers</div></div>
+      <div class="hero-stat"><div class="num">37.6K+</div><div class="label">Bruno Mars Fans</div></div>
+      <div class="hero-stat"><div class="num">59.3K+</div><div class="label">Metallica Fans</div></div>
+      <div class="hero-stat"><div class="num">100%</div><div class="label">Guaranteed Tickets</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Countdown -->
+<section class="countdown-section">
+  <div class="countdown-title">⏰ FIFA World Cup 2026 Kicks Off In</div>
+  <div class="countdown-sub">June 11, 2026 — Don't wait until it's too late</div>
+  <div class="countdown" id="countdown">
+    <div class="unit"><div class="val" id="cd-days">--</div><div class="lbl">Days</div></div>
+    <div class="unit"><div class="val" id="cd-hours">--</div><div class="lbl">Hours</div></div>
+    <div class="unit"><div class="val" id="cd-mins">--</div><div class="lbl">Minutes</div></div>
+    <div class="unit"><div class="val" id="cd-secs">--</div><div class="lbl">Seconds</div></div>
+  </div>
+</section>
+
+<!-- World Cup Feature -->
+<div class="section-title">
+  <h2>🏆 FIFA <span>World Cup 2026</span></h2>
+  <p>The biggest sporting event on Earth comes to North America. Be there live.</p>
+</div>
+<section class="wc-feature">
+  <div class="wc-visual">
+    <div class="wc-circle">
+      <div class="trophy">🏆</div>
+      <div class="year">2026</div>
+      <div class="loc">USA · Mexico · Canada</div>
+      <div class="wc-ring"></div>
+      <div class="wc-ring"></div>
+      <div class="wc-ring"></div>
+    </div>
+  </div>
+  <div class="wc-info">
+    <h3>Once In A Lifetime.<br><span>Don't Miss It.</span></h3>
+    <p>The 2026 FIFA World Cup expands to 48 teams across 16 iconic stadiums in 3 countries. This is the most anticipated World Cup in history — and tickets are going FAST.</p>
+    <ul class="wc-features-list">
+      <li><span class="check">✓</span> 48 Teams, 104 Matches</li>
+      <li><span class="check">✓</span> MetLife Stadium Final (NY/NJ)</li>
+      <li><span class="check">✓</span> FanProtect 100% Guarantee</li>
+      <li><span class="check">✓</span> Instant Digital Delivery</li>
+      <li><span class="check">✓</span> Prices From Multiple Sellers</li>
+    </ul>
+    <div class="wc-price">
+      <span class="from">Tickets from</span>
+      <span class="amount">$85</span>
+    </div>
+    <button class="wc-btn" onclick="goToStubHub(event)">🎫 Get World Cup Tickets →</button>
+  </div>
+</section>
+
+<!-- Hot Events -->
+<div class="section-title">
+  <h2>🔥 <span>Hottest</span> Events Right Now</h2>
+  <p>The shows everyone is talking about — from stadium tours to epic concerts</p>
+</div>
+<section class="events">
+
+  <!-- Bruno Mars -->
+  <div class="event-card" onclick="goToStubHub(event)">
+    <div class="event-img" style="background:linear-gradient(135deg,#ff6b35,#f7931e)">
+      <span class="emoji-bg">🎤</span>
+      <div class="gradient" style="background:linear-gradient(180deg,transparent 50%,rgba(26,26,46,.9))"></div>
+    </div>
+    <span class="hot-tag">🔥 Hot</span>
+    <span class="followers">❤️ 37.6K fans</span>
+    <div class="event-body">
+      <h3>Bruno Mars</h3>
+      <div class="meta">
+        <span>🎵 World Tour 2026</span>
+        <span>📍 Multiple Cities</span>
+      </div>
+      <div class="price-row">
+        <span class="price">From $95</span>
+        <button class="buy-btn">Get Tickets</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Metallica -->
+  <div class="event-card" onclick="goToStubHub(event)">
+    <div class="event-img" style="background:linear-gradient(135deg,#1a1a2e,#4a0e4e)">
+      <span class="emoji-bg">🎸</span>
+      <div class="gradient" style="background:linear-gradient(180deg,transparent 50%,rgba(26,26,46,.9))"></div>
+    </div>
+    <span class="hot-tag">⚡ Legendary</span>
+    <span class="followers">❤️ 59.3K fans</span>
+    <div class="event-body">
+      <h3>Metallica</h3>
+      <div class="meta">
+        <span>🎵 M72 World Tour</span>
+        <span>📍 Stadium Shows</span>
+      </div>
+      <div class="price-row">
+        <span class="price">From $120</span>
+        <button class="buy-btn">Get Tickets</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Eagles -->
+  <div class="event-card" onclick="goToStubHub(event)">
+    <div class="event-img" style="background:linear-gradient(135deg,#0c3547,#1b6b93)">
+      <span class="emoji-bg">🦅</span>
+      <div class="gradient" style="background:linear-gradient(180deg,transparent 50%,rgba(26,26,46,.9))"></div>
+    </div>
+    <span class="hot-tag">Classic</span>
+    <span class="followers">❤️ 4.1K fans</span>
+    <div class="event-body">
+      <h3>The Eagles</h3>
+      <div class="meta">
+        <span>🎵 The Long Goodbye Tour</span>
+        <span>📍 Final Tour</span>
+      </div>
+      <div class="price-row">
+        <span class="price">From $150</span>
+        <button class="buy-btn">Get Tickets</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Linkin Park -->
+  <div class="event-card" onclick="goToStubHub(event)">
+    <div class="event-img" style="background:linear-gradient(135deg,#2d1b69,#11998e)">
+      <span class="emoji-bg">🎶</span>
+      <div class="gradient" style="background:linear-gradient(180deg,transparent 50%,rgba(26,26,46,.9))"></div>
+    </div>
+    <span class="hot-tag">🔥 Comeback</span>
+    <span class="followers">❤️ New</span>
+    <div class="event-body">
+      <h3>Linkin Park</h3>
+      <div class="meta">
+        <span>🎵 2026 Tour</span>
+        <span>📅 Jun 9 · Vienna</span>
+      </div>
+      <div class="price-row">
+        <span class="price">From $89</span>
+        <button class="buy-btn">Get Tickets</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Andrea Bocelli -->
+  <div class="event-card" onclick="goToStubHub(event)">
+    <div class="event-img" style="background:linear-gradient(135deg,#4a1942,#c62368)">
+      <span class="emoji-bg">🎼</span>
+      <div class="gradient" style="background:linear-gradient(180deg,transparent 50%,rgba(26,26,46,.9))"></div>
+    </div>
+    <span class="hot-tag">Elegant</span>
+    <span class="followers">❤️ Popular</span>
+    <div class="event-body">
+      <h3>Andrea Bocelli</h3>
+      <div class="meta">
+        <span>🎵 Live in Concert</span>
+        <span>📅 Aug 22 · Vienna</span>
+      </div>
+      <div class="price-row">
+        <span class="price">From $110</span>
+        <button class="buy-btn">Get Tickets</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- F1 -->
+  <div class="event-card" onclick="goToStubHub(event)">
+    <div class="event-img" style="background:linear-gradient(135deg,#e4002b,#1e1e2f)">
+      <span class="emoji-bg">🏎️</span>
+      <div class="gradient" style="background:linear-gradient(180deg,transparent 50%,rgba(26,26,46,.9))"></div>
+    </div>
+    <span class="hot-tag">🏁 Racing</span>
+    <span class="followers">❤️ Trending</span>
+    <div class="event-body">
+      <h3>Austrian F1 GP 2026</h3>
+      <div class="meta">
+        <span>🏎️ 3-Day Pass</span>
+        <span>📅 Jun 26-28 · Red Bull Ring</span>
+      </div>
+      <div class="price-row">
+        <span class="price">From $199</span>
+        <button class="buy-btn">Get Tickets</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Section -->
+<section class="trust">
+  <h2>Why Millions Choose StubHub</h2>
+  <div class="trust-items">
+    <div class="trust-item">
+      <div class="icon">🛡️</div>
+      <h4>FanProtect Guarantee</h4>
+      <p>Every order is 100% guaranteed. If there's ever an issue, we've got you covered.</p>
+    </div>
+    <div class="trust-item">
+      <div class="icon">💰</div>
+      <h4>Best Price Promise</h4>
+      <p>Compare prices from thousands of sellers to find the perfect tickets for your budget.</p>
+    </div>
+    <div class="trust-item">
+      <div class="icon">⚡</div>
+      <h4>Instant Delivery</h4>
+      <p>Most tickets are delivered digitally within minutes. No waiting, no hassle.</p>
+    </div>
+    <div class="trust-item">
+      <div class="icon">🌍</div>
+      <h4>Global Marketplace</h4>
+      <p>Access events in 40+ countries. If there's a ticket, StubHub has it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<div class="section-title">
+  <h2>What <span>Fans</span> Are Saying</h2>
+</div>
+<section class="reviews">
+  <div class="review-card">
+    <div class="review-stars">★★★★★</div>
+    <div class="review-text">"Got my World Cup tickets in under 2 minutes. The process was incredibly smooth and I felt safe the entire time. Can't wait for the games!"</div>
+    <div class="review-author">— James R., New York</div>
+  </div>
+  <div class="review-card">
+    <div class="review-stars">★★★★★</div>
+    <div class="review-text">"Bruno Mars concert was AMAZING. StubHub got me front-row seats that I couldn't find anywhere else. Worth every penny!"</div>
+    <div class="review-author">— Sarah L., Los Angeles</div>
+  </div>
+  <div class="review-card">
+    <div class="review-stars">★★★★★</div>
+    <div class="review-text">"I've bought tickets for Metallica and The Eagles here. Always reliable, always great seats. StubHub is my go-to for live events."</div>
+    <div class="review-author">— Mike T., Chicago</div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <h2>Don't Watch It On TV.<br>Be There. <span style="color:var(--gold)">Live It.</span></h2>
+  <p>World Cup, Bruno Mars, Metallica — the events of a lifetime are one click away.</p>
+  <button class="big-btn" onclick="goToStubHub(event)">
+    🎫 Get Your Tickets Now
+    <svg width="22" height="22" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"/></svg>
+  </button>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 StubHub. All rights reserved. StubHub is the world's largest ticket marketplace. All tickets backed by FanProtect Guarantee.</p>
+</footer>
+
+<!-- Floating CTA -->
+<div class="float-cta" onclick="goToStubHub(event)">🎫 Get Tickets Now</div>
+
+<script>
+const AFFILIATE_URL = 'https://www.stubhub.com/?clickref=1101lCn48Y7S&app_clickref=1101lCn48Y7S&t=t1.aff.partnerize_yeahpromos-publisher_program-Cashback%2FLoyalty-1101l799-0&utm_source=partnerize_yeahpromos&utm_medium=publisher_program&utm_sub_medium=Cashback%2FLoyalty&utm_campaign=1101l799&utm_content=0&PCID=partnerize_all';
+
+function goToStubHub(e) {
+  if (e) e.preventDefault();
+  window.open(AFFILIATE_URL, '_blank');
+}
+
+document.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    goToStubHub(e);
+  });
+});
+
+// Countdown to June 11, 2026
+function updateCountdown() {
+  const target = new Date('2026-06-11T00:00:00').getTime();
+  const now = Date.now();
+  const diff = target - now;
+  if (diff <= 0) {
+    document.getElementById('cd-days').textContent = '0';
+    document.getElementById('cd-hours').textContent = '0';
+    document.getElementById('cd-mins').textContent = '0';
+    document.getElementById('cd-secs').textContent = '0';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-days').textContent = d;
+  document.getElementById('cd-hours').textContent = h;
+  document.getElementById('cd-mins').textContent = m;
+  document.getElementById('cd-secs').textContent = s;
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Particles
+(function createParticles() {
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 6 + 2;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (Math.random() * 10 + 8) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    container.appendChild(p);
+  }
+})();
+
+// Hide floating CTA at top
+window.addEventListener('scroll', function() {
+  const fcta = document.querySelector('.float-cta');
+  fcta.style.opacity = window.scrollY > 400 ? '1' : '0';
+  fcta.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
+});
+document.querySelector('.float-cta').style.opacity = '0';
+document.querySelector('.float-cta').style.pointerEvents = 'none';
+</script>
+</body>
+</html>
