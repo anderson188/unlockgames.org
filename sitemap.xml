@@ -54,31 +54,31 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
-    <url>
+<url>
         <loc>https://unlockgames.org/about.html</loc>
         <lastmod>2026-03-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/terms.html</loc>
         <lastmod>2026-03-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/privacy.html</loc>
         <lastmod>2026-03-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
-    </url>
-    <url>
-        <loc>https://unlockgames.org/contact.html</loc>
+</url>
+<url>
+	<loc>https://unlockgames.org/contact.html</loc>
         <lastmod>2026-03-07</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.2</priority>
-    </url>
-    <url>
+	<priority>0.2</priority>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-orbitz-3.html</loc>
         <lastmod>2026-03-05</lastmod>
         <changefreq>monthly</changefreq>
@@ -893,89 +893,89 @@
         <lastmod>2025-02-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-nike-4.html</loc>
         <lastmod>2025-02-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-nike-3.html</loc>
         <lastmod>2025-02-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-nike-2.html</loc>
         <lastmod>2025-02-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-nike-1.html</loc>
         <lastmod>2025-01-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-samsung-5.html</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-samsung-4.html</loc>
         <lastmod>2025-01-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-samsung-3.html</loc>
         <lastmod>2025-01-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-samsung-2.html</loc>
         <lastmod>2025-01-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-samsung-1.html</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-adidas-5.html</loc>
         <lastmod>2025-01-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-adidas-4.html</loc>
         <lastmod>2025-01-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-adidas-3.html</loc>
         <lastmod>2025-01-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-adidas-2.html</loc>
         <lastmod>2025-01-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    <url>
+</url>
+<url>
         <loc>https://unlockgames.org/blogs/blog-adidas-1.html</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
+</url>
 </urlset>
