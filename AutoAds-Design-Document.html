@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoAds – Design Documentation (Google Ads API)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 0 auto; padding: 40px; color: #333; line-height: 1.6; }
+        h1 { font-size: 1.75rem; border-bottom: 2px solid #4a69ff; padding-bottom: 8px; margin-top: 0; }
+        h2 { font-size: 1.2rem; margin-top: 28px; color: #333; }
+        p { margin: 0 0 12px; }
+        .meta { color: #666; font-size: 0.9rem; margin-bottom: 24px; }
+        img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 16px 0; display: block; }
+        .caption { font-size: 0.9rem; color: #666; margin-top: 4px; margin-bottom: 20px; }
+        ul { margin: 8px 0; padding-left: 24px; }
+        @media print { body { padding: 20px; } img { max-width: 95%; } }
+    </style>
+</head>
+<body>
+
+<h1>AutoAds – Design Documentation</h1>
+<p class="meta"><strong>Internal tool for unLockGames</strong> · Design documentation for Google Ads API application</p>
+
+<h2>1. Overview</h2>
+<p>AutoAds is an <strong>internal-only</strong> dashboard used by unLockGames to monitor advertising ROI and Google Ads API usage. It supports our own campaign management and reporting for the promotion of our website, <strong>unlockgames.org</strong> (a deals, cashback, and buying-guide platform). The tool is not offered to third parties.</p>
+
+<h2>2. Purpose</h2>
+<p>We use the Google Ads API to:</p>
+<ul>
+    <li>Manage our Search campaigns and keywords that drive traffic to unlockgames.org</li>
+    <li>Pull campaign, ad group, and keyword-level performance data (impressions, clicks, cost, CTR)</li>
+    <li>Monitor API quota usage and success rates to ensure stable integration</li>
+    <li>Optimize ad spend and ROI in line with the services we offer on our website</li>
+</ul>
+
+<h2>3. Main Features</h2>
+<ul>
+    <li><strong>Dashboard:</strong> Summary of impressions, clicks, total cost, CTR, and CPC</li>
+    <li><strong>API quota usage:</strong> Daily Google Ads API call count, remaining quota, success rate, and operation-type distribution (e.g. Mutate batch, Get keyword ideas, Search)</li>
+    <li><strong>Campaign management:</strong> Offer management, one-click ad launch, campaign and Google Ads account management</li>
+    <li><strong>Data and optimization:</strong> Data management, delivery score, and optimization iteration</li>
+</ul>
+
+<h2>4. Tool Screenshot</h2>
+<p>Below is a screenshot of the AutoAds dashboard showing the internal ROI monitoring interface and Google Ads API usage.</p>
+<img src="autoads-dashboard-screenshot.png" alt="AutoAds internal dashboard – ROI monitoring and Google Ads API usage" width="800">
+<p class="caption">Figure 1: AutoAds dashboard – internal use only. Used by unLockGames to monitor advertising ROI and Google Ads API usage for campaign management and reporting.</p>
+
+<h2>5. Alignment with Our Website</h2>
+<p>unLockGames (unlockgames.org) provides cashback deals, promo codes, buying guides, and free online games. We use Google Ads to promote this website to users searching for deals and coupons. AutoAds and the Google Ads API are used solely to manage and report on these campaigns, so our use of the API is consistent with the services listed on our site.</p>
+
+<p class="meta" style="margin-top: 32px;">— unLockGames · Internal design documentation</p>
+
+</body>
+</html>
