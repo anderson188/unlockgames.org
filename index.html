@@ -655,11 +655,18 @@
                     body: JSON.stringify({ model: OPENROUTER_MODEL, messages: messages })
                 }).then(function(r){ return r.json(); }).then(function(data){
                     setLoading(false);
-                    var reply = (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) ? data.choices[0].message.content : (data.error ? (data.error.message || 'Request failed') : 'No response');
-                    addMsg('assistant', reply);
+                    if (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) {
+                        addMsg('assistant', data.choices[0].message.content);
+                        return;
+                    }
+                    var errMsg = data.error && data.error.message ? data.error.message : 'No response';
+                    if (errMsg === 'User not found' || (data.error && data.error.code === 401)) {
+                        errMsg = 'API key invalid or revoked. Please create a new key at https://openrouter.ai/keys and update OPENROUTER_API_KEY in ai-assistant.js and index.html.';
+                    }
+                    addMsg('assistant', errMsg);
                 }).catch(function(err){
                     setLoading(false);
-                    addMsg('assistant', 'Network or request error: ' + (err.message || 'Check API Key and network'));
+                    addMsg('assistant', 'Network or request error: ' + (err.message || 'Check your connection.'));
                 });
             }
         })();
