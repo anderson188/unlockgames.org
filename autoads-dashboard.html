@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoAds – Internal ROI Monitoring Tool | Google Ads API</title>
+    <meta name="description" content="Internal dashboard for monitoring advertising ROI and Google Ads API usage. Used by unLockGames for campaign management and reporting.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #333;
+        }
+        .banner {
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: #fff;
+            padding: 12px 24px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .banner strong { margin-right: 6px; }
+        .app-row { display: flex; flex: 1; min-height: 0; }
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #eee;
+        }
+        .sidebar-header {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+        .sidebar-header h2 { margin: 0; color: #333; font-size: 1.6em; }
+        .sidebar-header .tagline { font-size: 0.75em; color: #666; margin-top: 4px; }
+        .user-profile {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+        .user-profile .avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4a69ff, #6a6ee6);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        .user-profile .details { flex-grow: 1; }
+        .user-profile .details div:first-child { font-weight: bold; color: #333; font-size: 0.95em; }
+        .user-profile .details div:last-child { font-size: 0.75em; color: #777; }
+        .nav-section-title {
+            font-size: 0.8em;
+            color: #999;
+            padding: 10px 20px 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .nav-list { list-style: none; padding: 0; margin: 0; }
+        .nav-list li a {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: #555;
+            text-decoration: none;
+            transition: background-color 0.2s, color 0.2s;
+            font-size: 0.9em;
+        }
+        .nav-list li a.active {
+            background-color: #e0e7ff;
+            color: #4a69ff;
+            border-left: 3px solid #4a69ff;
+            font-weight: bold;
+        }
+        .nav-list li a:hover:not(.active) { background-color: #f5f5f5; }
+        .nav-list li a i { margin-right: 10px; font-size: 1.1em; width: 20px; text-align: center; }
+        .logout { margin-top: auto; padding-top: 20px; border-top: 1px solid #eee; }
+
+        .wrapper { display: flex; flex-direction: column; flex: 1; }
+        .main-content { flex-grow: 1; padding: 20px; overflow-y: auto; }
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .dashboard-header h1 { margin: 0; font-size: 1.8em; color: #333; }
+        .dashboard-header .meta-info { font-size: 0.9em; color: #777; }
+        .time-filters { display: flex; align-items: center; gap: 10px; }
+        .time-filters i { color: #777; cursor: pointer; }
+        .time-filters button {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .time-filters button.active {
+            background-color: #4a69ff;
+            color: white;
+            border-color: #4a69ff;
+        }
+        .time-filters button:hover:not(.active) { background-color: #f0f0f0; }
+
+        .widget-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .widget-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .widget-header h3 { margin: 0; font-size: 1.1em; color: #333; }
+        .widget-header .status {
+            background-color: #e6ffe6;
+            color: #28a745;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        .metric-value { font-size: 2.5em; font-weight: bold; color: #333; margin-bottom: 5px; }
+        .metric-trend { font-size: 0.9em; color: #28a745; display: flex; align-items: center; margin-bottom: 10px; }
+        .metric-trend i { margin-right: 5px; }
+        .metric-details { font-size: 0.85em; color: #777; margin-top: 10px; }
+        .chart-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 15px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        .chart-container .chart-text { position: absolute; color: #333; }
+        .chart-container .chart-subtext { font-size: 0.7em; color: #777; }
+        .chart-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; }
+        .progress-bar-container { margin-top: 15px; }
+        .progress-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .progress-item .value { font-weight: bold; color: #333; }
+        .info-message {
+            background-color: #fffbe6;
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            margin-top: 15px;
+            border: 1px solid #ffeb8a;
+        }
+        .info-message.success {
+            background-color: #e6ffe6;
+            color: #28a745;
+            border-color: #c3e6cb;
+        }
+        .operation-list { margin-top: 15px; font-size: 0.9em; }
+        .operation-list h4 { margin-top: 0; margin-bottom: 10px; color: #555; font-size: 1em; }
+        .operation-list div {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px dotted #eee;
+        }
+        .operation-list div:last-child { border-bottom: none; }
+
+        .quick-start-card-wrapper { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+        .quick-start-card {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: #f7f8fa;
+            border-radius: 8px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .quick-start-card:hover { background-color: #eceff3; }
+        .quick-start-card i {
+            font-size: 1.5em;
+            margin-right: 15px;
+            color: #4a69ff;
+            width: 25px;
+            text-align: center;
+        }
+        .quick-start-card .text strong { display: block; font-size: 1em; margin-bottom: 2px; }
+        .quick-start-card .text span { font-size: 0.8em; color: #777; }
+
+        .metrics-row-card {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 0;
+        }
+        .metrics-row-card .metric-cell {
+            padding: 0 20px;
+            border-right: 1px solid #eee;
+            text-align: left;
+        }
+        .metrics-row-card .metric-cell:last-child { border-right: none; padding-right: 0; }
+        .metrics-row-card .metric-cell:first-child { padding-left: 0; }
+        .metrics-row-card .metric-cell .widget-header {
+            margin-bottom: 10px;
+        }
+        .metrics-row-card .metric-cell .metric-value { font-size: 2em; margin-bottom: 4px; }
+        .metrics-row-card .metric-cell .metric-trend,
+        .metrics-row-card .metric-cell .metric-details { font-size: 0.85em; margin-top: 0; }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <strong>Internal use only.</strong> This dashboard is used by unLockGames to monitor advertising ROI and Google Ads API usage for our own campaign management and reporting.
+    </div>
+    <div class="app-row">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>AutoAds</h2>
+            <div class="tagline">Internal ROI monitoring</div>
+        </div>
+        <div class="user-profile">
+            <div class="avatar">A</div>
+            <div class="details">
+                <div>AutoAds Admin</div>
+                <div>Internal</div>
+            </div>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="nav-section-title">Main menu</div>
+        <ul class="nav-list">
+            <li><a href="#" class="active"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-gift"></i> Offer management</a></li>
+            <li><a href="#"><i class="fas fa-bullhorn"></i> Campaigns</a></li>
+            <li><a href="#"><i class="fas fa-lightbulb"></i> Creative management</a></li>
+            <li><a href="#"><i class="fas fa-rocket"></i> Delivery score</a></li>
+            <li><a href="#"><i class="fab fa-google"></i> Google Ads account</a></li>
+            <li><a href="#"><i class="fas fa-database"></i> Data management</a></li>
+            <li><a href="#"><i class="fas fa-sync-alt"></i> Optimization iteration</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> System settings</a></li>
+        </ul>
+        <div class="nav-section-title">Admin</div>
+        <ul class="nav-list">
+            <li><a href="#"><i class="fas fa-users"></i> User management</a></li>
+            <li class="logout"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="wrapper">
+        <div class="main-content">
+            <div class="dashboard-header">
+                <div>
+                    <h1>Dashboard</h1>
+                    <div class="meta-info">1 offer, 0 active</div>
+                </div>
+                <div class="time-filters">
+                    <i class="fas fa-sync-alt"></i>
+                    <button class="active">7 days</button>
+                    <button>30 days</button>
+                </div>
+            </div>
+
+            <div class="metrics-row-card">
+                <div class="metric-cell">
+                    <div class="widget-header">
+                        <h3>Impressions</h3>
+                        <i class="fas fa-eye fa-2x" style="color: #6a6ee6;"></i>
+                    </div>
+                    <div class="metric-value">0</div>
+                    <div class="metric-trend"><i class="fas fa-caret-up"></i> +0.0% vs last period</div>
+                </div>
+                <div class="metric-cell">
+                    <div class="widget-header">
+                        <h3>Clicks</h3>
+                        <i class="fas fa-mouse-pointer fa-2x" style="color: #6a6ee6;"></i>
+                    </div>
+                    <div class="metric-value">0</div>
+                    <div class="metric-trend"><i class="fas fa-caret-up"></i> +0.0% vs last period</div>
+                </div>
+                <div class="metric-cell">
+                    <div class="widget-header">
+                        <h3>Total cost</h3>
+                        <i class="fas fa-dollar-sign fa-2x" style="color: #6a6ee6;"></i>
+                    </div>
+                    <div class="metric-value">$0.00</div>
+                    <div class="metric-details">CTR: 0.00% &bull; CPC: $0.00</div>
+                </div>
+            </div>
+
+            <div class="widget-grid">
+                <div class="widget-card">
+                    <div class="widget-header">
+                        <h3>API quota usage</h3>
+                        <span class="status">Normal</span>
+                    </div>
+                    <h4>Today’s Google Ads API calls</h4>
+                    <div class="chart-container">
+                        <div class="chart-canvas" style="background: conic-gradient(#4a69ff 3.3%, #eee 3.3% 100%);"></div>
+                        <div class="chart-text">
+                            <strong>502</strong> / 15,000<br>
+                            <span class="chart-subtext">3.3%</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-item">
+                            <span class="label">Remaining quota</span>
+                            <span class="value">14,498</span>
+                        </div>
+                        <div class="progress-item">
+                            <span class="label">Success rate</span>
+                            <span class="value">40.0%</span>
+                        </div>
+                    </div>
+                    <div class="info-message">
+                        Many failed operations; we recommend checking API call parameters and permissions.
+                    </div>
+                    <div class="operation-list">
+                        <h4>Operation type distribution</h4>
+                        <div><span>Mutate batch</span><span>494</span></div>
+                        <div><span>Get keyword ideas</span><span>5</span></div>
+                        <div><span>Search</span><span>3</span></div>
+                    </div>
+                </div>
+
+                <div class="widget-card">
+                    <div class="widget-header">
+                        <h3>AI token cost</h3>
+                        <span class="status">Normal</span>
+                    </div>
+                    <h4>Today’s AI model call statistics</h4>
+                    <div class="chart-container">
+                        <div class="chart-canvas" style="background: conic-gradient(#8e76f9 10%, #eee 10% 100%);"></div>
+                        <div class="chart-text">
+                            <strong>$0.43</strong><br>
+                            <span class="chart-subtext">10 calls<br>63.8K tokens</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-item">
+                            <span class="label">Input tokens</span>
+                            <span class="value">23,938</span>
+                        </div>
+                        <div class="progress-item">
+                            <span class="label">Output tokens</span>
+                            <span class="value">7,925</span>
+                        </div>
+                    </div>
+                    <div class="info-message success">
+                        Today’s AI cost is normal (&lt;$50); no action needed.
+                    </div>
+                    <div class="operation-list">
+                        <h4>Top 5 high-cost operation types</h4>
+                        <div><span>Launch score calculation</span><span>5 × $0.31</span></div>
+                        <div><span>Competitor analysis</span><span>1 × $0.07</span></div>
+                        <div><span>Product analysis</span><span>1 × $0.05</span></div>
+                        <div><span>Keyword clustering</span><span>1 × $0.00</span></div>
+                    </div>
+                </div>
+
+                <div class="widget-card">
+                    <h3>Quick start</h3>
+                    <div class="quick-start-card-wrapper">
+                        <a href="#" class="quick-start-card">
+                            <i class="fas fa-plus-circle" style="color: #4a69ff;"></i>
+                            <div class="text">
+                                <strong>Create offer</strong>
+                                <span>Add new product</span>
+                            </div>
+                        </a>
+                        <a href="#" class="quick-start-card">
+                            <i class="fas fa-rocket" style="color: #4a69ff;"></i>
+                            <div class="text">
+                                <strong>One-click ad launch</strong>
+                                <span>1 available</span>
+                            </div>
+                        </a>
+                        <a href="#" class="quick-start-card">
+                            <i class="fas fa-chart-area" style="color: #4a69ff;"></i>
+                            <div class="text">
+                                <strong>Campaigns</strong>
+                                <span>Manage campaigns</span>
+                            </div>
+                        </a>
+                        <a href="#" class="quick-start-card">
+                            <i class="fas fa-dollar-sign" style="color: #4a69ff;"></i>
+                            <div class="text">
+                                <strong>Google Ads account</strong>
+                                <span>Account management</span>
+                            </div>
+                        </a>
+                        <a href="#" class="quick-start-card">
+                            <i class="fas fa-cog" style="color: #4a69ff;"></i>
+                            <div class="text">
+                                <strong>System settings</strong>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
