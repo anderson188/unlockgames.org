@@ -12,19 +12,22 @@
     <header class="blog-header">
         <div class="container">
             <a href="../index.html" class="blog-logo">unLockGames</a>
-            <input type="text" class="blog-search" placeholder="Search...">
+            <form action="../search.html" method="get" class="blog-search-form" role="search">
+                <input type="text" name="q" class="blog-search" placeholder="Search articles..." autocomplete="off">
+                <button type="submit" class="blog-search-btn" aria-label="Search">Search</button>
+            </form>
         </div>
     </header>
-        <nav class="blog-nav">
+    <nav class="blog-nav">
         <div class="container">
             <ul>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../index-coupon.html">Coupons</a></li>
                 <li><a href="../index1018.html">Games</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../terms.html">Terms</a></li>
-                <li><a href="../privacy.html">Privacy</a></li>
-                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../index.html#electronics">Electronics & Tech</a></li>
+                <li><a href="../index.html#fashion">Fashion & Beauty</a></li>
+                <li><a href="../index.html#shopping">Shopping & Retail</a></li>
+                <li><a href="../index.html#travel">Travel</a></li>
             </ul>
         </div>
     </nav>
@@ -43,7 +46,19 @@
 
     <footer class="blog-footer">
         <div class="container">
-            <p class="footer-bottom">&copy; 2025 unLockGames. <a href="../privacy.html">Privacy</a> | <a href="../terms.html">Terms</a></p>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="../index-coupon.html">Coupons</a>
+                <a href="../index1018.html">Games</a>
+                <a href="../index.html#electronics">Electronics</a>
+                <a href="../index.html#fashion">Fashion</a>
+                <a href="../index.html#shopping">Shopping</a>
+                <a href="../index.html#travel">Travel</a>
+                <a href="../about.html">About Us</a>
+                <a href="../privacy.html">Privacy</a>
+            </div>
+            <p class="footer-bottom"><strong>Disclosure:</strong> We may earn a commission when you shop through our links at no extra cost to you. <a href="../privacy.html">Privacy</a> | <a href="../terms.html">Terms</a></p>
+            <p class="footer-bottom">&copy; 2025 unLockGames. All rights reserved.</p>
         </div>
     </footer>
 </body>
