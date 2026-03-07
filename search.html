@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - unLockGames</title>
+    <meta name="description" content="Search articles on unLockGames: deals, buying guides, cashback, and free games.">
+    <link rel="canonical" href="https://unlockgames.org/search.html">
+    <link rel="stylesheet" href="blog-traditional.css">
+</head>
+<body>
+    <header class="blog-header">
+        <div class="container">
+            <a href="index.html" class="blog-logo">unLockGames</a>
+            <form action="search.html" method="get" class="blog-search-form" role="search">
+                <input type="text" name="q" class="blog-search" placeholder="Search articles..." id="headerSearch" value="" autocomplete="off">
+                <button type="submit" class="blog-search-btn" aria-label="Search">Search</button>
+            </form>
+        </div>
+    </header>
+
+    <nav class="blog-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index-coupon.html">Coupons</a></li>
+                <li><a href="index1018.html">Games</a></li>
+                <li><a href="index.html#electronics">Electronics & Tech</a></li>
+                <li><a href="index.html#fashion">Fashion & Beauty</a></li>
+                <li><a href="index.html#shopping">Shopping & Retail</a></li>
+                <li><a href="index.html#travel">Travel</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="blog-main" role="main" style="max-width: 900px; margin: 2rem auto; padding: 0 20px;">
+        <h1 class="sr-only">Search</h1>
+        <section id="search-results-section" aria-live="polite">
+            <h2 id="search-results-title">Search results</h2>
+            <div id="search-results"></div>
+        </section>
+    </main>
+
+    <footer class="blog-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="index-coupon.html">Coupons</a>
+                <a href="index1018.html">Games</a>
+                <a href="about.html">About</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+            <p class="footer-bottom">&copy; 2025 unLockGames. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+window.UNLOCKGAMES_SEARCH_FALLBACK = [{"title":"TOP 10 Best LED Strip Lights 2025","file":"blog-govee-1.html","date":"2026-01-12"},{"title":"Best Car Rental Deals","file":"blog-avis-1.html","date":"2025-12-27"},{"title":"Best Expedia Tips","file":"blog-expedia-2.html","date":"2025-12-18"},{"title":"Best Time to Book Hotels","file":"blog-hotels-1.html","date":"2025-12-14"},{"title":"Best Chewy Deals","file":"blog-chewy-1.html","date":"2026-01-02"},{"title":"Best Pet Supplies for First-Time Owners","file":"blog-chewy-2.html","date":"2025-12-28"},{"title":"Best Laptops for Students 2025","file":"blog-acer-1.html","date":"2025-12-22"},{"title":"Best Disney Merchandise","file":"blog-disney-1.html","date":"2026-01-05"},{"title":"Best Refurbished Tech Deals","file":"blog-woot-1.html","date":"2026-01-22"},{"title":"Best Nordstrom Finds","file":"blog-nordstrom-1.html","date":"2025-12-25"},{"title":"Best Sephora Skincare 2025","file":"blog-sephora-1.html","date":"2026-01-08"},{"title":"Best Macy's Deals for Home","file":"blog-macys-1.html","date":"2026-01-06"},{"title":"Best Buy Open Box","file":"blog-bestbuy-1.html","date":"2026-01-05"},{"title":"Best Target Home Finds","file":"blog-target-1.html","date":"2025-12-19"},{"title":"Best Walmart Deals","file":"blog-walmart-1.html","date":"2025-12-05"},{"title":"Best Hydrating Skincare","file":"blog-sephora-2.html","date":"2026-01-18"},{"title":"Best Affordable Fashion Finds","file":"blog-shein-1.html","date":"2025-12-12"},{"title":"Best Amazon Deals","file":"blog-amazon-1.html","date":"2025-12-15"},{"title":"Best Basketball Shoes 2025","file":"blog-nike-1.html","date":"2025-12-18"},{"title":"Best Smartphones of 2025","file":"blog-samsung-1.html","date":"2025-12-08"},{"title":"Best Budget Sports Shoes Under 100 Dollars","file":"blog-adidas-1.html","date":"2025-12-03"},{"title":"TOP 10 Best Running Shoes for 2025","file":"blog-adidas-1.html","date":"2025-12-03"}];
+    </script>
+    <script>
+(function() {
+    var params = new URLSearchParams(window.location.search);
+    var q = (params.get('q') || '').trim();
+    var searchInput = document.getElementById('headerSearch');
+    var resultsEl = document.getElementById('search-results');
+    var titleEl = document.getElementById('search-results-title');
+
+    if (searchInput) searchInput.value = q;
+
+    function renderResults(articles) {
+        if (!q) {
+            titleEl.textContent = 'Search articles';
+            resultsEl.innerHTML = '<p>Enter a keyword above and press Search to find articles.</p>';
+            return;
+        }
+        if (!articles || articles.length === 0) {
+            titleEl.textContent = 'Search results for “‘ + escapeHtml(q) + '"';
+            resultsEl.innerHTML = '<p>No articles found. Try different keywords.</p>';
+            return;
+        }
+        titleEl.textContent = 'Search results for “‘ + escapeHtml(q) + '" (' + articles.length + ')';
+        var html = '<ul class="sidebar-list" style="list-style:none; padding:0;">';
+        for (var i = 0; i < articles.length; i++) {
+            var a = articles[i];
+            var href = 'blogs/' + (a.file || a.fileName || '');
+            var title = a.title || 'Article';
+            var date = a.date || '';
+            html += '<li style="margin-bottom:0.75rem;"><a href="' + escapeAttr(href) + '">' + escapeHtml(title) + '</a>';
+            if (date) html += ' <span class="sidebar-date" style="color:var(--text-muted);font-size:0.85rem;">' + escapeHtml(date) + '</span>';
+            html += '</li>';
+        }
+        html += '</ul>';
+        resultsEl.innerHTML = html;
+    }
+
+    function escapeHtml(s) {
+        var div = document.createElement('div');
+        div.textContent = s;
+        return div.innerHTML;
+    }
+    function escapeAttr(s) {
+        return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function matchItem(item, key) {
+        var t = (item.title || '').toLowerCase();
+        if (t.indexOf(key) !== -1) return true;
+        var m = (item.metaDesc || '').toLowerCase();
+        if (m.indexOf(key) !== -1) return true;
+        if (item.brand && item.brand.titles && Array.isArray(item.brand.titles)) {
+            for (var j = 0; j < item.brand.titles.length; j++) {
+                if ((item.brand.titles[j] || '').toLowerCase().indexOf(key) !== -1) return true;
+            }
+        }
+        return false;
+    }
+
+    function runSearch() {
+        if (!q) {
+            renderResults(null);
+            return;
+        }
+        var key = q.toLowerCase();
+        fetch('blogs/articles-list.json')
+            .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
+            .then(function(list) {
+                var out = [];
+                for (var i = 0; i < list.length; i++) {
+                    var item = list[i];
+                    if (matchItem(item, key)) out.push({ title: item.title, file: item.file, date: item.date });
+                }
+                renderResults(out);
+            })
+            .catch(function() {
+                var fallback = window.UNLOCKGAMES_SEARCH_FALLBACK || [];
+                var out = [];
+                for (var i = 0; i < fallback.length; i++) {
+                    var item = fallback[i];
+                    if ((item.title || '').toLowerCase().indexOf(key) !== -1) out.push(item);
+                }
+                if (out.length) renderResults(out);
+                else {
+                    titleEl.textContent = 'Search results for “‘ + escapeHtml(q) + '"';
+                    resultsEl.innerHTML = '<p>No articles found. Try different keywords. (Search data may be unavailable when opening files locally—use a web server to load the full index.)</p>';
+                }
+            });
+    }
+
+    runSearch();
+})();
+    </script>
+</body>
+</html>
