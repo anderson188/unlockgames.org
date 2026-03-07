@@ -30,8 +30,58 @@
                 <input type="text" name="q" class="blog-search" placeholder="Search articles..." id="headerSearch" autocomplete="off">
                 <button type="submit" class="blog-search-btn" aria-label="Search">Search</button>
             </form>
+            <div class="header-auth">
+                <button type="button" class="btn-auth btn-login" id="btnLogin">Log in</button>
+                <button type="button" class="btn-auth btn-register" id="btnRegister">Sign up</button>
+            </div>
         </div>
     </header>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="modalLogin" aria-hidden="true">
+        <div class="modal-dialog" role="dialog" aria-labelledby="loginTitle">
+            <div class="modal-header">
+                <h2 id="loginTitle">Log in</h2>
+                <button type="button" class="modal-close" id="closeLogin" aria-label="Close">&times;</button>
+            </div>
+            <form class="modal-form" id="formLogin" onsubmit="event.preventDefault(); document.getElementById('loginSuccess').style.display='block'; setTimeout(function(){ document.getElementById('modalLogin').classList.remove('is-open'); document.getElementById('loginSuccess').style.display='none'; }, 1500);">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" name="email" placeholder="your@email.com" required autocomplete="email">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="password" placeholder="••••••••" required autocomplete="current-password">
+                <label class="modal-checkbox">
+                    <input type="checkbox" name="remember"> Remember me
+                </label>
+                <button type="submit" class="modal-submit">Log in</button>
+                <p class="modal-message" id="loginSuccess" style="display:none;">Welcome back!</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal-overlay" id="modalRegister" aria-hidden="true">
+        <div class="modal-dialog" role="dialog" aria-labelledby="registerTitle">
+            <div class="modal-header">
+                <h2 id="registerTitle">Sign up</h2>
+                <button type="button" class="modal-close" id="closeRegister" aria-label="Close">&times;</button>
+            </div>
+            <form class="modal-form" id="formRegister" onsubmit="var p=document.getElementById('regPassword'),p2=document.getElementById('regPassword2'); event.preventDefault(); if(p.value!==p2.value){ p2.setCustomValidity('Passwords do not match'); p2.reportValidity(); return; } p2.setCustomValidity(''); document.getElementById('registerSuccess').style.display='block'; setTimeout(function(){ document.getElementById('modalRegister').classList.remove('is-open'); document.getElementById('registerSuccess').style.display='none'; }, 1500);">
+                <label for="regName">Name</label>
+                <input type="text" id="regName" name="name" placeholder="Your name" required autocomplete="name">
+                <label for="regEmail">Email</label>
+                <input type="email" id="regEmail" name="email" placeholder="your@email.com" required autocomplete="email">
+                <label for="regPassword">Password</label>
+                <input type="password" id="regPassword" name="password" placeholder="At least 6 characters" required autocomplete="new-password" minlength="6">
+                <label for="regPassword2">Confirm password</label>
+                <input type="password" id="regPassword2" name="password2" placeholder="Confirm password" required autocomplete="new-password">
+                <label class="modal-checkbox">
+                    <input type="checkbox" name="terms" required> I agree to the <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy Policy</a>
+                </label>
+                <button type="submit" class="modal-submit">Create account</button>
+                <p class="modal-message" id="registerSuccess" style="display:none;">Account created! You can log in now.</p>
+            </form>
+        </div>
+    </div>
 
     <nav class="blog-nav">
         <div class="container">
@@ -47,17 +97,90 @@
         </div>
     </nav>
 
-    <div class="blog-carousel">
-        <div class="carousel-inner">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=320&fit=crop" alt="Beach travel" class="carousel-slide active" width="1200" height="320" fetchpriority="high">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=320&fit=crop" alt="Tech and electronics" class="carousel-slide" width="1200" height="320" loading="lazy">
-            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&h=320&fit=crop" alt="Mountain landscape" class="carousel-slide" width="1200" height="320" loading="lazy">
-            <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=1200&h=320&fit=crop" alt="City skyline" class="carousel-slide" width="1200" height="320" loading="lazy">
-            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=320&fit=crop" alt="Shopping store" class="carousel-slide" width="1200" height="320" loading="lazy">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=320&fit=crop" alt="Fashion and style" class="carousel-slide" width="1200" height="320" loading="lazy">
-            <button class="carousel-nav carousel-prev" onclick="carouselPrev()">&#10094;</button>
-            <button class="carousel-nav carousel-next" onclick="carouselNext()">&#10095;</button>
-            <div class="carousel-dots" id="carouselDots"></div>
+    <div class="hero-row">
+        <!-- Left: Weather from screen edge to carousel -->
+        <aside class="hero-weather" id="heroWeather">
+            <div class="weather-effect"></div>
+            <div class="weather-inner">
+                <div class="weather-head">
+                    <span class="weather-loc-icon" aria-hidden="true">&#9992;</span>
+                    <span class="weather-city" id="weatherCity">--</span>
+                    <span class="weather-dropdown" aria-hidden="true">&#9660;</span>
+                    <button type="button" class="weather-menu" aria-label="Options">&#8942;</button>
+                </div>
+                <div class="weather-main">
+                    <div class="weather-icon-wrap" id="weatherIconWrap">
+                        <span class="weather-icon" id="weatherIcon">☁️</span>
+                    </div>
+                    <div class="weather-temp-wrap">
+                        <span class="weather-temp" id="weatherTemp">--</span>
+                        <span class="weather-unit">°C</span>
+                    </div>
+                </div>
+                <div class="weather-details">
+                    <span class="weather-desc" id="weatherDesc">--</span>
+                    <span class="weather-meta"><span class="weather-meta-icon">💧</span> <span id="weatherHumidity">--%</span></span>
+                    <span class="weather-meta"><span class="weather-meta-icon">🌬️</span> <span id="weatherWind">--</span></span>
+                </div>
+                <a href="https://www.msn.com/weather" target="_blank" rel="noopener" class="weather-forecast-btn" id="weatherForecastBtn">View full forecast</a>
+            </div>
+        </aside>
+
+        <!-- Center: Carousel (same width as content below) -->
+        <div class="blog-carousel">
+            <div class="carousel-inner">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=320&fit=crop" alt="Beach travel" class="carousel-slide active" width="1200" height="320" fetchpriority="high">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=320&fit=crop" alt="Tech and electronics" class="carousel-slide" width="1200" height="320" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&h=320&fit=crop" alt="Mountain landscape" class="carousel-slide" width="1200" height="320" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=1200&h=320&fit=crop" alt="City skyline" class="carousel-slide" width="1200" height="320" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=320&fit=crop" alt="Shopping store" class="carousel-slide" width="1200" height="320" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=320&fit=crop" alt="Fashion and style" class="carousel-slide" width="1200" height="320" loading="lazy">
+                <button class="carousel-nav carousel-prev" onclick="carouselPrev()">&#10094;</button>
+                <button class="carousel-nav carousel-next" onclick="carouselNext()">&#10095;</button>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </div>
+
+        <!-- Right: Clock single row (hours minutes seconds) -->
+        <aside class="hero-clock-wrap" id="heroClockWrap">
+            <div class="hero-clock" id="heroClock">
+                <div class="clock-row">
+                    <div class="clock-unit"><span class="clock-label">HOURS</span><span class="clock-num" id="flipHours">00</span></div>
+                    <div class="clock-unit"><span class="clock-label">MINUTES</span><span class="clock-num" id="flipMins">00</span></div>
+                    <div class="clock-unit"><span class="clock-label">SECONDS</span><span class="clock-num" id="flipSecs">00</span></div>
+                </div>
+                <p class="clock-date" id="clockDate">--</p>
+                <div class="clock-actions">
+                    <button type="button" class="clock-fullscreen" id="clockFullscreen" title="Fullscreen">&#10535;</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Fullscreen overlay: clock one row, no overlap -->
+    <div class="clock-fullscreen-overlay" id="clockFullscreenOverlay" aria-hidden="true">
+        <div class="clock-fullscreen-inner" id="clockFullscreenInner">
+            <div class="clock-row clock-row-fs">
+                <div class="clock-unit"><span class="clock-label">HOURS</span><span class="clock-num" id="fsHours">00</span></div>
+                <div class="clock-unit"><span class="clock-label">MINUTES</span><span class="clock-num" id="fsMins">00</span></div>
+                <div class="clock-unit"><span class="clock-label">SECONDS</span><span class="clock-num" id="fsSecs">00</span></div>
+            </div>
+            <p class="clock-date clock-date-fs" id="fsDate">--</p>
+            <button type="button" class="clock-fs-close" id="clockFsClose" aria-label="Close fullscreen">&times;</button>
+        </div>
+    </div>
+
+    <!-- AI Assistant: fixed button + chat panel -->
+    <button type="button" class="ask-ai-fab" id="askAiFab" aria-label="AI Assistant"><span class="ask-ai-icon" aria-hidden="true">&#129302;</span><span class="ask-ai-text">AI Assistant</span></button>
+    <div class="ask-ai-panel" id="askAiPanel" aria-hidden="true">
+        <div class="ask-ai-header">
+            <span class="ask-ai-title">AI Assistant</span>
+            <button type="button" class="ask-ai-close" id="askAiClose" aria-label="Close">&times;</button>
+        </div>
+        <div class="ask-ai-messages" id="askAiMessages"></div>
+        <div class="ask-ai-input-row">
+            <input type="text" class="ask-ai-input" id="askAiInput" placeholder="Type your question..." autocomplete="off">
+            <button type="button" class="ask-ai-send" id="askAiSend">Send</button>
         </div>
     </div>
 
@@ -307,16 +430,71 @@
         <!-- Right Sidebar -->
         <aside class="blog-right">
             <h3>Categories</h3>
-            <ul class="sidebar-list">
-                <li><a href="index-coupon.html">Coupons</a></li>
-                <li><a href="index1018.html">Games</a></li>
-                <li><a href="#electronics">Electronics & Tech</a></li>
-                <li><a href="#fashion">Fashion & Beauty</a></li>
-                <li><a href="#shopping">Shopping & Retail</a></li>
-                <li><a href="#travel">Travel</a></li>
-                <li><a href="#shopping">Home & Garden</a></li>
-                <li><a href="#fashion">Beauty & Skincare</a></li>
-                <li><a href="#travel">Hotels & Flights</a></li>
+            <p class="blog-right-intro">Browse guides and deals by topic.</p>
+            <ul class="category-grid">
+                <li class="category-item">
+                    <a href="index-coupon.html">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=80&h=56&fit=crop" alt="Coupons" width="80" height="56" loading="lazy" class="category-thumb">
+                        <span class="category-name">Coupons</span>
+                        <span class="category-desc">Deals & promo codes</span>
+                    </a>
+                </li>
+                <li class="category-item">
+                    <a href="index1018.html">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
+                        <span class="category-name">Games</span>
+                        <span class="category-desc">Free online games</span>
+                    </a>
+                </li>
+                <li class="category-item">
+                    <a href="#electronics">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
+                        <span class="category-name">Electronics & Tech</span>
+                        <span class="category-desc">Laptops, phones & gadgets</span>
+                    </a>
+                </li>
+                <li class="category-item">
+                    <a href="#fashion">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
+                        <span class="category-name">Fashion & Beauty</span>
+                        <span class="category-desc">Style & skincare guides</span>
+                    </a>
+                </li>
+                <li class="category-item">
+                    <a href="#shopping">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
+                        <span class="category-name">Shopping & Retail</span>
+                        <span class="category-desc">Stores, rewards & tips</span>
+                    </a>
+                </li>
+                <li class="category-item">
+                    <a href="#travel">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
+                        <span class="category-name">Travel</span>
+                        <span class="category-desc">Flights, hotels & trips</span>
+                    </a>
+                </li>
+                <li class="category-item">
+                    <a href="#shopping">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
+                        <span class="category-name">Home & Garden</span>
+                        <span class="category-desc">DIY & home improvement</span>
+                    </a>
+                </li>
+                <li class="category-item">
+                    <a href="#fashion">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
+                        <span class="category-name">Beauty & Skincare</span>
+                        <span class="category-desc">Routines & recommendations</span>
+                    </a>
+                </li>
+                <li class="category-item">
+                    <a href="#travel">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
+                        <span class="category-name">Hotels & Flights</span>
+                        <span class="category-desc">Booking & rewards</span>
+                    </a>
+                </li>
             </ul>
         </aside>
     </main>
@@ -354,5 +532,137 @@
         })();
     </script>
     <script type="text/javascript" src="https://s.skimresources.com/js/299649X1787445.skimlinks.js"></script>
+    <script>
+        (function(){
+            var cityEl = document.getElementById('weatherCity');
+            var tempEl = document.getElementById('weatherTemp');
+            var descEl = document.getElementById('weatherDesc');
+            var humidityEl = document.getElementById('weatherHumidity');
+            var windEl = document.getElementById('weatherWind');
+            var iconEl = document.getElementById('weatherIcon');
+            var wmoDesc = { 0:'Clear', 1:'Mainly clear', 2:'Partly cloudy', 3:'Overcast', 45:'Foggy', 48:'Foggy', 51:'Drizzle', 53:'Drizzle', 55:'Drizzle', 61:'Rain', 63:'Rain', 65:'Heavy rain', 71:'Snow', 73:'Snow', 75:'Heavy snow', 80:'Showers', 81:'Showers', 82:'Heavy showers', 95:'Thunderstorm', 96:'Thunderstorm', 99:'Thunderstorm' };
+            function descForCode(c){ var keys = Object.keys(wmoDesc).map(Number).sort(function(a,b){ return a - b; }); var k = 0; for(var i = 0; i < keys.length; i++){ if(c >= keys[i]) k = keys[i]; } return wmoDesc[k] || 'Clear'; }
+            function iconForCode(c){ if(c<=1) return '☀️'; if(c<=2) return '🌤️'; if(c<=3) return '☁️'; if(c<=48) return '🌫️'; if(c<=55) return '🌦️'; if(c<=65) return '🌧️'; if(c<=75) return '🌨️'; if(c<=82) return '🌦️'; return '⛈️'; }
+            fetch('https://ipapi.co/json/').then(function(r){ return r.json(); }).then(function(ip){
+                var city = (ip.city || ip.region || ip.country_name || 'Unknown');
+                var lat = ip.latitude || 30.57;
+                var lon = ip.longitude || 104.06;
+                if(cityEl) cityEl.textContent = city;
+                var url = 'https://api.open-meteo.com/v1/forecast?latitude='+lat+'&longitude='+lon+'&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m';
+                fetch(url).then(function(r){ return r.json(); }).then(function(w){
+                    var cur = w.current;
+                    if(tempEl) tempEl.textContent = Math.round(cur.temperature_2m);
+                    if(descEl) descEl.textContent = descForCode(cur.weather_code);
+                    if(humidityEl) humidityEl.textContent = (cur.relative_humidity_2m || 0) + '%';
+                    if(windEl) windEl.textContent = (cur.wind_speed_10m || 0) + ' km/h';
+                    if(iconEl) iconEl.innerHTML = iconForCode(cur.weather_code);
+                }).catch(function(){ if(tempEl) tempEl.textContent = '--'; });
+            }).catch(function(){ if(cityEl) cityEl.textContent = 'Location unknown'; });
+        })();
+    </script>
+    <script>
+        (function(){
+            var ids = ['flipHours','flipMins','flipSecs'];
+            var fsIds = ['fsHours','fsMins','fsSecs'];
+            var dateEl = document.getElementById('clockDate');
+            var fsDateEl = document.getElementById('fsDate');
+            function pad(n){ return (n < 10 ? '0' : '') + n; }
+            function update(){
+                var now = new Date();
+                var h = pad(now.getHours());
+                var m = pad(now.getMinutes());
+                var s = pad(now.getSeconds());
+                var vals = [ h, m, s ];
+                ids.forEach(function(id, i){ var el = document.getElementById(id); if(el) el.textContent = vals[i]; });
+                fsIds.forEach(function(id, i){ var el = document.getElementById(id); if(el) el.textContent = vals[i]; });
+                var dateStr = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate());
+                if(dateEl) dateEl.textContent = dateStr;
+                if(fsDateEl) fsDateEl.textContent = dateStr;
+            }
+            update();
+            setInterval(update, 1000);
+            var fsOverlay = document.getElementById('clockFullscreenOverlay');
+            var fsClose = document.getElementById('clockFsClose');
+            var fsBtn = document.getElementById('clockFullscreen');
+            if(fsBtn && fsOverlay){ fsBtn.addEventListener('click', function(){ fsOverlay.classList.add('is-open'); }); }
+            if(fsClose && fsOverlay){ fsClose.addEventListener('click', function(){ fsOverlay.classList.remove('is-open'); }); }
+            if(fsOverlay){ fsOverlay.addEventListener('click', function(e){ if(e.target === fsOverlay) fsOverlay.classList.remove('is-open'); }); }
+            document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && fsOverlay) fsOverlay.classList.remove('is-open'); });
+        })();
+    </script>
+    <script>
+        (function(){
+            var btnLogin = document.getElementById('btnLogin');
+            var btnRegister = document.getElementById('btnRegister');
+            var modalLogin = document.getElementById('modalLogin');
+            var modalRegister = document.getElementById('modalRegister');
+            var closeLogin = document.getElementById('closeLogin');
+            var closeRegister = document.getElementById('closeRegister');
+            function openModal(el){ el.classList.add('is-open'); el.setAttribute('aria-hidden','false'); }
+            function closeModal(el){ el.classList.remove('is-open'); el.setAttribute('aria-hidden','true'); }
+            if(btnLogin){ btnLogin.addEventListener('click', function(){ openModal(modalLogin); }); }
+            if(btnRegister){ btnRegister.addEventListener('click', function(){ openModal(modalRegister); }); }
+            if(closeLogin){ closeLogin.addEventListener('click', function(){ closeModal(modalLogin); }); }
+            if(closeRegister){ closeRegister.addEventListener('click', function(){ closeModal(modalRegister); }); }
+            [modalLogin, modalRegister].forEach(function(m){
+                if(!m) return;
+                m.addEventListener('click', function(e){ if(e.target === m) closeModal(m); });
+            });
+            document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeModal(modalLogin); closeModal(modalRegister); } });
+        })();
+    </script>
+    <script>
+        (function(){
+            var OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
+            var OPENROUTER_MODEL = 'openrouter/free';
+            var OPENROUTER_API_KEY = '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';
+            var fab = document.getElementById('askAiFab');
+            var panel = document.getElementById('askAiPanel');
+            var closeBtn = document.getElementById('askAiClose');
+            var messagesEl = document.getElementById('askAiMessages');
+            var inputEl = document.getElementById('askAiInput');
+            var sendBtn = document.getElementById('askAiSend');
+            function openPanel(){ if(panel){ panel.classList.add('is-open'); panel.setAttribute('aria-hidden','false'); } }
+            function closePanel(){ if(panel){ panel.classList.remove('is-open'); panel.setAttribute('aria-hidden','true'); } }
+            if(fab) fab.addEventListener('click', openPanel);
+            if(closeBtn) closeBtn.addEventListener('click', closePanel);
+            function addMsg(role, text){
+                if(!messagesEl) return;
+                var div = document.createElement('div');
+                div.className = 'ask-ai-msg ask-ai-msg-' + role;
+                div.textContent = text;
+                messagesEl.appendChild(div);
+                messagesEl.scrollTop = messagesEl.scrollHeight;
+            }
+            function setLoading(on){ if(sendBtn) sendBtn.disabled = on; sendBtn.textContent = on ? '...' : 'Send'; }
+            if(sendBtn && inputEl){
+                sendBtn.addEventListener('click', function(){ send(); });
+                inputEl.addEventListener('keydown', function(e){ if(e.key === 'Enter') send(); });
+            }
+            function send(){
+                var text = (inputEl && inputEl.value) ? inputEl.value.trim() : '';
+                if(!text) return;
+                addMsg('user', text);
+                if(inputEl) inputEl.value = '';
+                setLoading(true);
+                var messages = [];
+                messagesEl.querySelectorAll('.ask-ai-msg-user, .ask-ai-msg-assistant').forEach(function(el){
+                    messages.push({ role: el.classList.contains('ask-ai-msg-user') ? 'user' : 'assistant', content: el.textContent });
+                });
+                fetch(OPENROUTER_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + OPENROUTER_API_KEY, 'HTTP-Referer': location.origin + '/' },
+                    body: JSON.stringify({ model: OPENROUTER_MODEL, messages: messages })
+                }).then(function(r){ return r.json(); }).then(function(data){
+                    setLoading(false);
+                    var reply = (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) ? data.choices[0].message.content : (data.error ? (data.error.message || 'Request failed') : 'No response');
+                    addMsg('assistant', reply);
+                }).catch(function(err){
+                    setLoading(false);
+                    addMsg('assistant', 'Network or request error: ' + (err.message || 'Check API Key and network'));
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
