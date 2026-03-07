@@ -1,0 +1,7 @@
+name = "unlockgames-ai-proxy"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+# API Key 不要写在这里。部署后在项目目录执行：
+#   npx wrangler secret put OPENROUTER_API_KEY
+# 按提示粘贴你的 OpenRouter Key。
