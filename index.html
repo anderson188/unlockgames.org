@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>unLockGames - Brand Stories, Deals & Free Games</title>
-    <meta name="description" content="Discover brand stories, exclusive deals and cashback. 150+ buying guides for electronics, fashion, travel and shopping. Free online games. Updated regularly—save more.">
-    <meta name="keywords" content="unLockGames, cashback, deals, promo codes, discount codes, buying guides, brand stories, free online games, save money, electronics deals, fashion deals, travel deals, shopping rewards, coupon codes, best deals 2025, shopping tips, rewards program">
+    <meta name="description" content="unLockGames: brand stories, exclusive deals and cashback, 150+ buying guides, free online games—plus built-in AI Assistant for live chat and problem-solving. Get answers and save more.">
+    <meta name="keywords" content="unLockGames, AI assistant, AI chat, AI support, free AI chatbot, cashback, deals, promo codes, discount codes, buying guides, brand stories, free online games, save money, electronics deals, fashion deals, travel deals, shopping rewards, coupon codes, best deals 2025, shopping tips, rewards program">
     <link rel="canonical" href="https://unlockgames.org/">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:title" content="unLockGames - Brand Stories, Deals & Free Games">
-    <meta property="og:description" content="Discover brand stories, exclusive deals and cashback. 150+ buying guides for electronics, fashion, travel and shopping. Free games. Save more.">
+    <meta property="og:description" content="Brand stories, deals, free games—and an AI Assistant for chat and problem-solving. 150+ guides. Save more with unLockGames.">
     <meta property="og:url" content="https://unlockgames.org/">
     <meta property="og:locale" content="en_US">
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
@@ -20,7 +20,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V09FV1LC3E"></script>
    
 
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"unLockGames","url":"https://unlockgames.org/","description":"Brand stories, exclusive deals, cashback offers, and free online games. 150+ buying guides for electronics, fashion, travel, and shopping."}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"unLockGames","url":"https://unlockgames.org/","description":"Brand stories, exclusive deals, cashback, and free online games. Built-in AI Assistant for chat and problem-solving. 150+ buying guides for electronics, fashion, travel, and shopping."}</script>
 </head>
 <body>
     <header class="blog-header">
@@ -170,12 +170,23 @@
         </div>
     </div>
 
-    <!-- AI Assistant: fixed button + chat panel -->
-    <button type="button" class="ask-ai-fab" id="askAiFab" aria-label="AI Assistant"><span class="ask-ai-icon" aria-hidden="true">&#129302;</span><span class="ask-ai-text">AI Assistant</span></button>
-    <div class="ask-ai-panel" id="askAiPanel" aria-hidden="true">
+    <!-- AI Assistant: small input, expands when user sends -->
+    <div class="ask-ai-float" id="askAiFloat">
+        <div class="ask-ai-quick-messages" id="askAiQuickMessages"></div>
+        <div class="ask-ai-quick-row">
+            <input type="text" class="ask-ai-quick-input" id="askAiQuickInput" placeholder="Ask AI..." autocomplete="off">
+            <button type="button" class="ask-ai-quick-send" id="askAiQuickSend" aria-label="Send">&#8594;</button>
+        </div>
+        <button type="button" class="ask-ai-fab" id="askAiFab" aria-label="Open full chat"><span class="ask-ai-icon" aria-hidden="true">&#129302;</span><span class="ask-ai-text">Expand</span></button>
+    </div>
+    <div class="ask-ai-panel" id="askAiPanel" aria-hidden="true" style="width: 360px;">
+        <div class="ask-ai-resize-handle" id="askAiResizeHandle" aria-label="Drag to resize"></div>
         <div class="ask-ai-header">
             <span class="ask-ai-title">AI Assistant</span>
-            <button type="button" class="ask-ai-close" id="askAiClose" aria-label="Close">&times;</button>
+            <div class="ask-ai-header-actions">
+                <button type="button" class="ask-ai-maximize" id="askAiMaximize" title="Expand">&#10535;</button>
+                <button type="button" class="ask-ai-close" id="askAiClose" aria-label="Close">&times;</button>
+            </div>
         </div>
         <div class="ask-ai-messages" id="askAiMessages"></div>
         <div class="ask-ai-input-row">
@@ -620,17 +631,46 @@
             var messagesEl = document.getElementById('askAiMessages');
             var inputEl = document.getElementById('askAiInput');
             var sendBtn = document.getElementById('askAiSend');
+            var quickInput = document.getElementById('askAiQuickInput');
+            var quickSend = document.getElementById('askAiQuickSend');
+            var resizeHandle = document.getElementById('askAiResizeHandle');
+            var maximizeBtn = document.getElementById('askAiMaximize');
+            var PANEL_MIN = 320, PANEL_MAX = 95; // px and vw
+            var savedPanelWidth = 360;
             function openPanel(){ if(panel){ panel.classList.add('is-open'); panel.setAttribute('aria-hidden','false'); } }
             function closePanel(){ if(panel){ panel.classList.remove('is-open'); panel.setAttribute('aria-hidden','true'); } }
             if(fab) fab.addEventListener('click', openPanel);
             if(closeBtn) closeBtn.addEventListener('click', closePanel);
+            function sendFromQuick(){
+                var text = quickInput && quickInput.value ? quickInput.value.trim() : '';
+                if(!text) return;
+                if(inputEl) inputEl.value = text;
+                if(quickInput) quickInput.value = '';
+                send();
+            }
+            if(quickSend && quickInput){ quickSend.addEventListener('click', sendFromQuick); quickInput.addEventListener('keydown', function(e){ if(e.key === 'Enter') sendFromQuick(); }); }
+            if(resizeHandle && panel){
+                var startX, startW;
+                resizeHandle.addEventListener('mousedown', function(e){ e.preventDefault(); startX = e.clientX; startW = panel.offsetWidth; document.body.style.userSelect = 'none'; document.body.style.cursor = 'ew-resize';
+                    function onMove(e){ var dx = startX - e.clientX; var vw = (window.innerWidth || document.documentElement.clientWidth) / 100; var w = Math.max(PANEL_MIN, Math.min(startW + dx, (PANEL_MAX * vw))); panel.style.width = w + 'px'; savedPanelWidth = w; }
+                    function onUp(){ document.removeEventListener('mousemove', onMove); document.removeEventListener('mouseup', onUp); document.body.style.userSelect = ''; document.body.style.cursor = ''; }
+                    document.addEventListener('mousemove', onMove); document.addEventListener('mouseup', onUp);
+                });
+            }
+            if(maximizeBtn && panel){
+                maximizeBtn.addEventListener('click', function(){
+                    if(panel.classList.contains('ask-ai-maximized')){ panel.classList.remove('ask-ai-maximized'); panel.style.width = savedPanelWidth + 'px'; maximizeBtn.title = 'Expand'; maximizeBtn.textContent = '\u2922'; }
+                    else{ panel.classList.add('ask-ai-maximized'); panel.style.width = ''; maximizeBtn.title = 'Restore'; maximizeBtn.textContent = '\u2921'; }
+                });
+            }
+            var quickMessagesEl = document.getElementById('askAiQuickMessages');
+            var floatEl = document.getElementById('askAiFloat');
             function addMsg(role, text){
-                if(!messagesEl) return;
                 var div = document.createElement('div');
                 div.className = 'ask-ai-msg ask-ai-msg-' + role;
                 div.textContent = text;
-                messagesEl.appendChild(div);
-                messagesEl.scrollTop = messagesEl.scrollHeight;
+                if(messagesEl){ messagesEl.appendChild(div); messagesEl.scrollTop = messagesEl.scrollHeight; }
+                if(quickMessagesEl){ quickMessagesEl.appendChild(div.cloneNode(true)); quickMessagesEl.scrollTop = quickMessagesEl.scrollHeight; if(floatEl) floatEl.classList.add('has-chat'); }
             }
             function setLoading(on){ if(sendBtn) sendBtn.disabled = on; sendBtn.textContent = on ? '...' : 'Send'; }
             if(sendBtn && inputEl){
