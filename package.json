@@ -1,0 +1,10 @@
+{
+  "name": "samsung-receipt-screenshots",
+  "private": true,
+  "scripts": {
+    "screenshots": "node scripts/screenshot-orders.js"
+  },
+  "devDependencies": {
+    "puppeteer": "^21.0.0"
+  }
+}
