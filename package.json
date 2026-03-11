@@ -2,7 +2,8 @@
   "name": "samsung-receipt-screenshots",
   "private": true,
   "scripts": {
-    "screenshots": "node scripts/screenshot-orders.js"
+    "screenshots": "node scripts/screenshot-orders.js",
+    "screenshots:invoices": "node scripts/screenshot-invoices.js"
   },
   "devDependencies": {
     "puppeteer": "^21.0.0"
