@@ -10,17 +10,16 @@
     .invoice { max-width: 900px; margin: 0 auto; }
     .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
     .header h1 { margin: 0; font-size: 24px; font-weight: 700; }
-    .header .logo { color: #1428a0; font-weight: 700; font-size: 18px; }
+    .header .logo { color: #1428a0; font-weight: 800; font-size: 28px; letter-spacing: 0.02em; }
     .two-col { display: flex; gap: 40px; margin-bottom: 20px; }
     .two-col .left { flex: 1; }
     .two-col .right { flex: 1; }
+    .invoice-line .invoice-label { margin-right: 1.2em; }
     .label { font-weight: 700; margin-bottom: 4px; }
-    .three-col { display: flex; gap: 24px; margin-bottom: 24px; }
-    .three-col .col { flex: 1; }
-    .mosaic-wrap { position: relative; display: inline-block; padding: 8px 12px; background: #f5f5f5; border-radius: 4px; }
-    .mosaic-wrap .text { font-family: monospace; letter-spacing: 2px; }
-    .mosaic-wrap .overlay { position: absolute; left: 0; top: 0; right: 0; bottom: 0; pointer-events: none; }
-    .mosaic-wrap .overlay .blur { position: absolute; background: #000; opacity: 0.85; border-radius: 1px; }
+    .three-col { display: flex; gap: 0; margin-bottom: 24px; border: 1px solid #ccc; border-radius: 4px; overflow: hidden; }
+    .three-col .col { flex: 1; padding: 14px 16px; border-left: 1px solid #ccc; min-width: 0; }
+    .three-col .col:first-child { border-left: none; }
+    .card-masked { font-family: monospace; font-size: 14px; letter-spacing: 2px; margin-top: 6px; color: #333; }
     table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
     th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
     th { background: #f5f5f5; font-weight: 700; }
@@ -30,8 +29,8 @@
     .summary { text-align: right; max-width: 320px; margin-left: auto; margin-bottom: 24px; }
     .summary .row { display: flex; justify-content: space-between; gap: 24px; margin-bottom: 4px; }
     .summary .row.total { font-weight: 700; font-size: 14px; margin-top: 8px; padding-top: 8px; border-top: 1px solid #000; }
-    .footer { font-size: 10px; color: #555; margin-top: 24px; }
-    .footer .total-row { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; margin-top: 12px; }
+    .footer { font-size: 10px; color: #6b6b6b; margin-top: 24px; line-height: 1.4; }
+    .footer-total { margin-top: 16px; padding-top: 12px; border-top: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 700; color: #000; }
   </style>
 </head>
 <body>
@@ -78,14 +77,19 @@
         '78 King Street\nManchester\nM2 4LY\nUK',
       ];
       var VAT_RATE = 0.2;
+      var MAX_ITEMS_PER_INVOICE = 4;
       function matchProducts(targetAmount) {
         var target = Math.round(targetAmount * 100) / 100;
         var products = PRODUCTS_WITH_PRICES.slice().sort(function (a, b) { return b.price - a.price; });
         var best = { items: [], sum: 0, diff: 1e9 };
         var tol = Math.max(20, target * 0.08);
         function search(start, sum, chosen) {
+          if (chosen.length > MAX_ITEMS_PER_INVOICE) return;
           var diff = Math.abs(sum - target);
-          if (sum > 0 && diff < best.diff) best = { items: chosen.slice(), sum: sum, diff: diff };
+          if (sum > 0) {
+            if (diff < best.diff || (diff <= best.diff + 2 && chosen.length < best.items.length))
+              best = { items: chosen.slice(), sum: sum, diff: diff };
+          }
           if (sum > target + tol) return;
           for (var i = start; i < products.length; i++) {
             var p = products[i];
@@ -95,7 +99,9 @@
         search(0, 0, []);
         if (best.items.length === 0) {
           var asc = products.filter(function (p) { return p.price <= target; }).reverse();
-          for (var j = 0; j < asc.length && best.sum < target * 0.9; j++) { best.items.push(asc[j]); best.sum += asc[j].price; }
+          for (var j = 0; j < asc.length && best.sum < target * 0.9 && best.items.length < MAX_ITEMS_PER_INVOICE; j++) {
+            best.items.push(asc[j]); best.sum += asc[j].price;
+          }
         }
         return best.items;
       }
@@ -116,13 +122,14 @@
         for (var i = 0; i < 12; i++) out += chars[Math.abs((seed * (i + 1) + i) % chars.length)];
         return out;
       }
-      function mosaicRects(index) {
-        var rects = [];
-        var rnd = function (a, b) { return a + (Math.sin(index * 999 + a * 7 + b) * 0.5 + 0.5) * (b - a); };
-        for (var i = 0; i < 6; i++) {
-          rects.push({ left: rnd(0, 85) + '%', top: rnd(0, 70) + '%', w: rnd(8, 25) + '%', h: rnd(15, 40) + '%' });
+      function maskedCardNumber(index) {
+        var seed = index * 7919 + 300003;
+        var last4 = '';
+        for (var i = 0; i < 4; i++) {
+          var x = Math.sin(seed * 12.9898 + i * 78.233) * 43758.5453;
+          last4 += Math.abs(Math.floor((x - Math.floor(x)) * 10)) % 10;
         }
-        return rects;
+        return '**** **** **** ' + last4;
       }
       var invoiceIndex = parseInt((/invoice=(\d+)/.exec(location.search) || [])[1], 10);
       if (isNaN(invoiceIndex) || invoiceIndex < 0 || invoiceIndex >= 32) invoiceIndex = 0;
@@ -146,20 +153,21 @@
       });
       var hasDiscount = [0, 2, 5, 8, 11, 14, 17, 19, 22, 26, 29].indexOf(invoiceIndex) >= 0;
       var discountAmount = hasDiscount ? Math.round(order.amount * (0.05 + Math.sin(invoiceIndex) * 0.05) * 100) / 100 : 0;
-      var orderNumber = 'UK' + (10000000 + invoiceIndex);
-      var invoiceNumber = 'UK' + (20000000 + invoiceIndex);
+      function orderNumberDigits(seed, length) {
+        var out = '';
+        for (var i = 0; i < length; i++) {
+          var x = Math.sin(seed * 12.9898 + i * 78.233) * 43758.5453;
+          out += Math.abs(Math.floor((x - Math.floor(x)) * 10)) % 10;
+        }
+        return out;
+      }
+      var orderNumber = 'UK' + orderNumberDigits(invoiceIndex * 7919 + 100001, 10);
+      var invoiceNumber = 'UK' + orderNumberDigits(invoiceIndex * 6781 + 200002, 10);
       var addrIndex = [1, 0, 2, 0, 1, 2, 1, 0, 2, 0, 1, 2, 0, 2, 1, 0, 2, 1, 0, 1, 2, 0, 2, 1, 0, 1, 2, 1, 0, 2, 0, 1][invoiceIndex];
       var address = MANCHESTER_ADDRESSES[addrIndex];
       var dateStr = dateToDDMMYYYY(order.date);
-      var rects = mosaicRects(invoiceIndex);
-      var rectsExp = mosaicRects(invoiceIndex + 1000);
       var root = document.getElementById('invoiceRoot');
-      var cardOverlay = rects.map(function (r) {
-        return '<div class="blur" style="left:' + r.left + ';top:' + r.top + ';width:' + r.w + ';height:' + r.h + '"></div>';
-      }).join('');
-      var expOverlay = rectsExp.slice(0, 3).map(function (r) {
-        return '<div class="blur" style="left:' + r.left + ';top:' + r.top + ';width:' + r.w + ';height:' + r.h + '"></div>';
-      }).join('');
+      var cardDisplay = '<div class="card-masked">' + escapeHtml(maskedCardNumber(invoiceIndex)) + '</div>';
       var rows = lines.map(function (line) {
         var tr = '<tr><td>' + escapeHtml(line.name) + '<br><span class="item-model">' + escapeHtml(line.id) + '</span></td><td class="num">' + line.qty + '</td><td class="num">£ ' + line.unitValue.toFixed(2) + '</td><td class="num">20%</td><td class="num">£ ' + line.unitValue.toFixed(2) + '</td><td class="num">£ ' + line.vat.toFixed(2) + '</td><td class="num">£ ' + line.total.toFixed(2) + '</td></tr>';
         if (line.imei) tr += '<tr class="imei-row"><td colspan="7">IMEI number(s): ' + line.imei + '</td></tr>';
@@ -171,8 +179,8 @@
       var vatSum = lines.reduce(function (s, l) { return s + l.vat; }, 0);
       root.innerHTML =
         '<div class="header"><h1>VAT Receipt</h1><span class="logo">SAMSUNG</span></div>' +
-        '<div class="two-col"><div class="left"><div class="label">Order number: ' + orderNumber + '</div><div>Order date: ' + dateStr + '</div></div><div class="right"><div class="label">Invoice ' + invoiceNumber + '</div><div>Invoice date: ' + dateStr + '</div></div></div>' +
-        '<div class="three-col"><div class="col"><div class="label">Payment type:</div><div>Credit Card</div><div class="mosaic-wrap" style="margin-top:8px;"><span class="text">**** **** **** 4521</span><div class="overlay">' + cardOverlay + '</div></div><div class="mosaic-wrap" style="margin-top:4px;"><span class="text">Exp: **/28</span><div class="overlay">' + expOverlay + '</div></div></div>' +
+        '<div class="two-col"><div class="left"><div class="label">Order number: ' + orderNumber + '</div><div>Order date: ' + dateStr + '</div></div><div class="right"><div class="label invoice-line"><span class="invoice-label">Invoice</span>' + invoiceNumber + '</div><div>Invoice date: ' + dateStr + '</div></div></div>' +
+        '<div class="three-col"><div class="col"><div class="label">Payment type:</div><div>Credit Card</div>' + cardDisplay + '</div>' +
         '<div class="col"><div class="label">Invoice address:</div><pre style="margin:0;white-space:pre-wrap;font-family:inherit;">' + escapeHtml(address) + '</pre></div>' +
         '<div class="col"><div class="label">Shipping to:</div><pre style="margin:0;white-space:pre-wrap;font-family:inherit;">' + escapeHtml(address) + '</pre></div></div>' +
         '<table><thead><tr><th>ITEM</th><th class="num">QTY</th><th class="num">UNIT PRICE</th><th class="num">VAT RATE</th><th class="num">UNIT VALUE</th><th class="num">VAT</th><th class="num">TOTAL</th></tr></thead><tbody>' + rows + '</tbody></table>' +
@@ -181,7 +189,7 @@
         '<div class="row">Delivery and installation cost: £ 0.00</div><div class="row">Total excluding VAT: £ ' + totalExVatSum.toFixed(2) + '</div><div class="row">VAT: £ ' + vatSum.toFixed(2) + '</div>' +
         '<div class="row total">Total: £ ' + order.amount.toFixed(2) + '</div></div>' +
         '<div class="footer">Copyright © Samsung Electronics (UK) Ltd. All rights reserved. Registered address - Samsung House, 2000 Hillswood Drive, Chertsey, Surrey, KT16 ORS, No. 03086621 VAT Number: GB 689376366</div>' +
-        '<div class="total-row"><span>Total</span><span>£ ' + order.amount.toFixed(2) + '</span></div>';
+        '<div class="footer-total"><span>Total</span><span>£ ' + order.amount.toFixed(2) + '</span></div>';
     })();
   </script>
 </body>
