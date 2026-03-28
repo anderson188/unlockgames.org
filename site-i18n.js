@@ -39,6 +39,15 @@
     }
   }
 
+  /** 内联包（i18n-embedded.js）：file:// 下 fetch 无法读本地 JSON，必须用此回退 */
+  function getEmbeddedPack(loc) {
+    try {
+      var w = window.__UNLOCKGAMES_I18N__;
+      if (w && typeof w === 'object' && w[loc]) return w[loc];
+    } catch (e) {}
+    return null;
+  }
+
   function getLocale() {
     try {
       var q = new URLSearchParams(window.location.search).get('lang');
@@ -139,15 +148,47 @@
     return m2 ? m2[1] : null;
   }
 
+  /** 正文根节点：普通文章为 article；topic-*.html 为 main.article-content（无内层 article） */
+  function getArticleContentRoot(slug) {
+    var a = document.querySelector('main.article-content article');
+    if (a) return a;
+    var ac = document.querySelector('article.article-content');
+    if (ac) return ac;
+    var ma = document.querySelector('main article');
+    if (ma) return ma;
+    var ar = document.querySelector('article');
+    if (ar) return ar;
+    if (slug && /^topic-/i.test(slug)) {
+      var m = document.querySelector('main.article-content');
+      if (m) return m;
+    }
+    return null;
+  }
+
+  function mergeArticleExtras(pack, extra) {
+    if (!pack || !extra || !extra.articles) return;
+    pack.articles = pack.articles || {};
+    for (var k in extra.articles) {
+      if (!Object.prototype.hasOwnProperty.call(extra.articles, k)) continue;
+      var cur = pack.articles[k] || {};
+      var add = extra.articles[k] || {};
+      pack.articles[k] = Object.assign({}, cur, add);
+    }
+  }
+
   function applyArticle(pack) {
     var slug = getArticleSlug();
     if (!slug || !pack || !pack.articles || !pack.articles[slug]) return;
     var art = pack.articles[slug];
-    var root = document.querySelector('main.article-content article') || document.querySelector('article');
+    var root = getArticleContentRoot(slug);
     if (!root) return;
     if (art.title) {
       var t = root.querySelector('h1');
       if (t) t.textContent = art.title;
+      else {
+        var oh = document.querySelector('section.article-header h1, .article-header h1');
+        if (oh) oh.textContent = art.title;
+      }
     }
     if (art.description) {
       var md = document.querySelector('meta[name="description"]');
@@ -163,6 +204,30 @@
       });
       root.innerHTML = art.bodyHtml + commentsHtml + disclosure;
     }
+  }
+
+  /** 无全文译文时，用首页卡片的标题/摘要更新文章页 H1 与 meta（正文仍为英文） */
+  function applyArticleTitleFromHome(pack) {
+    var slug = getArticleSlug();
+    if (!slug || !pack || !pack.homeCards) return;
+    var a = pack.articles && pack.articles[slug];
+    if (a && a.bodyHtml && a.title) return;
+    if (a && a.title && !a.bodyHtml) return;
+    var card = pack.homeCards['blogs/' + slug];
+    if (!card || !card.title) return;
+    var root = getArticleContentRoot(slug);
+    if (!root) return;
+    var h1 = root.querySelector('h1');
+    if (h1) h1.textContent = card.title;
+    else {
+      var oh2 = document.querySelector('section.article-header h1, .article-header h1');
+      if (oh2) oh2.textContent = card.title;
+    }
+    if (card.excerpt) {
+      var md = document.querySelector('meta[name="description"]');
+      if (md) md.setAttribute('content', card.excerpt);
+    }
+    document.title = card.title + ' - unLockGames';
   }
 
   function renderBlogNavFooter(ui) {
@@ -365,7 +430,20 @@
       if (isHomePage()) applyHomeCards(pack.homeCards);
       renderBlogNavFooter(pack.ui || {});
       applyArticle(pack);
-      if (!pack.articles || !pack.articles[getArticleSlug() || '']) showArticleNotice(pack.ui || {});
+      applyArticleTitleFromHome(pack);
+      var sl = getArticleSlug();
+      var ab = sl && pack.articles && pack.articles[sl] && pack.articles[sl].bodyHtml;
+      if (!ab) showArticleNotice(pack.ui || {});
+    }
+
+    var embedded = getEmbeddedPack(loc);
+    if (window.location.protocol === 'file:') {
+      if (embedded) {
+        applyPack(embedded);
+        return;
+      }
+      bindLangPanel();
+      return;
     }
 
     fetch(mainUrl, { cache: 'no-store' })
@@ -374,9 +452,40 @@
         return r.json();
       })
       .then(function (pack) {
+        if (!isHomePage()) return pack;
+        return fetch(i18nJsonUrl(loc + '-home.json'), { cache: 'no-store' })
+          .then(function (hr) {
+            if (!hr.ok) return pack;
+            return hr.json().then(function (home) {
+              if (home && home.homeCards) pack.homeCards = home.homeCards;
+              return pack;
+            });
+          })
+          .catch(function () {
+            return pack;
+          });
+      })
+      .then(function (pack) {
+        return fetch(i18nJsonUrl('articles-' + loc + '.json'), { cache: 'no-store' })
+          .then(function (ar) {
+            if (!ar.ok) return pack;
+            return ar.json().then(function (extra) {
+              mergeArticleExtras(pack, extra);
+              return pack;
+            });
+          })
+          .catch(function () {
+            return pack;
+          });
+      })
+      .then(function (pack) {
         applyPack(pack);
       })
       .catch(function () {
+        if (getEmbeddedPack(loc)) {
+          applyPack(getEmbeddedPack(loc));
+          return;
+        }
         bindLangPanel();
       });
   }

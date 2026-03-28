@@ -3,9 +3,15 @@
   "private": true,
   "scripts": {
     "screenshots": "node scripts/screenshot-orders.js",
-    "screenshots:invoices": "node scripts/screenshot-invoices.js"
+    "screenshots:invoices": "node scripts/screenshot-invoices.js",
+    "build:articles-i18n": "node scripts/build-articles-i18n.mjs && node scripts/build-i18n-embedded.mjs",
+    "build:articles-i18n:translate-only": "node scripts/build-articles-i18n.mjs",
+    "build:i18n-embedded": "node scripts/build-i18n-embedded.mjs",
+    "check:articles-i18n": "node scripts/check-articles-i18n.mjs"
   },
   "devDependencies": {
+    "cheerio": "^1.2.0",
+    "google-translate-api-x": "^10.7.2",
     "puppeteer": "^21.0.0"
   }
 }

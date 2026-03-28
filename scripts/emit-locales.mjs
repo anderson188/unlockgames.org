@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { execFileSync } from 'child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const i18n = path.join(__dirname, '..', 'i18n');
@@ -628,3 +629,6 @@ fs.writeFileSync(path.join(i18n, 'ja.json'), pack(metaJA, metaSearchJA, uiJA));
 fs.writeFileSync(path.join(i18n, 'ko.json'), pack(metaKO, metaSearchKO, uiKO));
 fs.writeFileSync(path.join(i18n, 'ru.json'), pack(metaRU, metaSearchRU, uiRU));
 console.log('Wrote de, fr, es, ja, ko, ru');
+
+execFileSync(process.execPath, [path.join(__dirname, 'build-home-i18n-locales.mjs')], { stdio: 'inherit' });
+execFileSync(process.execPath, [path.join(__dirname, 'build-i18n-embedded.mjs')], { stdio: 'inherit' });

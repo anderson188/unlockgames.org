@@ -89,6 +89,11 @@ body {
   line-height: 1;
 }
 
+/* 主按钮只显示 EN/ES/… 缩写；Windows 上国旗 emoji 常渲染成 “ES” 字母，与缩写重复成 “ES ES” */
+.header-lang-btn .header-lang-flag {
+  display: none;
+}
+
 .header-lang-chevron {
   font-size: 0.65rem;
   color: var(--text-secondary);
