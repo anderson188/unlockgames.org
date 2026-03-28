@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>unLockGames - Brand Stories, Deals & Free Games</title>
-    <meta name="description" content="unLockGames: brand stories, exclusive deals and cashback, 150+ buying guides, free online games—plus built-in AI Assistant for live chat and problem-solving. Get answers and save more.">
-    <meta name="keywords" content="unLockGames, AI assistant, AI chat, AI support, free AI chatbot, cashback, deals, promo codes, discount codes, buying guides, brand stories, free online games, save money, electronics deals, fashion deals, travel deals, shopping rewards, coupon codes, best deals 2025, shopping tips, rewards program">
+    <title>unLockGames - Brand Stories &amp; Shopping Guides</title>
+    <meta name="description" content="unLockGames: brand stories, buying guides, deals and cashback, 150+ articles—plus a built-in AI Assistant for live chat and problem-solving. Save time and shop with confidence.">
+    <meta name="keywords" content="unLockGames, AI assistant, AI chat, AI support, free AI chatbot, cashback, deals, promo codes, discount codes, buying guides, brand stories, save money, electronics deals, fashion deals, travel deals, shopping rewards, best deals 2026, shopping tips, rewards program">
     <link rel="canonical" href="https://unlockgames.org/">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="unLockGames - Brand Stories, Deals & Free Games">
-    <meta property="og:description" content="Brand stories, deals, free games—and an AI Assistant for chat and problem-solving. 150+ guides. Save more with unLockGames.">
+    <meta property="og:title" content="unLockGames - Brand Stories &amp; Shopping Guides">
+    <meta property="og:description" content="Brand stories, buying guides, and deals—with an AI Assistant for chat and problem-solving. 150+ guides. Save more with unLockGames.">
     <meta property="og:url" content="https://unlockgames.org/">
     <meta property="og:locale" content="en_US">
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
@@ -20,19 +20,29 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V09FV1LC3E"></script>
     <meta name='impact-site-verification' value='-165873803' />
 
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"unLockGames","url":"https://unlockgames.org/","description":"Brand stories, exclusive deals, cashback, and free online games. Built-in AI Assistant for chat and problem-solving. 150+ buying guides for electronics, fashion, travel, and shopping."}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"unLockGames","url":"https://unlockgames.org/","description":"Brand stories, buying guides, deals, and cashback. Built-in AI Assistant for chat and problem-solving. 150+ guides for electronics, fashion, travel, and shopping."}</script>
 </head>
 <body>
     <header class="blog-header">
         <div class="container">
-            <a href="index.html" class="blog-logo">unLockGames</a>
+            <div class="header-brand-cluster">
+                <div class="header-lang-wrap">
+                    <button type="button" class="header-lang-btn" id="headerLangBtn" aria-expanded="false" aria-haspopup="true" aria-controls="headerLangPanel">
+                        <span class="header-lang-flag" aria-hidden="true">🇬🇧</span>
+                        <span class="header-lang-label">EN</span>
+                        <span class="header-lang-chevron" aria-hidden="true">▼</span>
+                    </button>
+                    <ul class="header-lang-panel" id="headerLangPanel" hidden data-i18n-aria="langAria"></ul>
+                </div>
+                <a href="index.html" class="blog-logo">unLockGames</a>
+            </div>
             <form action="search.html" method="get" class="blog-search-form" role="search">
-                <input type="text" name="q" class="blog-search" placeholder="Search articles..." id="headerSearch" autocomplete="off">
-                <button type="submit" class="blog-search-btn" aria-label="Search">Search</button>
+                <input type="text" name="q" class="blog-search" placeholder="Search articles..." id="headerSearch" autocomplete="off" data-i18n="searchPlaceholder">
+                <button type="submit" class="blog-search-btn" data-i18n="searchButton" data-i18n-aria="searchAria">Search</button>
             </form>
             <div class="header-auth">
-                <button type="button" class="btn-auth btn-login" id="btnLogin">Log in</button>
-                <button type="button" class="btn-auth btn-register" id="btnRegister">Sign up</button>
+                <button type="button" class="btn-auth btn-login" id="btnLogin" data-i18n="loginBtn">Log in</button>
+                <button type="button" class="btn-auth btn-register" id="btnRegister" data-i18n="registerBtn">Sign up</button>
             </div>
         </div>
     </header>
@@ -41,19 +51,19 @@
     <div class="modal-overlay" id="modalLogin" aria-hidden="true">
         <div class="modal-dialog" role="dialog" aria-labelledby="loginTitle">
             <div class="modal-header">
-                <h2 id="loginTitle">Log in</h2>
-                <button type="button" class="modal-close" id="closeLogin" aria-label="Close">&times;</button>
+                <h2 id="loginTitle" data-i18n="loginTitle">Log in</h2>
+                <button type="button" class="modal-close" id="closeLogin" data-i18n-aria="closeAria" aria-label="Close">&times;</button>
             </div>
             <form class="modal-form" id="formLogin" onsubmit="event.preventDefault(); document.getElementById('loginSuccess').style.display='block'; setTimeout(function(){ document.getElementById('modalLogin').classList.remove('is-open'); document.getElementById('loginSuccess').style.display='none'; }, 1500);">
-                <label for="loginEmail">Email</label>
+                <label for="loginEmail" data-i18n="labelEmail">Email</label>
                 <input type="email" id="loginEmail" name="email" placeholder="your@email.com" required autocomplete="email">
-                <label for="loginPassword">Password</label>
+                <label for="loginPassword" data-i18n="labelPassword">Password</label>
                 <input type="password" id="loginPassword" name="password" placeholder="••••••••" required autocomplete="current-password">
                 <label class="modal-checkbox">
-                    <input type="checkbox" name="remember"> Remember me
+                    <input type="checkbox" name="remember"> <span data-i18n="rememberMe">Remember me</span>
                 </label>
-                <button type="submit" class="modal-submit">Log in</button>
-                <p class="modal-message" id="loginSuccess" style="display:none;">Welcome back!</p>
+                <button type="submit" class="modal-submit" data-i18n="loginSubmit">Log in</button>
+                <p class="modal-message" id="loginSuccess" style="display:none;" data-i18n="loginWelcome">Welcome back!</p>
             </form>
         </div>
     </div>
@@ -62,23 +72,23 @@
     <div class="modal-overlay" id="modalRegister" aria-hidden="true">
         <div class="modal-dialog" role="dialog" aria-labelledby="registerTitle">
             <div class="modal-header">
-                <h2 id="registerTitle">Sign up</h2>
-                <button type="button" class="modal-close" id="closeRegister" aria-label="Close">&times;</button>
+                <h2 id="registerTitle" data-i18n="registerTitle">Sign up</h2>
+                <button type="button" class="modal-close" id="closeRegister" data-i18n-aria="closeAria" aria-label="Close">&times;</button>
             </div>
             <form class="modal-form" id="formRegister" onsubmit="var p=document.getElementById('regPassword'),p2=document.getElementById('regPassword2'); event.preventDefault(); if(p.value!==p2.value){ p2.setCustomValidity('Passwords do not match'); p2.reportValidity(); return; } p2.setCustomValidity(''); document.getElementById('registerSuccess').style.display='block'; setTimeout(function(){ document.getElementById('modalRegister').classList.remove('is-open'); document.getElementById('registerSuccess').style.display='none'; }, 1500);">
-                <label for="regName">Name</label>
+                <label for="regName" data-i18n="labelName">Name</label>
                 <input type="text" id="regName" name="name" placeholder="Your name" required autocomplete="name">
-                <label for="regEmail">Email</label>
+                <label for="regEmail" data-i18n="labelRegEmail">Email</label>
                 <input type="email" id="regEmail" name="email" placeholder="your@email.com" required autocomplete="email">
-                <label for="regPassword">Password</label>
+                <label for="regPassword" data-i18n="labelRegPass">Password</label>
                 <input type="password" id="regPassword" name="password" placeholder="At least 6 characters" required autocomplete="new-password" minlength="6">
-                <label for="regPassword2">Confirm password</label>
+                <label for="regPassword2" data-i18n="labelRegPass2">Confirm password</label>
                 <input type="password" id="regPassword2" name="password2" placeholder="Confirm password" required autocomplete="new-password">
                 <label class="modal-checkbox">
-                    <input type="checkbox" name="terms" required> I agree to the <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy Policy</a>
+                    <input type="checkbox" name="terms" required> <span data-i18n-html="regTerms">I agree to the <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy Policy</a></span>
                 </label>
-                <button type="submit" class="modal-submit">Create account</button>
-                <p class="modal-message" id="registerSuccess" style="display:none;">Account created! You can log in now.</p>
+                <button type="submit" class="modal-submit" data-i18n="createAccount">Create account</button>
+                <p class="modal-message" id="registerSuccess" style="display:none;" data-i18n="regSuccess">Account created! You can log in now.</p>
             </form>
         </div>
     </div>
@@ -87,10 +97,9 @@
         <div class="container">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index-coupon.html">Coupons</a></li>
-                <li><a href="index1018.html">Games</a></li>
                 <li><a href="#electronics">Electronics & Tech</a></li>
                 <li><a href="#fashion">Fashion & Beauty</a></li>
+                <li><a href="#sport-fashion">Sport & Fashion</a></li>
                 <li><a href="#shopping">Shopping & Retail</a></li>
                 <li><a href="#travel">Travel</a></li>
             </ul>
@@ -106,7 +115,7 @@
                     <span class="weather-loc-icon" aria-hidden="true">&#9992;</span>
                     <span class="weather-city" id="weatherCity">--</span>
                     <span class="weather-dropdown" aria-hidden="true">&#9660;</span>
-                    <button type="button" class="weather-menu" aria-label="Options">&#8942;</button>
+                    <button type="button" class="weather-menu" data-i18n-aria="weatherOptionsAria" aria-label="Options">&#8942;</button>
                 </div>
                 <div class="weather-main">
                     <div class="weather-icon-wrap" id="weatherIconWrap">
@@ -122,7 +131,7 @@
                     <span class="weather-meta"><span class="weather-meta-icon">💧</span> <span id="weatherHumidity">--%</span></span>
                     <span class="weather-meta"><span class="weather-meta-icon">🌬️</span> <span id="weatherWind">--</span></span>
                 </div>
-                <a href="https://www.msn.com/weather" target="_blank" rel="noopener" class="weather-forecast-btn" id="weatherForecastBtn">View full forecast</a>
+                <a href="https://www.msn.com/weather" target="_blank" rel="noopener" class="weather-forecast-btn" id="weatherForecastBtn" data-i18n="weatherForecastBtn">View full forecast</a>
             </div>
         </aside>
 
@@ -145,13 +154,13 @@
         <aside class="hero-clock-wrap" id="heroClockWrap">
             <div class="hero-clock" id="heroClock">
                 <div class="clock-row">
-                    <div class="clock-unit"><span class="clock-label">HOURS</span><span class="clock-num" id="flipHours">00</span></div>
-                    <div class="clock-unit"><span class="clock-label">MINUTES</span><span class="clock-num" id="flipMins">00</span></div>
-                    <div class="clock-unit"><span class="clock-label">SECONDS</span><span class="clock-num" id="flipSecs">00</span></div>
+                    <div class="clock-unit"><span class="clock-label" data-i18n="clockHours">HOURS</span><span class="clock-num" id="flipHours">00</span></div>
+                    <div class="clock-unit"><span class="clock-label" data-i18n="clockMinutes">MINUTES</span><span class="clock-num" id="flipMins">00</span></div>
+                    <div class="clock-unit"><span class="clock-label" data-i18n="clockSeconds">SECONDS</span><span class="clock-num" id="flipSecs">00</span></div>
                 </div>
                 <p class="clock-date" id="clockDate">--</p>
                 <div class="clock-actions">
-                    <button type="button" class="clock-fullscreen" id="clockFullscreen" title="Fullscreen">&#10535;</button>
+                    <button type="button" class="clock-fullscreen" id="clockFullscreen" data-i18n-title="clockFullscreenTitle" title="Fullscreen">&#10535;</button>
                 </div>
             </div>
         </aside>
@@ -161,12 +170,12 @@
     <div class="clock-fullscreen-overlay" id="clockFullscreenOverlay" aria-hidden="true">
         <div class="clock-fullscreen-inner" id="clockFullscreenInner">
             <div class="clock-row clock-row-fs">
-                <div class="clock-unit"><span class="clock-label">HOURS</span><span class="clock-num" id="fsHours">00</span></div>
-                <div class="clock-unit"><span class="clock-label">MINUTES</span><span class="clock-num" id="fsMins">00</span></div>
-                <div class="clock-unit"><span class="clock-label">SECONDS</span><span class="clock-num" id="fsSecs">00</span></div>
+                <div class="clock-unit"><span class="clock-label" data-i18n="clockHours">HOURS</span><span class="clock-num" id="fsHours">00</span></div>
+                <div class="clock-unit"><span class="clock-label" data-i18n="clockMinutes">MINUTES</span><span class="clock-num" id="fsMins">00</span></div>
+                <div class="clock-unit"><span class="clock-label" data-i18n="clockSeconds">SECONDS</span><span class="clock-num" id="fsSecs">00</span></div>
             </div>
             <p class="clock-date clock-date-fs" id="fsDate">--</p>
-            <button type="button" class="clock-fs-close" id="clockFsClose" aria-label="Close fullscreen">&times;</button>
+            <button type="button" class="clock-fs-close" id="clockFsClose" data-i18n-aria="clockCloseFsAria" aria-label="Close fullscreen">&times;</button>
         </div>
     </div>
 
@@ -174,32 +183,32 @@
     <div class="ask-ai-float" id="askAiFloat">
         <div class="ask-ai-quick-messages" id="askAiQuickMessages"></div>
         <div class="ask-ai-quick-row">
-            <input type="text" class="ask-ai-quick-input" id="askAiQuickInput" placeholder="Ask AI..." autocomplete="off">
-            <button type="button" class="ask-ai-quick-send" id="askAiQuickSend" aria-label="Send">&#8594;</button>
+            <input type="text" class="ask-ai-quick-input" id="askAiQuickInput" placeholder="Ask AI..." autocomplete="off" data-i18n="askAiQuickPh">
+            <button type="button" class="ask-ai-quick-send" id="askAiQuickSend" data-i18n-aria="askAiSendAria" aria-label="Send">&#8594;</button>
         </div>
-        <button type="button" class="ask-ai-fab" id="askAiFab" aria-label="Open full chat"><span class="ask-ai-icon" aria-hidden="true">&#129302;</span><span class="ask-ai-text">Expand</span></button>
+        <button type="button" class="ask-ai-fab" id="askAiFab" data-i18n-aria="askAiFabAria" aria-label="Open full chat"><span class="ask-ai-icon" aria-hidden="true">&#129302;</span><span class="ask-ai-text" data-i18n="askAiExpand">Expand</span></button>
     </div>
     <div class="ask-ai-panel" id="askAiPanel" aria-hidden="true" style="width: 360px;">
         <div class="ask-ai-resize-handle" id="askAiResizeHandle" aria-label="Drag to resize"></div>
         <div class="ask-ai-header">
-            <span class="ask-ai-title">AI Assistant</span>
+            <span class="ask-ai-title" data-i18n="askAiTitle">AI Assistant</span>
             <div class="ask-ai-header-actions">
-                <button type="button" class="ask-ai-maximize" id="askAiMaximize" title="Expand">&#10535;</button>
-                <button type="button" class="ask-ai-close" id="askAiClose" aria-label="Close">&times;</button>
+                <button type="button" class="ask-ai-maximize" id="askAiMaximize" data-i18n-title="askAiMaxTitle" title="Expand">&#10535;</button>
+                <button type="button" class="ask-ai-close" id="askAiClose" data-i18n-aria="askAiCloseAria" aria-label="Close">&times;</button>
             </div>
         </div>
         <div class="ask-ai-messages" id="askAiMessages"></div>
         <div class="ask-ai-input-row">
-            <input type="text" class="ask-ai-input" id="askAiInput" placeholder="Type your question..." autocomplete="off">
-            <button type="button" class="ask-ai-send" id="askAiSend">Send</button>
+            <input type="text" class="ask-ai-input" id="askAiInput" placeholder="Type your question..." autocomplete="off" data-i18n="askAiTypePh">
+            <button type="button" class="ask-ai-send" id="askAiSend" data-i18n="sendBtn">Send</button>
         </div>
     </div>
 
     <main class="blog-main" role="main">
-            <h1 class="sr-only">unLockGames - Brand Stories, Deals & Free Games</h1>
+            <h1 class="sr-only" data-i18n="srMainHeading">unLockGames - Brand Stories, Deals & Free Games</h1>
         <!-- Left Sidebar: Latest Articles -->
         <aside class="blog-sidebar">
-            <h3>Latest Articles</h3>
+            <h3 data-i18n="sidebarLatest">Latest Articles</h3>
             <ul class="sidebar-list">
                 <li><a href="blogs/topic-xcaret.html">Hotel Xcaret Topic Hub (2026)</a><span class="sidebar-date">2026-03-21</span></li>
                 <li><a href="blogs/blog-xcaret-1.html">Hotel Xcaret Mexico: Is All-Fun Inclusive Worth It?</a><span class="sidebar-date">2026-03-21</span></li>
@@ -217,15 +226,15 @@
                 <li><a href="blogs/blog-alamo-1.html">Car Rental Unlimited Mileage</a><span class="sidebar-date">2026-02-13</span></li>
                 <li><a href="blogs/blog-priceline-2.html">Express Deals Explained</a><span class="sidebar-date">2026-02-10</span></li>
             </ul>
-            <a href="blogs/category-latest.html" class="module-more" style="display:block;margin-top:0.75rem;">More &raquo;</a>
+            <a href="blogs/category-latest.html" class="module-more" style="display:block;margin-top:0.75rem;" data-i18n="sidebarMore">More &raquo;</a>
         </aside>
 
         <!-- Main Content: Article Modules -->
         <div class="blog-content">
             <div class="article-module" id="electronics">
                 <div class="module-header">
-                    <h2>Electronics & Tech</h2>
-                    <a href="blogs/category-electronics.html" class="module-more">More &raquo;</a>
+                    <h2 data-i18n="moduleElectronics">Electronics & Tech</h2>
+                    <a href="blogs/category-electronics.html" class="module-more" data-i18n="moduleMore">More &raquo;</a>
                 </div>
                 <div class="module-split">
                     <div>
@@ -279,8 +288,8 @@
 
             <div class="article-module" id="fashion">
                 <div class="module-header">
-                    <h2>Fashion & Beauty</h2>
-                    <a href="blogs/category-fashion.html" class="module-more">More &raquo;</a>
+                    <h2 data-i18n="moduleFashion">Fashion & Beauty</h2>
+                    <a href="blogs/category-fashion.html" class="module-more" data-i18n="moduleMore">More &raquo;</a>
                 </div>
                 <div class="module-split">
                     <div>
@@ -332,10 +341,61 @@
                 </div>
             </div>
 
+            <div class="article-module" id="sport-fashion">
+                <div class="module-header">
+                    <h2 data-i18n="moduleSportFashion">Sport & Fashion</h2>
+                    <a href="blogs/category-sport-fashion.html" class="module-more" data-i18n="moduleMore">More &raquo;</a>
+                </div>
+                <div class="module-split">
+                    <div>
+                        <div class="article-item">
+                            <div class="article-item-thumb">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=120&h=80&fit=crop" alt="Running shoes" width="120" height="80" loading="lazy">
+                            </div>
+                            <div class="article-item-content">
+                                <h3 class="article-item-title"><a href="blogs/blog-sport-fashion-running-shoes-2026.html">Running Shoes for Your Gait and Surface (2026 Guide)</a></h3>
+                                <p class="article-item-excerpt">Match cushion and support to road, track, or trail—not just the label on the box.</p>
+                                <span class="article-item-date">2026-03-28</span>
+                            </div>
+                        </div>
+                        <div class="article-item">
+                            <div class="article-item-thumb">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=120&h=80&fit=crop" alt="Training shoes" width="120" height="80" loading="lazy">
+                            </div>
+                            <div class="article-item-content">
+                                <h3 class="article-item-title"><a href="blogs/blog-sport-fashion-training-vs-running.html">Training Shoes vs Running Shoes: What to Buy</a></h3>
+                                <p class="article-item-excerpt">Lateral support vs forward cushioning—when each type earns a place in your rotation.</p>
+                                <span class="article-item-date">2026-03-28</span>
+                            </div>
+                        </div>
+                        <div class="article-item">
+                            <div class="article-item-thumb">
+                                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=120&h=80&fit=crop" alt="Athleisure" width="120" height="80" loading="lazy">
+                            </div>
+                            <div class="article-item-content">
+                                <h3 class="article-item-title"><a href="blogs/blog-sport-fashion-athleisure-basics.html">Athleisure Basics: 8 Pieces That Work Globally</a></h3>
+                                <p class="article-item-excerpt">A neutral capsule for travel, training, and everyday wear.</p>
+                                <span class="article-item-date">2026-03-28</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="article-list">
+                            <li><a href="blogs/blog-sport-fashion-read-product-pages.html">How to Read Sportswear Product Pages</a><span class="date">2026-03-28</span></li>
+                            <li><a href="blogs/blog-sport-fashion-sneaker-sizing.html">Sneaker Sizing Across Brands (International)</a><span class="date">2026-03-28</span></li>
+                            <li><a href="blogs/blog-sport-fashion-sales-cycles.html">Best Time to Buy Athletic Gear: Sales Cycles</a><span class="date">2026-03-28</span></li>
+                            <li><a href="blogs/blog-sport-fashion-running-shoes-2026.html">Running Shoes: Gait &amp; Surface 2026</a><span class="date">2026-03-28</span></li>
+                            <li><a href="blogs/blog-sport-fashion-training-vs-running.html">Training vs Running Shoes</a><span class="date">2026-03-28</span></li>
+                            <li><a href="blogs/blog-sport-fashion-athleisure-basics.html">Athleisure Wardrobe Basics</a><span class="date">2026-03-28</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <div class="article-module" id="travel">
                 <div class="module-header">
-                    <h2>Travel</h2>
-                    <a href="blogs/category-travel.html" class="module-more">More &raquo;</a>
+                    <h2 data-i18n="moduleTravel">Travel</h2>
+                    <a href="blogs/category-travel.html" class="module-more" data-i18n="moduleMore">More &raquo;</a>
                 </div>
                 <div class="module-split">
                     <div>
@@ -408,8 +468,8 @@
 
             <div class="article-module" id="shopping">
                 <div class="module-header">
-                    <h2>Shopping & Retail</h2>
-                    <a href="blogs/category-shopping.html" class="module-more">More &raquo;</a>
+                    <h2 data-i18n="moduleShopping">Shopping & Retail</h2>
+                    <a href="blogs/category-shopping.html" class="module-more" data-i18n="moduleMore">More &raquo;</a>
                 </div>
                 <div class="module-split">
                     <div>
@@ -464,70 +524,63 @@
 
         <!-- Right Sidebar -->
         <aside class="blog-right">
-            <h3>Categories</h3>
-            <p class="blog-right-intro">Browse guides and deals by topic.</p>
+            <h3 data-i18n="categoriesTitle">Categories</h3>
+            <p class="blog-right-intro" data-i18n="categoriesIntro">Browse guides and deals by topic.</p>
             <ul class="category-grid">
-                <li class="category-item">
-                    <a href="index-coupon.html">
-                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=80&h=56&fit=crop" alt="Coupons" width="80" height="56" loading="lazy" class="category-thumb">
-                        <span class="category-name">Coupons</span>
-                        <span class="category-desc">Deals & promo codes</span>
-                    </a>
-                </li>
-                <li class="category-item">
-                    <a href="index1018.html">
-                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
-                        <span class="category-name">Games</span>
-                        <span class="category-desc">Free online games</span>
-                    </a>
-                </li>
                 <li class="category-item">
                     <a href="#electronics">
                         <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
-                        <span class="category-name">Electronics & Tech</span>
-                        <span class="category-desc">Laptops, phones & gadgets</span>
+                        <span class="category-name" data-i18n="catElecName">Electronics & Tech</span>
+                        <span class="category-desc" data-i18n="catElecDesc">Laptops, phones & gadgets</span>
                     </a>
                 </li>
                 <li class="category-item">
                     <a href="#fashion">
                         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
-                        <span class="category-name">Fashion & Beauty</span>
-                        <span class="category-desc">Style & skincare guides</span>
+                        <span class="category-name" data-i18n="catFashionName">Fashion & Beauty</span>
+                        <span class="category-desc" data-i18n="catFashionDesc">Style & skincare guides</span>
+                    </a>
+                </li>
+                <li class="category-item">
+                    <a href="#sport-fashion">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
+                        <span class="category-name" data-i18n="catSportName">Sport & Fashion</span>
+                        <span class="category-desc" data-i18n="catSportDesc">Activewear &amp; style guides</span>
                     </a>
                 </li>
                 <li class="category-item">
                     <a href="#shopping">
                         <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
-                        <span class="category-name">Shopping & Retail</span>
-                        <span class="category-desc">Stores, rewards & tips</span>
+                        <span class="category-name" data-i18n="catShopName">Shopping & Retail</span>
+                        <span class="category-desc" data-i18n="catShopDesc">Stores, rewards & tips</span>
                     </a>
                 </li>
                 <li class="category-item">
                     <a href="#travel">
                         <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
-                        <span class="category-name">Travel</span>
-                        <span class="category-desc">Flights, hotels & trips</span>
+                        <span class="category-name" data-i18n="catTravelName">Travel</span>
+                        <span class="category-desc" data-i18n="catTravelDesc">Flights, hotels & trips</span>
                     </a>
                 </li>
                 <li class="category-item">
                     <a href="#shopping">
                         <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
-                        <span class="category-name">Home & Garden</span>
-                        <span class="category-desc">DIY & home improvement</span>
+                        <span class="category-name" data-i18n="catHomeName">Home & Garden</span>
+                        <span class="category-desc" data-i18n="catHomeDesc">DIY & home improvement</span>
                     </a>
                 </li>
                 <li class="category-item">
                     <a href="#fashion">
                         <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
-                        <span class="category-name">Beauty & Skincare</span>
-                        <span class="category-desc">Routines & recommendations</span>
+                        <span class="category-name" data-i18n="catBeautyName">Beauty & Skincare</span>
+                        <span class="category-desc" data-i18n="catBeautyDesc">Routines & recommendations</span>
                     </a>
                 </li>
                 <li class="category-item">
                     <a href="#travel">
                         <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=80&h=56&fit=crop" alt="" width="80" height="56" loading="lazy" class="category-thumb">
-                        <span class="category-name">Hotels & Flights</span>
-                        <span class="category-desc">Booking & rewards</span>
+                        <span class="category-name" data-i18n="catHotelsName">Hotels & Flights</span>
+                        <span class="category-desc" data-i18n="catHotelsDesc">Booking & rewards</span>
                     </a>
                 </li>
             </ul>
@@ -537,18 +590,17 @@
     <footer class="blog-footer">
         <div class="container">
             <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="index-coupon.html">Coupons</a>
-                <a href="index1018.html">Games</a>
-                <a href="#electronics">Electronics</a>
-                <a href="#fashion">Fashion</a>
-                <a href="#shopping">Shopping</a>
-                <a href="#travel">Travel</a>
-                <a href="about.html">About Us</a>
-                <a href="privacy.html">Privacy</a>
+                <a href="index.html" data-i18n="footerHome">Home</a>
+                <a href="#electronics" data-i18n="footerElectronics">Electronics</a>
+                <a href="#fashion" data-i18n="footerFashion">Fashion</a>
+                <a href="#sport-fashion" data-i18n="footerSportFashion">Sport &amp; Fashion</a>
+                <a href="#shopping" data-i18n="footerShopping">Shopping</a>
+                <a href="#travel" data-i18n="footerTravel">Travel</a>
+                <a href="about.html" data-i18n="footerAbout">About Us</a>
+                <a href="privacy.html" data-i18n="footerPrivacy">Privacy</a>
             </div>
-            <p class="footer-bottom"><strong>Disclosure:</strong> We may earn a commission when you shop through our links at no extra cost to you. <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
-            <p class="footer-bottom">&copy; 2025 unLockGames. All rights reserved.</p>
+            <p class="footer-bottom" data-i18n-html="footerDisclosure"><strong>Disclosure:</strong> We may earn a commission when you shop through our links at no extra cost to you. <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+            <p class="footer-bottom" data-i18n="footerDisclosureBottom">&copy; 2025 unLockGames. All rights reserved.</p>
         </div>
     </footer>
 
@@ -738,5 +790,6 @@
             }
         })();
     </script>
+    <script src="site-i18n.js" defer></script>
 </body>
 </html>

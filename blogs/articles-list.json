@@ -1,4 +1,4 @@
-﻿[
+[
     {
         "brand":  {
                       "titles":  [
@@ -2848,5 +2848,185 @@
         "metaDesc":  "TOP 10 Best Running Shoes for 2025 - Honest buying guide and recommendations. Make informed decisions and save.",
         "title":  "TOP 10 Best Running Shoes for 2025",
         "file":  "blog-adidas-1.html"
+    },
+    {
+        "brand":  {
+                      "titles":  [
+                                     "How to Choose Running Shoes for Your Gait and Surface (2026 Guide)",
+                                     "Training Shoes vs Running Shoes",
+                                     "Athleisure Wardrobe Basics",
+                                     "Sportswear Product Pages",
+                                     "Sneaker Sizing International Guide",
+                                     "Athletic Gear Sales Cycles"
+                                 ],
+                      "cb":  "",
+                      "url":  "",
+                      "name":  "Sport & Fashion",
+                      "slug":  "sport-fashion"
+                  },
+        "body":  "\u003cp\u003eIndependent English guides for activewear, running, training, and sport style for readers worldwide.\u003c/p\u003e",
+        "date":  "2026-03-28",
+        "metaDesc":  "How to choose running shoes for gait and surface—road, track, trail. Practical 2026 guide for global shoppers.",
+        "title":  "How to Choose Running Shoes for Your Gait and Surface (2026 Guide)",
+        "file":  "blog-sport-fashion-running-shoes-2026.html"
+    },
+    {
+        "brand":  {
+                      "titles":  [
+                                     "How to Choose Running Shoes for Your Gait and Surface (2026 Guide)",
+                                     "Training Shoes vs Running Shoes",
+                                     "Athleisure Wardrobe Basics",
+                                     "Sportswear Product Pages",
+                                     "Sneaker Sizing International Guide",
+                                     "Athletic Gear Sales Cycles"
+                                 ],
+                      "cb":  "",
+                      "url":  "",
+                      "name":  "Sport & Fashion",
+                      "slug":  "sport-fashion"
+                  },
+        "body":  "\u003cp\u003eIndependent English guides for activewear, running, training, and sport style for readers worldwide.\u003c/p\u003e",
+        "date":  "2026-03-28",
+        "metaDesc":  "Training shoes vs running shoes: lateral support, cushioning, and when each type makes sense.",
+        "title":  "Training Shoes vs Running Shoes: What to Buy and Why",
+        "file":  "blog-sport-fashion-training-vs-running.html"
+    },
+    {
+        "brand":  {
+                      "titles":  [
+                                     "How to Choose Running Shoes for Your Gait and Surface (2026 Guide)",
+                                     "Training Shoes vs Running Shoes",
+                                     "Athleisure Wardrobe Basics",
+                                     "Sportswear Product Pages",
+                                     "Sneaker Sizing International Guide",
+                                     "Athletic Gear Sales Cycles"
+                                 ],
+                      "cb":  "",
+                      "url":  "",
+                      "name":  "Sport & Fashion",
+                      "slug":  "sport-fashion"
+                  },
+        "body":  "\u003cp\u003eIndependent English guides for activewear, running, training, and sport style for readers worldwide.\u003c/p\u003e",
+        "date":  "2026-03-28",
+        "metaDesc":  "Athleisure capsule: eight versatile pieces, fabrics, and styling tips for a global wardrobe.",
+        "title":  "Athleisure Wardrobe Basics: 8 Pieces That Work Globally",
+        "file":  "blog-sport-fashion-athleisure-basics.html"
+    },
+    {
+        "brand":  {
+                      "titles":  [
+                                     "How to Choose Running Shoes for Your Gait and Surface (2026 Guide)",
+                                     "Training Shoes vs Running Shoes",
+                                     "Athleisure Wardrobe Basics",
+                                     "Sportswear Product Pages",
+                                     "Sneaker Sizing International Guide",
+                                     "Athletic Gear Sales Cycles"
+                                 ],
+                      "cb":  "",
+                      "url":  "",
+                      "name":  "Sport & Fashion",
+                      "slug":  "sport-fashion"
+                  },
+        "body":  "\u003cp\u003eIndependent English guides for activewear, running, training, and sport style for readers worldwide.\u003c/p\u003e",
+        "date":  "2026-03-28",
+        "metaDesc":  "Decode sportswear product pages: fabrics, fit, care symbols, and return policies.",
+        "title":  "How to Read Sportswear Product Pages (Fit, Fabrics, Care)",
+        "file":  "blog-sport-fashion-read-product-pages.html"
+    },
+    {
+        "brand":  {
+                      "titles":  [
+                                     "How to Choose Running Shoes for Your Gait and Surface (2026 Guide)",
+                                     "Training Shoes vs Running Shoes",
+                                     "Athleisure Wardrobe Basics",
+                                     "Sportswear Product Pages",
+                                     "Sneaker Sizing International Guide",
+                                     "Athletic Gear Sales Cycles"
+                                 ],
+                      "cb":  "",
+                      "url":  "",
+                      "name":  "Sport & Fashion",
+                      "slug":  "sport-fashion"
+                  },
+        "body":  "\u003cp\u003eIndependent English guides for activewear, running, training, and sport style for readers worldwide.\u003c/p\u003e",
+        "date":  "2026-03-28",
+        "metaDesc":  "US, UK, EU, CM sneaker sizing across brands—practical guide for international shoppers.",
+        "title":  "Sneaker Sizing Across Brands: A Practical International Guide",
+        "file":  "blog-sport-fashion-sneaker-sizing.html"
+    },
+    {
+        "brand":  {
+                      "titles":  [
+                                     "How to Choose Running Shoes for Your Gait and Surface (2026 Guide)",
+                                     "Training Shoes vs Running Shoes",
+                                     "Athleisure Wardrobe Basics",
+                                     "Sportswear Product Pages",
+                                     "Sneaker Sizing International Guide",
+                                     "Athletic Gear Sales Cycles"
+                                 ],
+                      "cb":  "",
+                      "url":  "",
+                      "name":  "Sport & Fashion",
+                      "slug":  "sport-fashion"
+                  },
+        "body":  "\u003cp\u003eIndependent English guides for activewear, running, training, and sport style for readers worldwide.\u003c/p\u003e",
+        "date":  "2026-03-28",
+        "metaDesc":  "When athletic gear goes on sale: seasons, model turnover, and avoiding fake urgency.",
+        "title":  "Best Time to Buy Athletic Gear: Sales Cycles Without the Hype",
+        "file":  "blog-sport-fashion-sales-cycles.html"
+    },
+    {
+        "brand":  {
+                      "titles":  [
+                                     "Solo Travel Without the Performance",
+                                     "Stretching a Travel Budget",
+                                     "Road Trip Reset Packing List"
+                                 ],
+                      "cb":  "",
+                      "url":  "",
+                      "name":  "Travel",
+                      "slug":  "travel-editorial"
+                  },
+        "body":  "\u003cp\u003eEditorial travel notes: trips, budgets, and logistics without brochure language.\u003c/p\u003e",
+        "date":  "2026-03-29",
+        "metaDesc":  "Solo travel without chasing a highlight reel: dining alone, safety habits, and small rituals that make the road feel human.",
+        "title":  "Solo Travel Without the Performance: Enjoying Your Own Company on the Road",
+        "file":  "blog-travel-solo-without-performance.html"
+    },
+    {
+        "brand":  {
+                      "titles":  [
+                                     "Solo Travel Without the Performance",
+                                     "Stretching a Travel Budget",
+                                     "Road Trip Reset Packing List"
+                                 ],
+                      "cb":  "",
+                      "url":  "",
+                      "name":  "Travel",
+                      "slug":  "travel-editorial"
+                  },
+        "body":  "\u003cp\u003eEditorial travel notes: trips, budgets, and logistics without brochure language.\u003c/p\u003e",
+        "date":  "2026-03-29",
+        "metaDesc":  "Stretch a travel budget without misery: timing, one splurge rule, walking days, and when a pass actually pays off.",
+        "title":  "Stretching a Travel Budget Without Feeling Like You Are Punishing Yourself",
+        "file":  "blog-travel-budget-without-misery.html"
+    },
+    {
+        "brand":  {
+                      "titles":  [
+                                     "Solo Travel Without the Performance",
+                                     "Stretching a Travel Budget",
+                                     "Road Trip Reset Packing List"
+                                 ],
+                      "cb":  "",
+                      "url":  "",
+                      "name":  "Travel",
+                      "slug":  "travel-editorial"
+                  },
+        "body":  "\u003cp\u003eEditorial travel notes: trips, budgets, and logistics without brochure language.\u003c/p\u003e",
+        "date":  "2026-03-29",
+        "metaDesc":  "Road trip reality check: what to pack when things go sideways—maps, snacks, comfort, and when to stop driving.",
+        "title":  "Long-Drive Reset: A Road Trip Carry List for When Things Go Sideways",
+        "file":  "blog-travel-road-trip-carry-list.html"
     }
 ]

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search - unLockGames</title>
-    <meta name="description" content="Search articles on unLockGames: deals, buying guides, cashback, and free games.">
+    <meta name="description" content="Search articles on unLockGames: buying guides, deals, and cashback tips.">
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://unlockgames.org/search.html">
     <link rel="stylesheet" href="blog-traditional.css">
@@ -12,10 +12,20 @@
 <body>
     <header class="blog-header">
         <div class="container">
-            <a href="index.html" class="blog-logo">unLockGames</a>
+            <div class="header-brand-cluster">
+                <div class="header-lang-wrap">
+                    <button type="button" class="header-lang-btn" id="headerLangBtn" aria-expanded="false" aria-haspopup="true" aria-controls="headerLangPanel">
+                        <span class="header-lang-flag" aria-hidden="true">🇬🇧</span>
+                        <span class="header-lang-label">EN</span>
+                        <span class="header-lang-chevron" aria-hidden="true">▼</span>
+                    </button>
+                    <ul class="header-lang-panel" id="headerLangPanel" hidden data-i18n-aria="langAria"></ul>
+                </div>
+                <a href="index.html" class="blog-logo">unLockGames</a>
+            </div>
             <form action="search.html" method="get" class="blog-search-form" role="search">
-                <input type="text" name="q" class="blog-search" placeholder="Search articles..." id="headerSearch" value="" autocomplete="off">
-                <button type="submit" class="blog-search-btn" aria-label="Search">Search</button>
+                <input type="text" name="q" class="blog-search" placeholder="Search articles..." id="headerSearch" value="" autocomplete="off" data-i18n="searchPlaceholder">
+                <button type="submit" class="blog-search-btn" data-i18n="searchButton" data-i18n-aria="searchAria">Search</button>
             </form>
         </div>
     </header>
@@ -23,19 +33,18 @@
     <nav class="blog-nav">
         <div class="container">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index-coupon.html">Coupons</a></li>
-                <li><a href="index1018.html">Games</a></li>
-                <li><a href="index.html#electronics">Electronics & Tech</a></li>
-                <li><a href="index.html#fashion">Fashion & Beauty</a></li>
-                <li><a href="index.html#shopping">Shopping & Retail</a></li>
-                <li><a href="index.html#travel">Travel</a></li>
+                <li><a href="index.html" data-i18n="navHome">Home</a></li>
+                <li><a href="index.html#electronics" data-i18n="navElectronics">Electronics & Tech</a></li>
+                <li><a href="index.html#fashion" data-i18n="navFashion">Fashion & Beauty</a></li>
+                <li><a href="index.html#sport-fashion" data-i18n="navSportFashion">Sport & Fashion</a></li>
+                <li><a href="index.html#shopping" data-i18n="navShopping">Shopping & Retail</a></li>
+                <li><a href="index.html#travel" data-i18n="navTravel">Travel</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="blog-main" role="main" style="max-width: 900px; margin: 2rem auto; padding: 0 20px;">
-        <h1 class="sr-only">Search</h1>
+        <h1 class="sr-only" data-i18n="searchPageH1">Search</h1>
         <section id="search-results-section" aria-live="polite">
             <h2 id="search-results-title">Search results</h2>
             <div id="search-results"></div>
@@ -45,18 +54,22 @@
     <footer class="blog-footer">
         <div class="container">
             <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="index-coupon.html">Coupons</a>
-                <a href="index1018.html">Games</a>
-                <a href="about.html">About</a>
-                <a href="privacy.html">Privacy</a>
+                <a href="index.html" data-i18n="footerHome">Home</a>
+                <a href="index.html#electronics" data-i18n="footerElectronics">Electronics</a>
+                <a href="index.html#fashion" data-i18n="footerFashion">Fashion</a>
+                <a href="index.html#sport-fashion" data-i18n="footerSportFashion">Sport &amp; Fashion</a>
+                <a href="index.html#shopping" data-i18n="footerShopping">Shopping</a>
+                <a href="index.html#travel" data-i18n="footerTravel">Travel</a>
+                <a href="about.html" data-i18n="footerAbout">About Us</a>
+                <a href="privacy.html" data-i18n="footerPrivacy">Privacy</a>
             </div>
-            <p class="footer-bottom">&copy; 2025 unLockGames. All rights reserved.</p>
+            <p class="footer-bottom" data-i18n-html="footerDisclosure"><strong>Disclosure:</strong> We may earn a commission when you shop through our links at no extra cost to you. <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+            <p class="footer-bottom" data-i18n="footerDisclosureBottom">&copy; 2025 unLockGames. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-window.UNLOCKGAMES_SEARCH_FALLBACK = [{"title":"TOP 10 Best LED Strip Lights 2025","file":"blog-govee-1.html","date":"2026-01-12"},{"title":"Best Car Rental Deals","file":"blog-avis-1.html","date":"2025-12-27"},{"title":"Best Expedia Tips","file":"blog-expedia-2.html","date":"2025-12-18"},{"title":"Best Time to Book Hotels","file":"blog-hotels-1.html","date":"2025-12-14"},{"title":"Best Chewy Deals","file":"blog-chewy-1.html","date":"2026-01-02"},{"title":"Best Pet Supplies for First-Time Owners","file":"blog-chewy-2.html","date":"2025-12-28"},{"title":"Best Laptops for Students 2025","file":"blog-acer-1.html","date":"2025-12-22"},{"title":"Best Disney Merchandise","file":"blog-disney-1.html","date":"2026-01-05"},{"title":"Best Refurbished Tech Deals","file":"blog-woot-1.html","date":"2026-01-22"},{"title":"Best Nordstrom Finds","file":"blog-nordstrom-1.html","date":"2025-12-25"},{"title":"Best Sephora Skincare 2025","file":"blog-sephora-1.html","date":"2026-01-08"},{"title":"Best Macy's Deals for Home","file":"blog-macys-1.html","date":"2026-01-06"},{"title":"Best Buy Open Box","file":"blog-bestbuy-1.html","date":"2026-01-05"},{"title":"Best Target Home Finds","file":"blog-target-1.html","date":"2025-12-19"},{"title":"Best Walmart Deals","file":"blog-walmart-1.html","date":"2025-12-05"},{"title":"Best Hydrating Skincare","file":"blog-sephora-2.html","date":"2026-01-18"},{"title":"Best Affordable Fashion Finds","file":"blog-shein-1.html","date":"2025-12-12"},{"title":"Best Amazon Deals","file":"blog-amazon-1.html","date":"2025-12-15"},{"title":"Best Basketball Shoes 2025","file":"blog-nike-1.html","date":"2025-12-18"},{"title":"Best Smartphones of 2025","file":"blog-samsung-1.html","date":"2025-12-08"},{"title":"Best Budget Sports Shoes Under 100 Dollars","file":"blog-adidas-1.html","date":"2025-12-03"},{"title":"TOP 10 Best Running Shoes for 2025","file":"blog-adidas-1.html","date":"2025-12-03"}];
+window.UNLOCKGAMES_SEARCH_FALLBACK = [{"title":"Solo Travel Without the Performance: Enjoying Your Own Company on the Road","file":"blog-travel-solo-without-performance.html","date":"2026-03-29"},{"title":"Stretching a Travel Budget Without Feeling Like You Are Punishing Yourself","file":"blog-travel-budget-without-misery.html","date":"2026-03-29"},{"title":"Long-Drive Reset: A Road Trip Carry List for When Things Go Sideways","file":"blog-travel-road-trip-carry-list.html","date":"2026-03-29"},{"title":"How to Choose Running Shoes for Your Gait and Surface (2026 Guide)","file":"blog-sport-fashion-running-shoes-2026.html","date":"2026-03-28"},{"title":"Training Shoes vs Running Shoes: What to Buy and Why","file":"blog-sport-fashion-training-vs-running.html","date":"2026-03-28"},{"title":"Athleisure Wardrobe Basics: 8 Pieces That Work Globally","file":"blog-sport-fashion-athleisure-basics.html","date":"2026-03-28"},{"title":"How to Read Sportswear Product Pages (Fit, Fabrics, Care)","file":"blog-sport-fashion-read-product-pages.html","date":"2026-03-28"},{"title":"Sneaker Sizing Across Brands: A Practical International Guide","file":"blog-sport-fashion-sneaker-sizing.html","date":"2026-03-28"},{"title":"Best Time to Buy Athletic Gear: Sales Cycles Without the Hype","file":"blog-sport-fashion-sales-cycles.html","date":"2026-03-28"},{"title":"TOP 10 Best LED Strip Lights 2025","file":"blog-govee-1.html","date":"2026-01-12"},{"title":"Best Car Rental Deals","file":"blog-avis-1.html","date":"2025-12-27"},{"title":"Best Expedia Tips","file":"blog-expedia-2.html","date":"2025-12-18"},{"title":"Best Time to Book Hotels","file":"blog-hotels-1.html","date":"2025-12-14"},{"title":"Best Chewy Deals","file":"blog-chewy-1.html","date":"2026-01-02"},{"title":"Best Pet Supplies for First-Time Owners","file":"blog-chewy-2.html","date":"2025-12-28"},{"title":"Best Laptops for Students 2025","file":"blog-acer-1.html","date":"2025-12-22"},{"title":"Best Disney Merchandise","file":"blog-disney-1.html","date":"2026-01-05"},{"title":"Best Refurbished Tech Deals","file":"blog-woot-1.html","date":"2026-01-22"},{"title":"Best Nordstrom Finds","file":"blog-nordstrom-1.html","date":"2025-12-25"},{"title":"Best Sephora Skincare 2025","file":"blog-sephora-1.html","date":"2026-01-08"},{"title":"Best Macy's Deals for Home","file":"blog-macys-1.html","date":"2026-01-06"},{"title":"Best Buy Open Box","file":"blog-bestbuy-1.html","date":"2026-01-05"},{"title":"Best Target Home Finds","file":"blog-target-1.html","date":"2025-12-19"},{"title":"Best Walmart Deals","file":"blog-walmart-1.html","date":"2025-12-05"},{"title":"Best Hydrating Skincare","file":"blog-sephora-2.html","date":"2026-01-18"},{"title":"Best Affordable Fashion Finds","file":"blog-shein-1.html","date":"2025-12-12"},{"title":"Best Amazon Deals","file":"blog-amazon-1.html","date":"2025-12-15"},{"title":"Best Basketball Shoes 2025","file":"blog-nike-1.html","date":"2025-12-18"},{"title":"Best Smartphones of 2025","file":"blog-samsung-1.html","date":"2025-12-08"},{"title":"Best Budget Sports Shoes Under 100 Dollars","file":"blog-adidas-1.html","date":"2025-12-03"},{"title":"TOP 10 Best Running Shoes for 2025","file":"blog-adidas-1.html","date":"2025-12-03"}];
     </script>
     <script>
 (function() {
@@ -75,11 +88,11 @@ window.UNLOCKGAMES_SEARCH_FALLBACK = [{"title":"TOP 10 Best LED Strip Lights 202
             return;
         }
         if (!articles || articles.length === 0) {
-            titleEl.textContent = 'Search results for “‘ + escapeHtml(q) + '"';
+            titleEl.textContent = 'Search results for \u201c' + escapeHtml(q) + '\u201d';
             resultsEl.innerHTML = '<p>No articles found. Try different keywords.</p>';
             return;
         }
-        titleEl.textContent = 'Search results for “‘ + escapeHtml(q) + '" (' + articles.length + ')';
+        titleEl.textContent = 'Search results for \u201c' + escapeHtml(q) + '\u201d (' + articles.length + ')';
         var html = '<ul class="sidebar-list" style="list-style:none; padding:0;">';
         for (var i = 0; i < articles.length; i++) {
             var a = articles[i];
@@ -141,7 +154,7 @@ window.UNLOCKGAMES_SEARCH_FALLBACK = [{"title":"TOP 10 Best LED Strip Lights 202
                 }
                 if (out.length) renderResults(out);
                 else {
-                    titleEl.textContent = 'Search results for “‘ + escapeHtml(q) + '"';
+                    titleEl.textContent = 'Search results for \u201c' + escapeHtml(q) + '\u201d';
                     resultsEl.innerHTML = '<p>No articles found. Try different keywords. (Search data may be unavailable when opening files locally—use a web server to load the full index.)</p>';
                 }
             });
@@ -150,5 +163,6 @@ window.UNLOCKGAMES_SEARCH_FALLBACK = [{"title":"TOP 10 Best LED Strip Lights 202
     runSearch();
 })();
     </script>
+    <script src="site-i18n.js" defer></script>
 </body>
 </html>

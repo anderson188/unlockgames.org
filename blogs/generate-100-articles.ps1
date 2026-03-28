@@ -59,8 +59,6 @@ $navHtml = @'
         <div class="container">
             <ul>
                 <li><a href="../index-blog.html">Home</a></li>
-                <li><a href="../index.html">Coupons</a></li>
-                <li><a href="../index1018.html">Games</a></li>
                 <li><a href="../about.html">About</a></li>
                 <li><a href="../terms.html">Terms</a></li>
                 <li><a href="../privacy.html">Privacy</a></li>

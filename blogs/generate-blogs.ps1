@@ -52,10 +52,6 @@ $template = @'
     <nav class="category-bar">
         <div class="container">
             <a href="../index-blog.html" class="logo">unLock<span>Games</span></a>
-            <div class="category-links">
-                <a href="../index.html" class="category-link">Coupons / &#20248;&#24800;&#21048;</a>
-                <a href="../index1018.html" class="category-link games">Games / &#28216;&#25103;</a>
-            </div>
             <nav class="nav-links-blog">
                 <a href="../about.html">About Us</a>
                 <a href="../terms.html">Terms</a>
