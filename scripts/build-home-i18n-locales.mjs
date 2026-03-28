@@ -170,6 +170,22 @@ const ES = {
     title: 'Looks de tendencia por menos de 50 dólares',
     excerpt: 'Guía de compra honesta: decide con información y ahorra.'
   },
+  'blogs/blog-oldnavy-1.html': {
+    title: 'Ropa familiar coordinada sin estrés: guía para mamás',
+    excerpt: 'Cuándo ayudan los conjuntos a juego, cuándo estresan y cómo disfrutar las fotos.'
+  },
+  'blogs/blog-oldnavy-2.html': {
+    title: 'Ropa diaria infantil: qué importa para el cole y el patio',
+    excerpt: 'Tejidos, tallaje, resistencia y lavado: menos gasto y menos discusiones.'
+  },
+  'blogs/blog-oldnavy-3.html': {
+    title: 'Calzado y abrigos infantiles: 8 preguntas antes de comprar',
+    excerpt: 'Lista para pies secos y abrigos útiles—menos devoluciones.'
+  },
+  'blogs/blog-oldnavy-4.html': {
+    title: 'Básicos para posparto y mamá con poco tiempo',
+    excerpt: 'Comodidad, capas y compras sin presión ni culpa.'
+  },
   'blogs/blog-sport-fashion-running-shoes-2026.html': {
     title: 'Cómo elegir zapatillas según tu pisada y superficie (guía 2026)',
     excerpt: 'Carretera, pista o sendero: no te fíes solo de la etiqueta de la caja.'
@@ -434,6 +450,22 @@ const FR = {
     title: 'Tenues tendance à moins de 50 dollars',
     excerpt: 'Guide d’achat honnête : décidez en connaissance de cause et économisez.'
   },
+  'blogs/blog-oldnavy-1.html': {
+    title: 'Tenues familiales assorties sans stress',
+    excerpt: 'Quand la coordination aide, quand elle pèse, et des photos sans crise.'
+  },
+  'blogs/blog-oldnavy-2.html': {
+    title: 'Vêtements enfants au quotidien : école et loisirs',
+    excerpt: 'Tissus, coupe, solidité et lessive : moins de dépenses inutiles.'
+  },
+  'blogs/blog-oldnavy-3.html': {
+    title: 'Chaussures et manteaux enfants : 8 questions avant d’acheter',
+    excerpt: 'Moins d’échanges, des pieds à l’aise et des matins plus calmes.'
+  },
+  'blogs/blog-oldnavy-4.html': {
+    title: 'Bases garde-robe post-partum et maman débordée',
+    excerpt: 'Confort, superposition, shopping sans pression.'
+  },
   'blogs/blog-sport-fashion-running-shoes-2026.html': {
     title: 'Choisir ses chaussures de course : foulée et surface (guide 2026)',
     excerpt: 'Route, piste ou trail : ne vous fiez pas qu’à l’étiquette de la boîte.'
@@ -697,6 +729,22 @@ const DE = {
   'blogs/blog-shein-2.html': {
     title: 'Trend-Outfits unter 50 Dollar',
     excerpt: 'Ehrlicher Kaufratgeber: informiert entscheiden und sparen.'
+  },
+  'blogs/blog-oldnavy-1.html': {
+    title: 'Familien-Outfits ohne Stress: praktischer Rat',
+    excerpt: 'Wann passende Looks helfen, wann sie nerven – und Fotos ohne Theater.'
+  },
+  'blogs/blog-oldnavy-2.html': {
+    title: 'Kinder-Alltagskleidung: Schule und Spielplatz',
+    excerpt: 'Stoffe, Passform, Haltbarkeit und Wäsche – weniger Geld, weniger Stress.'
+  },
+  'blogs/blog-oldnavy-3.html': {
+    title: 'Kinderschuhe & Jacken: 8 Fragen vor dem Kauf',
+    excerpt: 'Checkliste für trockene Füße und nutzbare Mäntel – weniger Umtausch.'
+  },
+  'blogs/blog-oldnavy-4.html': {
+    title: 'Wochenbett & vielbeschäftigte Mama: Basics',
+    excerpt: 'Komfort, Schichten, einkaufen ohne Druck und ohne Schuldgefühle.'
   },
   'blogs/blog-sport-fashion-running-shoes-2026.html': {
     title: 'Laufschuhe nach Gangart und Untergrund wählen (2026)',

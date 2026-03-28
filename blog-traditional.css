@@ -1107,6 +1107,87 @@ body {
 
 .carousel-dot.active { background: #fff; }
 
+/* Home: family / Old Navy spotlight (below hero) */
+.home-spotlight {
+  width: 100%;
+  margin: 0 0 1.5rem;
+  padding: 1.35rem 0 1.5rem;
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.1) 0%, rgba(15, 23, 42, 0.4) 55%, transparent 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+.home-spotlight-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.home-spotlight-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  font-weight: 600;
+  margin: 0 0 0.45rem;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.home-spotlight-title .home-spotlight-kicker {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 0.78em;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  letter-spacing: 0.02em;
+  margin-right: 0.45rem;
+}
+
+@media (max-width: 480px) {
+  .home-spotlight-title .home-spotlight-kicker {
+    display: block;
+    margin: 0 0 0.25rem;
+  }
+}
+
+.home-spotlight-intro {
+  margin: 0 0 1.2rem;
+  max-width: 52ch;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.home-spotlight-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.home-spotlight-card {
+  display: block;
+  padding: 1rem 1.1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+
+.home-spotlight-card:hover {
+  border-color: var(--accent-cyan);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .home-spotlight-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Main Content - 3 Column */
 .blog-main {
   max-width: 1200px;
@@ -1141,7 +1222,20 @@ body {
   border-bottom: 2px solid var(--accent-cyan);
 }
 
+.sidebar-latest-note {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  margin: -0.35rem 0 0.85rem;
+}
+
 .sidebar-list { list-style: none; }
+
+.sidebar-list li.sidebar-featured {
+  padding-left: 0.65rem;
+  margin-left: -0.15rem;
+  border-left: 3px solid var(--accent-cyan);
+}
 
 .sidebar-list li {
   padding: 0.5rem 0;

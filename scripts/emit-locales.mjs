@@ -56,6 +56,8 @@ const uiDE = {
   askAiTypePh: 'Frage eingeben…',
   sendBtn: 'Senden',
   sidebarLatest: 'Neueste Artikel',
+  sidebarLatestNote:
+    'Zuerst: Familie & Kinder (u. a. Old Navy Kanada). Passt zum Banner.',
   sidebarMore: 'Mehr »',
   moduleElectronics: 'Elektronik & Technik',
   moduleFashion: 'Mode & Beauty',
@@ -97,6 +99,9 @@ const uiDE = {
   navHomeBlog: 'Start',
   footerDisclosureBottom: '© 2025 unLockGames. Alle Rechte vorbehalten.',
   searchPageH1: 'Suche',
+  spotlightFamilyTitle: 'Familie & Kinder: unsere Auswahl',
+  spotlightFamilyIntro:
+    'Passende Looks, Schule & Spiel, Schuhe & Jacken, Basics für junge Mütter.',
   searchResultsHeading: 'Suchergebnisse'
 };
 
@@ -146,6 +151,8 @@ const uiFR = {
   askAiTypePh: 'Votre question…',
   sendBtn: 'Envoyer',
   sidebarLatest: 'Derniers articles',
+  sidebarLatestNote:
+    'En tête : famille & enfants (dont Old Navy Canada), comme la bannière.',
   sidebarMore: 'Plus »',
   moduleElectronics: 'Électronique & tech',
   moduleFashion: 'Mode & beauté',
@@ -187,6 +194,9 @@ const uiFR = {
   navHomeBlog: 'Accueil',
   footerDisclosureBottom: '© 2025 unLockGames. Tous droits réservés.',
   searchPageH1: 'Recherche',
+  spotlightFamilyTitle: 'Famille & enfants : à la une',
+  spotlightFamilyIntro:
+    'Tenues assorties, quotidien école-loisirs, chaussures et manteaux, essentiels jeunes mamans.',
   searchResultsHeading: 'Résultats de recherche'
 };
 
@@ -236,6 +246,8 @@ const uiES = {
   askAiTypePh: 'Escribe tu pregunta…',
   sendBtn: 'Enviar',
   sidebarLatest: 'Últimos artículos',
+  sidebarLatestNote:
+    'Primero: familia y niños (p. ej. Old Navy Canadá), como el banner.',
   sidebarMore: 'Más »',
   moduleElectronics: 'Electrónica y tecnología',
   moduleFashion: 'Moda y belleza',
@@ -277,6 +289,9 @@ const uiES = {
   navHomeBlog: 'Inicio',
   footerDisclosureBottom: '© 2025 unLockGames. Todos los derechos reservados.',
   searchPageH1: 'Buscar',
+  spotlightFamilyTitle: 'Guías para familias y niños',
+  spotlightFamilyIntro:
+    'Ropa coordinada, cole y juego, calzado y abrigos, básicos para mamás — selección destacada.',
   searchResultsHeading: 'Resultados de búsqueda'
 };
 
@@ -326,6 +341,8 @@ const uiJA = {
   askAiTypePh: '質問を入力…',
   sendBtn: '送信',
   sidebarLatest: '最新記事',
+  sidebarLatestNote:
+    '先頭はファミリー・キッズ（Old Navy カナダなど）。バナーと同じテーマ。',
   sidebarMore: 'もっと見る »',
   moduleElectronics: 'エレクトロニクス・テック',
   moduleFashion: 'ファッション・ビューティー',
@@ -416,6 +433,8 @@ const uiKO = {
   askAiTypePh: '질문을 입력…',
   sendBtn: '보내기',
   sidebarLatest: '최신 기사',
+  sidebarLatestNote:
+    '맨 위: 가족·키즈(올드 네이비 캐나다 등). 배너와 같은 테마.',
   sidebarMore: '더보기 »',
   moduleElectronics: '전자·테크',
   moduleFashion: '패션·뷰티',
@@ -506,6 +525,8 @@ const uiRU = {
   askAiTypePh: 'Введите вопрос…',
   sendBtn: 'Отправить',
   sidebarLatest: 'Последние статьи',
+  sidebarLatestNote:
+    'Сверху: семья и дети (в т. ч. Old Navy Канада), как на баннере.',
   sidebarMore: 'Ещё »',
   moduleElectronics: 'Электроника и техника',
   moduleFashion: 'Мода и красота',

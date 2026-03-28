@@ -138,12 +138,13 @@
         <!-- Center: Carousel (same width as content below) -->
         <div class="blog-carousel">
             <div class="carousel-inner">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=320&fit=crop" alt="Beach travel" class="carousel-slide active" width="1200" height="320" fetchpriority="high">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=320&fit=crop" alt="Tech and electronics" class="carousel-slide" width="1200" height="320" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&h=320&fit=crop" alt="Mountain landscape" class="carousel-slide" width="1200" height="320" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=1200&h=320&fit=crop" alt="City skyline" class="carousel-slide" width="1200" height="320" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=320&fit=crop" alt="Shopping store" class="carousel-slide" width="1200" height="320" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=320&fit=crop" alt="Fashion and style" class="carousel-slide" width="1200" height="320" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1200&amp;h=320&amp;fit=crop" alt="Family together in casual style — everyday harmony" class="carousel-slide active" width="1200" height="320" fetchpriority="high">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&amp;h=320&amp;fit=crop" alt="Beach travel" class="carousel-slide" width="1200" height="320" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&amp;h=320&amp;fit=crop" alt="Mountain landscape" class="carousel-slide" width="1200" height="320" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=1200&amp;h=320&amp;fit=crop" alt="City skyline" class="carousel-slide" width="1200" height="320" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&amp;h=320&amp;fit=crop" alt="Shopping store" class="carousel-slide" width="1200" height="320" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&amp;h=320&amp;fit=crop" alt="Fashion and style" class="carousel-slide" width="1200" height="320" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&amp;h=320&amp;fit=crop" alt="Tech and electronics" class="carousel-slide" width="1200" height="320" loading="lazy">
                 <button class="carousel-nav carousel-prev" onclick="carouselPrev()">&#10094;</button>
                 <button class="carousel-nav carousel-next" onclick="carouselNext()">&#10095;</button>
                 <div class="carousel-dots" id="carouselDots"></div>
@@ -165,6 +166,23 @@
             </div>
         </aside>
     </div>
+
+    <section class="home-spotlight" aria-labelledby="spotlightFamilyHeading">
+        <div class="home-spotlight-inner">
+            <h2 id="spotlightFamilyHeading" class="home-spotlight-title">
+                <!-- Rotating spotlight label (English only; change here every few days) -->
+                <span class="home-spotlight-kicker">Today&apos;s hot recommendations:</span>
+                <span data-i18n="spotlightFamilyTitle">Family &amp; kids: featured guides</span>
+            </h2>
+            <p class="home-spotlight-intro" data-i18n="spotlightFamilyIntro">Matching looks, school and play, shoes and coats, busy-mom basics — practical picks (Old Navy Canada).</p>
+            <div class="home-spotlight-cards">
+                <a class="home-spotlight-card" href="blogs/blog-oldnavy-1.html">Family Matching Outfits Without the Stress</a>
+                <a class="home-spotlight-card" href="blogs/blog-oldnavy-2.html">Kids&apos; Everyday Clothes: School and Play</a>
+                <a class="home-spotlight-card" href="blogs/blog-oldnavy-3.html">Kids&apos; Shoes &amp; Coats: 8 Questions Before You Buy</a>
+                <a class="home-spotlight-card" href="blogs/blog-oldnavy-4.html">Postpartum &amp; Busy-Mom Wardrobe Basics</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Fullscreen overlay: clock one row, no overlap -->
     <div class="clock-fullscreen-overlay" id="clockFullscreenOverlay" aria-hidden="true">
@@ -209,7 +227,12 @@
         <!-- Left Sidebar: Latest Articles -->
         <aside class="blog-sidebar">
             <h3 data-i18n="sidebarLatest">Latest Articles</h3>
+            <p class="sidebar-latest-note" data-i18n="sidebarLatestNote">Newest family &amp; kids guides first — matches the banner theme (Old Navy Canada).</p>
             <ul class="sidebar-list">
+                <li class="sidebar-featured"><a href="blogs/blog-oldnavy-1.html">Family Matching Outfits Without the Stress</a><span class="sidebar-date">2026-03-29</span></li>
+                <li class="sidebar-featured"><a href="blogs/blog-oldnavy-2.html">Kids' Everyday Clothes: School and Play</a><span class="sidebar-date">2026-03-29</span></li>
+                <li class="sidebar-featured"><a href="blogs/blog-oldnavy-3.html">Kids' Shoes &amp; Coats: 8 Questions Before You Buy</a><span class="sidebar-date">2026-03-29</span></li>
+                <li class="sidebar-featured"><a href="blogs/blog-oldnavy-4.html">Postpartum &amp; Busy-Mom Wardrobe Basics</a><span class="sidebar-date">2026-03-29</span></li>
                 <li><a href="blogs/topic-xcaret.html">Hotel Xcaret Topic Hub (2026)</a><span class="sidebar-date">2026-03-21</span></li>
                 <li><a href="blogs/blog-xcaret-1.html">Hotel Xcaret Mexico: Is All-Fun Inclusive Worth It?</a><span class="sidebar-date">2026-03-21</span></li>
                 <li><a href="blogs/blog-xcaret-2.html">Hotel Xcaret Arte vs Mexico: Which One to Book</a><span class="sidebar-date">2026-03-21</span></li>
@@ -295,6 +318,16 @@
                     <div>
                         <div class="article-item">
                             <div class="article-item-thumb">
+                                <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=120&h=80&fit=crop" alt="Family at home" width="120" height="80" loading="lazy">
+                            </div>
+                            <div class="article-item-content">
+                                <h3 class="article-item-title"><a href="blogs/blog-oldnavy-1.html">Family Matching Outfits Without the Stress</a></h3>
+                                <p class="article-item-excerpt">When coordinated looks help, when they hurt, and how to keep photos fun for kids.</p>
+                                <span class="article-item-date">2026-03-29</span>
+                            </div>
+                        </div>
+                        <div class="article-item">
+                            <div class="article-item-thumb">
                                 <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=120&h=80&fit=crop" alt="Basketball shoes" width="120" height="80" loading="lazy">
                             </div>
                             <div class="article-item-content">
@@ -326,6 +359,10 @@
                     </div>
                     <div>
                         <ul class="article-list">
+                            <li><a href="blogs/blog-oldnavy-1.html">Family Matching Outfits Without the Stress</a><span class="date">2026-03-29</span></li>
+                            <li><a href="blogs/blog-oldnavy-2.html">Kids' Everyday Clothes: School and Play</a><span class="date">2026-03-29</span></li>
+                            <li><a href="blogs/blog-oldnavy-3.html">Kids' Shoes &amp; Coats: 8 Questions Before You Buy</a><span class="date">2026-03-29</span></li>
+                            <li><a href="blogs/blog-oldnavy-4.html">Postpartum &amp; Busy-Mom Wardrobe Basics</a><span class="date">2026-03-29</span></li>
                             <li><a href="blogs/blog-farfetch-2.html">Streetwear Brands Worth the Hype in 2025</a><span class="date">2026-01-22</span></li>
                             <li><a href="blogs/blog-sephora-2.html">Skincare Routine on a Budget: What Really Works</a><span class="date">2026-01-18</span></li>
                             <li><a href="blogs/blog-farfetch-1.html">Luxury Fashion Online: Authenticity and Deals</a><span class="date">2026-01-15</span></li>
