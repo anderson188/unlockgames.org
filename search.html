@@ -8,6 +8,29 @@
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://unlockgames.org/search.html">
     <link rel="stylesheet" href="blog-traditional.css">
+    <style>
+        .search-results-list { list-style: none; padding: 0; margin: 0; }
+        .search-result-item { padding: 0.95rem 0; border-bottom: 1px dashed var(--border); }
+        .search-result-item:last-child { border-bottom: none; }
+        .search-result-link { display: block; color: var(--text-primary); text-decoration: none; line-height: 1.45; font-size: 1rem; }
+        .search-result-link:hover { color: var(--accent-cyan); }
+        .search-result-date { display: inline-block; margin-top: 0.25rem; color: var(--text-muted); font-size: 0.85rem; }
+        .search-pagination { display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; }
+        .search-page-btn {
+            border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary);
+            border-radius: 6px; padding: 0.35rem 0.7rem; cursor: pointer; font-size: 0.85rem;
+        }
+        .search-page-btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+        .search-page-btn.is-active { border-color: var(--accent-cyan); color: var(--accent-cyan); font-weight: 600; }
+        .search-page-info { color: var(--text-muted); font-size: 0.85rem; }
+        .search-page-main {
+            display: block !important;
+            grid-template-columns: none !important;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+    </style>
 </head>
 <body>
     <header class="blog-header">
@@ -43,7 +66,7 @@
         </div>
     </nav>
 
-    <main class="blog-main" role="main" style="max-width: 900px; margin: 2rem auto; padding: 0 20px;">
+    <main class="blog-main search-page-main" role="main">
         <h1 class="sr-only" data-i18n="searchPageH1">Search</h1>
         <section id="search-results-section" aria-live="polite">
             <h2 id="search-results-title">Search results</h2>
@@ -70,11 +93,15 @@
 
     <script>
 window.UNLOCKGAMES_SEARCH_FALLBACK = [{"title":"Solo Travel Without the Performance: Enjoying Your Own Company on the Road","file":"blog-travel-solo-without-performance.html","date":"2026-03-29"},{"title":"Stretching a Travel Budget Without Feeling Like You Are Punishing Yourself","file":"blog-travel-budget-without-misery.html","date":"2026-03-29"},{"title":"Long-Drive Reset: A Road Trip Carry List for When Things Go Sideways","file":"blog-travel-road-trip-carry-list.html","date":"2026-03-29"},{"title":"How to Choose Running Shoes for Your Gait and Surface (2026 Guide)","file":"blog-sport-fashion-running-shoes-2026.html","date":"2026-03-28"},{"title":"Training Shoes vs Running Shoes: What to Buy and Why","file":"blog-sport-fashion-training-vs-running.html","date":"2026-03-28"},{"title":"Athleisure Wardrobe Basics: 8 Pieces That Work Globally","file":"blog-sport-fashion-athleisure-basics.html","date":"2026-03-28"},{"title":"How to Read Sportswear Product Pages (Fit, Fabrics, Care)","file":"blog-sport-fashion-read-product-pages.html","date":"2026-03-28"},{"title":"Sneaker Sizing Across Brands: A Practical International Guide","file":"blog-sport-fashion-sneaker-sizing.html","date":"2026-03-28"},{"title":"Best Time to Buy Athletic Gear: Sales Cycles Without the Hype","file":"blog-sport-fashion-sales-cycles.html","date":"2026-03-28"},{"title":"TOP 10 Best LED Strip Lights 2025","file":"blog-govee-1.html","date":"2026-01-12"},{"title":"Best Car Rental Deals","file":"blog-avis-1.html","date":"2025-12-27"},{"title":"Best Expedia Tips","file":"blog-expedia-2.html","date":"2025-12-18"},{"title":"Best Time to Book Hotels","file":"blog-hotels-1.html","date":"2025-12-14"},{"title":"Best Chewy Deals","file":"blog-chewy-1.html","date":"2026-01-02"},{"title":"Best Pet Supplies for First-Time Owners","file":"blog-chewy-2.html","date":"2025-12-28"},{"title":"Best Laptops for Students 2025","file":"blog-acer-1.html","date":"2025-12-22"},{"title":"Best Disney Merchandise","file":"blog-disney-1.html","date":"2026-01-05"},{"title":"Best Refurbished Tech Deals","file":"blog-woot-1.html","date":"2026-01-22"},{"title":"Best Nordstrom Finds","file":"blog-nordstrom-1.html","date":"2025-12-25"},{"title":"Best Sephora Skincare 2025","file":"blog-sephora-1.html","date":"2026-01-08"},{"title":"Best Macy's Deals for Home","file":"blog-macys-1.html","date":"2026-01-06"},{"title":"Best Buy Open Box","file":"blog-bestbuy-1.html","date":"2026-01-05"},{"title":"Best Target Home Finds","file":"blog-target-1.html","date":"2025-12-19"},{"title":"Best Walmart Deals","file":"blog-walmart-1.html","date":"2025-12-05"},{"title":"Best Hydrating Skincare","file":"blog-sephora-2.html","date":"2026-01-18"},{"title":"Best Affordable Fashion Finds","file":"blog-shein-1.html","date":"2025-12-12"},{"title":"Best Amazon Deals","file":"blog-amazon-1.html","date":"2025-12-15"},{"title":"Best Basketball Shoes 2025","file":"blog-nike-1.html","date":"2025-12-18"},{"title":"Best Smartphones of 2025","file":"blog-samsung-1.html","date":"2025-12-08"},{"title":"Best Budget Sports Shoes Under 100 Dollars","file":"blog-adidas-1.html","date":"2025-12-03"},{"title":"TOP 10 Best Running Shoes for 2025","file":"blog-adidas-1.html","date":"2025-12-03"}];
+window.UNLOCKGAMES_SEARCH_SAAS = [{"title":"NordVPN Review for Remote Teams: Is It Worth It in 2026?","file":"blog-saas-1.html","date":"2026-04-01"},{"title":"NordVPN vs Surfshark: Which VPN Fits Small Businesses?","file":"blog-saas-2.html","date":"2026-04-01"},{"title":"Canva Pro vs Free: What Actually Changes for Client Work","file":"blog-saas-3.html","date":"2026-04-01"},{"title":"Canva vs Adobe Express: Fast Design Stack Comparison","file":"blog-saas-4.html","date":"2026-04-01"},{"title":"Grammarly Premium Review: Better Writing or Extra Subscription?","file":"blog-saas-5.html","date":"2026-04-01"},{"title":"Grammarly vs QuillBot: Editing Tools for Marketing Teams","file":"blog-saas-6.html","date":"2026-04-01"},{"title":"Hostinger Review for Beginners: Performance, Limits, and Pricing","file":"blog-saas-7.html","date":"2026-04-01"},{"title":"Hostinger vs SiteGround: Which Hosting Plan Scales Better?","file":"blog-saas-8.html","date":"2026-04-01"},{"title":"Envato Elements Review: Is One Subscription Enough for Creators?","file":"blog-saas-9.html","date":"2026-04-01"},{"title":"Envato Elements vs Creative Market: Asset Library Showdown","file":"blog-saas-10.html","date":"2026-04-01"},{"title":"Airbnb for Work Trips: Booking Rules That Save Teams Money","file":"blog-saas-11.html","date":"2026-04-01"},{"title":"Airbnb vs Hotels for 3-7 Day Business Trips","file":"blog-saas-12.html","date":"2026-04-01"},{"title":"Uber for Business Review: Team Ride Controls and Reporting","file":"blog-saas-13.html","date":"2026-04-01"},{"title":"Uber vs Local Taxi Apps: Which Is Better for Company Travel?","file":"blog-saas-14.html","date":"2026-04-01"},{"title":"Privacy + Writing Stack for Remote Teams: NordVPN and Grammarly","file":"blog-saas-15.html","date":"2026-04-01"},{"title":"Canva + Envato Workflow: Fast Visual Production for Small Teams","file":"blog-saas-16.html","date":"2026-04-01"},{"title":"Launch a Service Website in One Weekend: Hostinger + Canva","file":"blog-saas-17.html","date":"2026-04-01"},{"title":"Top SaaS Stack Under $150/Month for Solo Operators","file":"blog-saas-18.html","date":"2026-04-01"},{"title":"Best SaaS Tools for Affiliate Publishers in 2026","file":"blog-saas-19.html","date":"2026-04-01"},{"title":"SaaS Reviews That Convert: Editorial Framework We Use","file":"blog-saas-20.html","date":"2026-04-01"}];
     </script>
     <script>
 (function() {
     var params = new URLSearchParams(window.location.search);
     var q = (params.get('q') || '').trim();
+    var PAGE_SIZE = 10;
+    var currentPage = 1;
+    var currentResults = [];
     var searchInput = document.getElementById('headerSearch');
     var resultsEl = document.getElementById('search-results');
     var titleEl = document.getElementById('search-results-title');
@@ -82,29 +109,71 @@ window.UNLOCKGAMES_SEARCH_FALLBACK = [{"title":"Solo Travel Without the Performa
     if (searchInput) searchInput.value = q;
 
     function renderResults(articles) {
+        currentResults = articles || [];
+        currentPage = 1;
+        renderPage();
+    }
+
+    function renderPage() {
         if (!q) {
             titleEl.textContent = 'Search articles';
             resultsEl.innerHTML = '<p>Enter a keyword above and press Search to find articles.</p>';
             return;
         }
-        if (!articles || articles.length === 0) {
+        if (!currentResults || currentResults.length === 0) {
             titleEl.textContent = 'Search results for \u201c' + escapeHtml(q) + '\u201d';
             resultsEl.innerHTML = '<p>No articles found. Try different keywords.</p>';
             return;
         }
-        titleEl.textContent = 'Search results for \u201c' + escapeHtml(q) + '\u201d (' + articles.length + ')';
-        var html = '<ul class="sidebar-list" style="list-style:none; padding:0;">';
-        for (var i = 0; i < articles.length; i++) {
-            var a = articles[i];
-            var href = 'blogs/' + (a.file || a.fileName || '');
+        var total = currentResults.length;
+        var totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+        if (currentPage > totalPages) currentPage = totalPages;
+        var start = (currentPage - 1) * PAGE_SIZE;
+        var end = Math.min(start + PAGE_SIZE, total);
+
+        titleEl.textContent = 'Search results for \u201c' + escapeHtml(q) + '\u201d (' + total + ')';
+        var html = '<ul class="search-results-list">';
+        for (var i = start; i < end; i++) {
+            var a = currentResults[i];
+            var href = a.href || ('blogs/' + (a.file || a.fileName || ''));
             var title = a.title || 'Article';
             var date = a.date || '';
-            html += '<li style="margin-bottom:0.75rem;"><a href="' + escapeAttr(href) + '">' + escapeHtml(title) + '</a>';
-            if (date) html += ' <span class="sidebar-date" style="color:var(--text-muted);font-size:0.85rem;">' + escapeHtml(date) + '</span>';
+            html += '<li class="search-result-item">';
+            html += '<a class="search-result-link" href="' + escapeAttr(href) + '">' + escapeHtml(title) + '</a>';
+            if (date) html += '<span class="search-result-date">' + escapeHtml(date) + '</span>';
             html += '</li>';
         }
         html += '</ul>';
+
+        if (totalPages > 1) {
+            html += '<div class="search-pagination">';
+            html += '<button class="search-page-btn" data-page="' + (currentPage - 1) + '"' + (currentPage === 1 ? ' disabled' : '') + '>Prev</button>';
+            var pStart = Math.max(1, currentPage - 2);
+            var pEnd = Math.min(totalPages, currentPage + 2);
+            for (var p = pStart; p <= pEnd; p++) {
+                html += '<button class="search-page-btn' + (p === currentPage ? ' is-active' : '') + '" data-page="' + p + '">' + p + '</button>';
+            }
+            html += '<button class="search-page-btn" data-page="' + (currentPage + 1) + '"' + (currentPage === totalPages ? ' disabled' : '') + '>Next</button>';
+            html += '<span class="search-page-info">Page ' + currentPage + ' / ' + totalPages + '</span>';
+            html += '</div>';
+        }
+
         resultsEl.innerHTML = html;
+        bindPager();
+    }
+
+    function bindPager() {
+        var btns = resultsEl.querySelectorAll('.search-page-btn[data-page]');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', function() {
+                if (this.disabled) return;
+                var p = parseInt(this.getAttribute('data-page'), 10);
+                if (!isNaN(p) && p > 0) {
+                    currentPage = p;
+                    renderPage();
+                }
+            });
+        }
     }
 
     function escapeHtml(s) {
@@ -129,24 +198,55 @@ window.UNLOCKGAMES_SEARCH_FALLBACK = [{"title":"Solo Travel Without the Performa
         return false;
     }
 
+    function mergeByFile(items) {
+        var map = {};
+        var out = [];
+        for (var i = 0; i < items.length; i++) {
+            var it = items[i] || {};
+            var f = it.href || it.file || it.fileName;
+            if (!f) continue;
+            if (map[f]) continue;
+            map[f] = 1;
+            out.push({ title: it.title || 'Article', file: it.file || it.fileName || '', href: it.href || '', date: it.date || '' });
+        }
+        return out;
+    }
+
     function runSearch() {
         if (!q) {
             renderResults(null);
             return;
         }
         var key = q.toLowerCase();
-        fetch('blogs/articles-list.json')
-            .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
-            .then(function(list) {
+        Promise.all([
+            fetch('blogs/articles-list.json').then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; }),
+            fetch('blogs/search-titles.json').then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; }),
+            fetch('search-sitewide.json').then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; })
+        ])
+            .then(function(payload) {
+                var listA = Array.isArray(payload[0]) ? payload[0] : [];
+                var listB = Array.isArray(payload[1]) ? payload[1] : [];
+                var listC = Array.isArray(payload[2]) ? payload[2] : [];
+                var combined = mergeByFile(listA.concat(listB).concat(listC));
                 var out = [];
-                for (var i = 0; i < list.length; i++) {
-                    var item = list[i];
-                    if (matchItem(item, key)) out.push({ title: item.title, file: item.file, date: item.date });
+                for (var i = 0; i < combined.length; i++) {
+                    var item = combined[i];
+                    if (matchItem(item, key)) out.push({ title: item.title, file: item.file, href: item.href, date: item.date });
+                }
+                if (out.length) {
+                    renderResults(out);
+                    return;
+                }
+                // fallback to inline list if both files unavailable/empty
+                var fallback = (window.UNLOCKGAMES_SEARCH_FALLBACK || []).concat(window.UNLOCKGAMES_SEARCH_SAAS || []);
+                for (var j = 0; j < fallback.length; j++) {
+                    var f = fallback[j];
+                    if ((f.title || '').toLowerCase().indexOf(key) !== -1) out.push(f);
                 }
                 renderResults(out);
             })
             .catch(function() {
-                var fallback = window.UNLOCKGAMES_SEARCH_FALLBACK || [];
+                var fallback = (window.UNLOCKGAMES_SEARCH_FALLBACK || []).concat(window.UNLOCKGAMES_SEARCH_SAAS || []);
                 var out = [];
                 for (var i = 0; i < fallback.length; i++) {
                     var item = fallback[i];

@@ -385,7 +385,12 @@ body {
   transition: color 0.2s, background 0.2s;
 }
 
+.blog-nav a:visited {
+  color: inherit;
+}
+
 .blog-nav a[href="index.html"],
+.blog-nav a[href^="#saas"],
 .blog-nav a[href^="#electronics"],
 .blog-nav a[href^="#fashion"],
 .blog-nav a[href^="#sport-fashion"],
@@ -1259,6 +1264,10 @@ body {
   margin-top: 0.25rem;
 }
 
+.sidebar-date .date-text {
+  color: inherit;
+}
+
 /* Article Module */
 .article-module {
   background: var(--bg-card);
@@ -1341,6 +1350,10 @@ body {
   margin-top: 0.25rem;
 }
 
+.article-item-date .date-text {
+  color: inherit;
+}
+
 /* Article List (text only) */
 .article-list { list-style: none; }
 
@@ -1368,6 +1381,24 @@ body {
   color: var(--text-muted);
   flex-shrink: 0;
   margin-left: 1rem;
+}
+
+/* Keep date + views compact and readable */
+.article-item-date,
+.article-list .date,
+.sidebar-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: nowrap;
+}
+
+.view-count {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  color: #7f96b5;
+  font-size: 0.92em;
 }
 
 /* Two-column module layout */
@@ -1708,6 +1739,10 @@ body {
 
 .category-mag-meta time {
   font-variant-numeric: tabular-nums;
+}
+
+.category-mag-views.view-count {
+  color: #89a0bf;
 }
 
 .category-mag-tag {
