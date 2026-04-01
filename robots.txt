@@ -3,5 +3,6 @@ Allow: /
 Disallow: /*?q=
 
 Sitemap: https://unlockgames.org/sitemap.xml
+Sitemap: https://unlockgames.org/sitemap-latest.xml
 
 # Crawl-delay: 10  # Uncomment if server load is high

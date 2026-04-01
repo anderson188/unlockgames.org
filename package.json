@@ -8,7 +8,8 @@
     "build:articles-i18n:translate-only": "node scripts/build-articles-i18n.mjs",
     "build:i18n-embedded": "node scripts/build-i18n-embedded.mjs",
     "check:articles-i18n": "node scripts/check-articles-i18n.mjs",
-    "build:sitemap": "node scripts/generate-sitemap.mjs"
+    "build:sitemap": "node scripts/generate-sitemap.mjs",
+    "build:sitemap:latest": "node scripts/generate-sitemap-latest.mjs"
   },
   "devDependencies": {
     "cheerio": "^1.2.0",
