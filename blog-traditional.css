@@ -396,7 +396,8 @@ body {
 .blog-nav a[href^="#sport-fashion"],
 .blog-nav a[href="category-sport-fashion.html"],
 .blog-nav a[href^="#shopping"],
-.blog-nav a[href^="#travel"] {
+.blog-nav a[href^="#travel"],
+.blog-nav a[href="index1018.html"] {
   color: var(--nav-category);
   font-weight: 600;
 }
