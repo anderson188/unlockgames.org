@@ -1,17 +1,38 @@
 (function(){
     var AI_ASSISTANT_API_URL = 'https://unlockgames-ai-proxy.2420133012.workers.dev';
 
+    if (document.getElementById('askAiFloat')) return;
+
     var html = '<div class="ask-ai-float" id="askAiFloat">' +
         '<div class="ask-ai-quick-messages" id="askAiQuickMessages"></div>' +
-        '<div class="ask-ai-quick-row"><input type="text" class="ask-ai-quick-input" id="askAiQuickInput" placeholder="Ask AI..." autocomplete="off"><button type="button" class="ask-ai-quick-send" id="askAiQuickSend" aria-label="Send">&#8594;</button></div>' +
-        '<button type="button" class="ask-ai-fab" id="askAiFab" aria-label="Open full chat"><span class="ask-ai-icon" aria-hidden="true">&#129302;</span><span class="ask-ai-text">Expand</span></button>' +
+        '<div class="ask-ai-quick-row">' +
+        '<input type="text" class="ask-ai-quick-input" id="askAiQuickInput" placeholder="Ask AI..." autocomplete="off" data-i18n="askAiQuickPh">' +
+        '<button type="button" class="ask-ai-quick-send" id="askAiQuickSend" data-i18n-aria="askAiSendAria" aria-label="Send">&#8594;</button>' +
+        '</div>' +
+        '<button type="button" class="ask-ai-fab" id="askAiFab" data-i18n-aria="askAiFabAria" aria-label="Need help? Open chat with Ava">' +
+        '<span class="ask-ai-fab-inner">' +
+        '<span class="ask-ai-ava-sparkles" aria-hidden="true">' +
+        '<span class="ask-ai-spark ask-ai-spark-lg">&#10022;</span>' +
+        '<span class="ask-ai-spark ask-ai-spark-s1">&#10022;</span>' +
+        '<span class="ask-ai-spark ask-ai-spark-s2">&#10022;</span>' +
+        '</span>' +
+        '<span class="ask-ai-ava-text" data-i18n="askAiExpand">Need help? Ask Ava</span>' +
+        '</span>' +
+        '</button>' +
         '</div>' +
         '<div class="ask-ai-panel" id="askAiPanel" aria-hidden="true" style="width: 360px;">' +
         '<div class="ask-ai-resize-handle" id="askAiResizeHandle" aria-label="Drag to resize"></div>' +
-        '<div class="ask-ai-header"><span class="ask-ai-title">AI Assistant</span><div class="ask-ai-header-actions"><button type="button" class="ask-ai-maximize" id="askAiMaximize" title="Expand">&#10535;</button><button type="button" class="ask-ai-close" id="askAiClose" aria-label="Close">&times;</button></div></div>' +
+        '<div class="ask-ai-header">' +
+        '<span class="ask-ai-title" data-i18n="askAiTitle">AI Assistant</span>' +
+        '<div class="ask-ai-header-actions">' +
+        '<button type="button" class="ask-ai-maximize" id="askAiMaximize" data-i18n-title="askAiMaxTitle" title="Expand">&#10535;</button>' +
+        '<button type="button" class="ask-ai-close" id="askAiClose" data-i18n-aria="askAiCloseAria" aria-label="Close">&times;</button>' +
+        '</div></div>' +
         '<div class="ask-ai-messages" id="askAiMessages"></div>' +
-        '<div class="ask-ai-input-row"><input type="text" class="ask-ai-input" id="askAiInput" placeholder="Type your question..." autocomplete="off"><button type="button" class="ask-ai-send" id="askAiSend">Send</button></div>' +
-        '</div>';
+        '<div class="ask-ai-input-row">' +
+        '<input type="text" class="ask-ai-input" id="askAiInput" placeholder="Type your question..." autocomplete="off" data-i18n="askAiTypePh">' +
+        '<button type="button" class="ask-ai-send" id="askAiSend" data-i18n="sendBtn">Send</button>' +
+        '</div></div>';
 
     var wrap = document.createElement('div');
     wrap.innerHTML = html;
@@ -72,7 +93,16 @@
         if(messagesEl){ messagesEl.appendChild(div); messagesEl.scrollTop = messagesEl.scrollHeight; }
         if(quickMessagesEl){ quickMessagesEl.appendChild(div.cloneNode(true)); quickMessagesEl.scrollTop = quickMessagesEl.scrollHeight; if(floatEl) floatEl.classList.add('has-chat'); }
     }
-    function setLoading(on){ if(sendBtn) sendBtn.disabled = on; sendBtn.textContent = on ? '...' : 'Send'; }
+    function setLoading(on){
+        if (!sendBtn) return;
+        sendBtn.disabled = on;
+        if (on) {
+            if (sendBtn.dataset._sendLabel == null) sendBtn.dataset._sendLabel = sendBtn.textContent;
+            sendBtn.textContent = '...';
+        } else {
+            sendBtn.textContent = sendBtn.dataset._sendLabel != null ? sendBtn.dataset._sendLabel : 'Send';
+        }
+    }
     if(sendBtn && inputEl){
         sendBtn.addEventListener('click', function(){ send(); });
         inputEl.addEventListener('keydown', function(e){ if(e.key === 'Enter') send(); });

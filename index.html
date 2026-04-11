@@ -885,7 +885,16 @@
                 if(messagesEl){ messagesEl.appendChild(div); messagesEl.scrollTop = messagesEl.scrollHeight; }
                 if(quickMessagesEl){ quickMessagesEl.appendChild(div.cloneNode(true)); quickMessagesEl.scrollTop = quickMessagesEl.scrollHeight; if(floatEl) floatEl.classList.add('has-chat'); }
             }
-            function setLoading(on){ if(sendBtn) sendBtn.disabled = on; sendBtn.textContent = on ? '...' : 'Send'; }
+            function setLoading(on){
+                if (!sendBtn) return;
+                sendBtn.disabled = on;
+                if (on) {
+                    if (sendBtn.dataset._sendLabel == null) sendBtn.dataset._sendLabel = sendBtn.textContent;
+                    sendBtn.textContent = '...';
+                } else {
+                    sendBtn.textContent = sendBtn.dataset._sendLabel != null ? sendBtn.dataset._sendLabel : 'Send';
+                }
+            }
             if(sendBtn && inputEl){
                 sendBtn.addEventListener('click', function(){ send(); });
                 inputEl.addEventListener('keydown', function(e){ if(e.key === 'Enter') send(); });
