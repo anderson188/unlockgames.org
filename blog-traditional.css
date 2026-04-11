@@ -1254,10 +1254,12 @@ body {
 
 .home-spotlight-intro {
   margin: 0 0 1.2rem;
-  max-width: 52ch;
+  max-width: none;
+  width: 100%;
   font-size: 0.95rem;
   color: var(--text-secondary);
-  line-height: 1.55;
+  line-height: 1.6;
+  text-align: left;
 }
 
 .home-spotlight-cards {
