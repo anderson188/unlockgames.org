@@ -863,40 +863,99 @@ body {
 .ask-ai-quick-send:hover { filter: brightness(1.1); }
 
 .ask-ai-fab {
-  padding: 0.5rem 0.9rem 0.6rem;
-  background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
-  color: #0f172a;
+  padding: 0;
   border: none;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 700;
+  border-radius: 9999px;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(34, 211, 238, 0.35), 0 0 0 1px rgba(255,255,255,0.15) inset;
+  background: linear-gradient(
+    105deg,
+    #fb923c 0%,
+    #f97316 18%,
+    #c084fc 62%,
+    #6366f1 100%
+  );
+  box-shadow: 0 4px 22px rgba(99, 102, 241, 0.35), 0 2px 8px rgba(249, 115, 22, 0.2);
   animation: askAiBounce 1.8s ease-in-out infinite;
   display: inline-flex;
-  flex-direction: column;
+  align-items: stretch;
+  line-height: 1.2;
+}
+
+.ask-ai-fab-inner {
+  margin: 2px;
+  padding: 0.45rem 1rem 0.5rem 0.75rem;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #faf5ff 0%, #f3e8ff 45%, #ede9fe 100%);
+  display: inline-flex;
   align-items: center;
-  gap: 0.15rem;
+  gap: 0.45rem;
+  min-height: 2.35rem;
+  box-sizing: border-box;
+}
+
+.ask-ai-ava-sparkles {
+  position: relative;
+  width: 1.65rem;
+  height: 1.2rem;
+  flex-shrink: 0;
+}
+
+.ask-ai-spark {
+  position: absolute;
+  line-height: 1;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.ask-ai-spark-lg {
+  left: 0.05rem;
+  top: -0.05rem;
+  font-size: 0.95rem;
+  color: #ea580c;
+}
+
+.ask-ai-spark-s1 {
+  left: 0.72rem;
+  top: 0.38rem;
+  font-size: 0.52rem;
+  color: #fb923c;
+}
+
+.ask-ai-spark-s2 {
+  left: 0;
+  top: 0.58rem;
+  font-size: 0.48rem;
+  color: #fdba74;
+}
+
+.ask-ai-ava-text {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
   letter-spacing: 0.02em;
-}
-
-.ask-ai-icon {
-  font-size: 1.4rem;
-  line-height: 1;
-  opacity: 0.95;
-}
-
-.ask-ai-text {
-  font-size: 0.8rem;
-  line-height: 1;
-  letter-spacing: 0.03em;
+  color: #6d28d9;
+  white-space: nowrap;
 }
 
 .ask-ai-fab:hover {
-  background: linear-gradient(135deg, #2dd4e8 0%, #22d3ee 100%);
   animation: none;
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(34, 211, 238, 0.5);
+  filter: brightness(1.05);
+  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.45), 0 4px 12px rgba(249, 115, 22, 0.25);
+}
+
+.ask-ai-fab:hover .ask-ai-ava-text {
+  color: #5b21b6;
+}
+
+@media (max-width: 380px) {
+  .ask-ai-ava-text {
+    font-size: 0.75rem;
+  }
+  .ask-ai-fab-inner {
+    padding-left: 0.55rem;
+    padding-right: 0.75rem;
+  }
 }
 
 .ask-ai-panel {
