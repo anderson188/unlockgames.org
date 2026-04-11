@@ -158,12 +158,52 @@ body {
 }
 
 .blog-logo {
-  font-family: 'Playfair Display', Georgia, serif;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.1em;
   font-size: 1.75rem;
+  text-decoration: none;
+  line-height: 1.05;
+  transition: filter 0.2s ease;
+}
+
+/* Inner pages: single-word logo (no split spans) */
+.blog-logo:not(:has(.blog-logo-unlock)) {
+  font-family: 'Playfair Display', Georgia, serif;
   font-weight: 600;
   color: var(--accent-cyan);
-  text-decoration: none;
   letter-spacing: 0.02em;
+}
+
+.blog-logo-unlock {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 800;
+  font-size: 1em;
+  letter-spacing: 0.08em;
+  color: var(--accent-cyan);
+  text-shadow: 0 0 24px rgba(34, 211, 238, 0.35);
+}
+
+.blog-logo-games {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.08em;
+  letter-spacing: 0.03em;
+  color: #fbbf24;
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.25);
+}
+
+.blog-logo:hover {
+  filter: brightness(1.08);
+}
+
+.blog-logo:hover .blog-logo-unlock {
+  color: #67e8f9;
+}
+
+.blog-logo:hover .blog-logo-games {
+  color: #fde68a;
 }
 
 .blog-search-form {
