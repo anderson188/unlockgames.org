@@ -443,6 +443,13 @@ body {
   font-weight: 600;
 }
 
+/* Keep new nav item consistent with category color */
+.blog-nav a[href="#outdoor"],
+.blog-nav a[href="#outdoor"]:visited {
+  color: var(--nav-category) !important;
+  font-weight: 600;
+}
+
 .blog-nav a:hover {
   background: var(--nav-hover);
   color: var(--accent-cyan);
