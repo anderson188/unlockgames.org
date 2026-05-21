@@ -178,15 +178,14 @@ const broken = [
   ['photo-1563013544-824ae1b704d3', 'photo-1441986300917-64674bd600d8'],
   ['photo-1488085061387-422e29b40080', 'photo-1566073771259-6a8506099945'],
   ['photo-1436491865332-7a61a109cc05', 'photo-1507525428034-b723cf961d3e'],
-  ['photo-1431324155629-1a6deb1dec8d', 'photo-1574629810360-7dff2c06c2f0'],
   ['photo-1460353581641-37baddab0fa2', 'photo-1542291026-7eec264c27ff'],
   ['photo-1515886657613-9f3515b0c78f', 'photo-1558618666-fcd25c85cd64'],
   ['photo-1556228578-0d85b1a4d571', 'photo-1594938298603-c8148c4dae35'],
   ['photo-1517836357463-d25dfeac3438', 'photo-1571019613454-1cb2f99b2d8b'],
   ['picsum.photos/seed/saasaudit/120/80', 'images.unsplash.com/photo-1518770660439-4636190af475?w=120&h=80&fit=crop'],
-  ['picsum.photos/seed/notetaking/120/80', 'images.unsplash.com/photo-1486312338170-ecf20de8824a?w=120&h=80&fit=crop'],
+  ['picsum.photos/seed/notetaking/120/80', 'images.unsplash.com/photo-1496181133206-80ce9b88a853?w=120&h=80&fit=crop'],
   ['picsum.photos/seed/saasaudit/640/360', 'images.unsplash.com/photo-1518770660439-4636190af475?w=640&h=360&fit=crop'],
-  ['picsum.photos/seed/notetaking/640/360', 'images.unsplash.com/photo-1486312338170-ecf20de8824a?w=640&h=360&fit=crop'],
+  ['picsum.photos/seed/notetaking/640/360', 'images.unsplash.com/photo-1496181133206-80ce9b88a853?w=640&h=360&fit=crop'],
 ];
 
 for (const f of [path.join(rootDir, 'index.html'), ...fs.readdirSync(blogsDir).filter(n => n.endsWith('.html')).map(n => path.join(blogsDir, n))]) {
