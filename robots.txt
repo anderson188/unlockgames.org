@@ -1,8 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /*?q=
+Disallow: /1203/
+Disallow: /node_modules/
 
 Sitemap: https://unlockgames.org/sitemap.xml
-Sitemap: https://unlockgames.org/sitemap-latest.xml
-
-# Crawl-delay: 10  # Uncomment if server load is high
