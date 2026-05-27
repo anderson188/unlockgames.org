@@ -7,7 +7,7 @@ const root = path.join(__dirname, '..');
 const blogsDir = path.join(root, 'blogs');
 
 const BASE = 'https://unlockgames.org';
-const today = '2026-05-26';
+const today = '2026-05-27';
 
 // Pages that should NOT be in sitemap
 const EXCLUDE = new Set([
