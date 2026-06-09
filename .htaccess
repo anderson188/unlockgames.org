@@ -1,2 +1,19 @@
 AddType application/xml .xml
 AddType text/xsl .xsl
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# Canonical homepage — avoid /index.html duplicate
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Game pages live in site root but were sometimes crawled under /blogs/
+RewriteRule ^blogs/(blog-(?:slime-jumper|chicken-scream|tiny-fishing|block-puzzle-travel|2player-chess|driver-highway|plant-clicker|sprunki|squid-challenge|guess-their-answer|airplanes-coloring-book|make-america-great-again)(?:\.html)?)$ /$1 [R=301,L]
+
+# Extensionless URLs → .html when file exists (contact, excel-game, etc.)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [R=301,L]
+</IfModule>

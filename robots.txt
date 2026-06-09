@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
-Disallow: /*?q=
-Disallow: /1203/
+
+# Block dev dependencies only — never use Disallow on pages you want deindexed;
+# use <meta name="robots" content="noindex"> instead so Googlebot can read it.
 Disallow: /node_modules/
 
 Sitemap: https://unlockgames.org/sitemap.xml

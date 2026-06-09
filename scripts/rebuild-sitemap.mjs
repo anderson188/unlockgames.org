@@ -19,10 +19,14 @@ const EXCLUDE = new Set([
   // Junk/test pages
   'AutoAds-Design-Document.html', 'hub-landing.html', 'booking-landing.html',
   'excel-game.html', 'support.html',
-  // Game pages (separate section)
-  'blog-sprunki.html', 'blog-sprunki-3d-escape.html',
-  'blog-squid-challenge.html', 'blog-guess-their-answer.html',
-  'blog-airplanes-coloring-book.html', 'blog-make-america-great-again.html',
+  // Game / legacy pages (root only — not affiliate articles)
+  'blog.html',
+  'blog-2player-chess.html', 'blog-airplanes-coloring-book.html',
+  'blog-block-puzzle-travel.html', 'blog-chicken-scream.html',
+  'blog-driver-highway.html', 'blog-guess-their-answer.html',
+  'blog-make-america-great-again.html', 'blog-plant-clicker.html',
+  'blog-slime-jumper.html', 'blog-sprunki.html', 'blog-sprunki-3d-escape.html',
+  'blog-sprunki-phase-7.html', 'blog-squid-challenge.html', 'blog-tiny-fishing.html',
 ]);
 
 // Duplicate olive-young without hyphen — canonical should point to hyphen version
@@ -31,9 +35,9 @@ const OLIVE_DUPES = new Set([
   'blog-oliveyoung-4.html', 'blog-oliveyoung-5.html', 'blog-oliveyoung-6.html',
 ]);
 
-// Hub/landing pages for brands (index pages) — these exist but are just link hubs
-// We include them as they have unique content
-const BRAND_HUBS = [
+// Thin brand hub stubs (~2 paragraphs) — exclude from sitemap; use noindex so
+// Google does not queue crawl budget on pages unlikely to rank.
+const BRAND_HUBS = new Set([
   'blog-acer.html', 'blog-adidas.html', 'blog-alamo.html', 'blog-amazon.html',
   'blog-avis.html', 'blog-bestbuy.html', 'blog-bloomingdales.html', 'blog-chewy.html',
   'blog-disney.html', 'blog-ebay.html', 'blog-expedia.html', 'blog-farfetch.html',
@@ -44,7 +48,13 @@ const BRAND_HUBS = [
   'blog-priceline.html', 'blog-proactiv.html', 'blog-quip.html', 'blog-royalcanin.html',
   'blog-samsung.html', 'blog-sephora.html', 'blog-shein.html', 'blog-target.html',
   'blog-tripadvisor.html', 'blog-vistaprint.html', 'blog-walmart.html', 'blog-woot.html',
-];
+]);
+
+// Paginated category duplicates — keep only main category pages in sitemap
+const CATEGORY_PAGINATION = new Set(
+  fs.readdirSync(blogsDir)
+    .filter((f) => /^category-.+-\d+\.html$/.test(f))
+);
 
 function url(loc, lastmod, freq, prio) {
   return `    <url>
@@ -72,7 +82,9 @@ for (const p of ['about.html', 'terms.html', 'privacy.html', 'contact.html']) {
 }
 
 // 4. Category pages
-const catFiles = fs.readdirSync(blogsDir).filter(f => f.startsWith('category-') && f.endsWith('.html'));
+const catFiles = fs.readdirSync(blogsDir)
+  .filter(f => f.startsWith('category-') && f.endsWith('.html'))
+  .filter(f => !CATEGORY_PAGINATION.has(f));
 for (const f of catFiles.sort()) {
   urls.push(url(`${BASE}/blogs/${f}`, today, 'weekly', '0.8'));
 }
@@ -87,6 +99,7 @@ for (const f of topicFiles.sort()) {
 const blogFiles = fs.readdirSync(blogsDir)
   .filter(f => f.startsWith('blog-') && f.endsWith('.html'))
   .filter(f => !OLIVE_DUPES.has(f))
+  .filter(f => !BRAND_HUBS.has(f))
   .sort();
 
 for (const f of blogFiles) {
@@ -101,8 +114,25 @@ ${urls.join('\n')}
 fs.writeFileSync(path.join(root, 'sitemap.xml'), sitemap, 'utf8');
 console.log(`Sitemap rebuilt with ${urls.length} URLs`);
 console.log('Excluded olive-young dupes (no hyphen):', OLIVE_DUPES.size);
+console.log('Excluded thin brand hubs:', BRAND_HUBS.size);
+console.log('Excluded paginated category pages:', CATEGORY_PAGINATION.size);
 
-// === Fix duplicate olive-young canonical tags ===
+// === noindex thin brand hub pages ===
+for (const f of BRAND_HUBS) {
+  const fp = path.join(blogsDir, f);
+  if (!fs.existsSync(fp)) continue;
+  let html = fs.readFileSync(fp, 'utf8');
+  if (!html.includes('noindex')) {
+    html = html.replace(
+      '<meta name="viewport"',
+      '<meta name="robots" content="noindex, follow">\n    <meta name="viewport"'
+    );
+    fs.writeFileSync(fp, html, 'utf8');
+    console.log('Added noindex:', f);
+  }
+}
+
+// === Fix duplicate olive-young canonical tags + noindex dupes ===
 for (const f of OLIVE_DUPES) {
   const fp = path.join(blogsDir, f);
   if (!fs.existsSync(fp)) continue;
@@ -112,9 +142,38 @@ for (const f of OLIVE_DUPES) {
   const newCanonical = `<link rel="canonical" href="${BASE}/blogs/${target}">`;
   if (html.includes(oldCanonical)) {
     html = html.replace(oldCanonical, newCanonical);
-    fs.writeFileSync(fp, html, 'utf8');
     console.log(`Fixed canonical: ${f} → ${target}`);
   }
+  if (!html.includes('noindex')) {
+    html = html.replace(
+      '<meta name="viewport"',
+      '<meta name="robots" content="noindex, follow">\n    <meta name="viewport"'
+    );
+    console.log('Added noindex to olive dupe:', f);
+  }
+  fs.writeFileSync(fp, html, 'utf8');
+}
+
+// === noindex root game / legacy pages ===
+const ROOT_NOINDEX = [
+  'blog.html', 'blog-2player-chess.html', 'blog-airplanes-coloring-book.html',
+  'blog-block-puzzle-travel.html', 'blog-chicken-scream.html', 'blog-driver-highway.html',
+  'blog-guess-their-answer.html', 'blog-make-america-great-again.html', 'blog-plant-clicker.html',
+  'blog-slime-jumper.html', 'blog-sprunki.html', 'blog-sprunki-3d-escape.html',
+  'blog-sprunki-phase-7.html', 'blog-squid-challenge.html', 'blog-tiny-fishing.html',
+  'excel-game.html',
+];
+for (const f of ROOT_NOINDEX) {
+  const fp = path.join(root, f);
+  if (!fs.existsSync(fp)) continue;
+  let html = fs.readFileSync(fp, 'utf8');
+  if (html.includes('noindex')) continue;
+  html = html.replace(
+    '<meta charset="UTF-8">',
+    '<meta charset="UTF-8">\n    <meta name="robots" content="noindex, follow">'
+  );
+  fs.writeFileSync(fp, html, 'utf8');
+  console.log('Added noindex:', f);
 }
 
 // === Fix 1203/index.html canonical ===
