@@ -14,7 +14,7 @@
     <meta property="og:url" content="https://unlockgames.org/">
     <meta property="og:locale" content="en_US">
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=320&fit=crop">
+    <link rel="preload" as="video" href="assets/banner/banner-navimow.mp4" type="video/mp4">
     <link rel="stylesheet" href="blog-traditional.css">
             <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V09FV1LC3E"></script>
@@ -139,20 +139,47 @@
         </aside>
 
         <!-- Center: Carousel (same width as content below) -->
-        <div class="blog-carousel">
-            <div class="carousel-inner">
-                <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1200&amp;h=320&amp;fit=crop" alt="Family together in casual style — everyday harmony" class="carousel-slide active" width="1200" height="320" fetchpriority="high">
-                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&amp;h=320&amp;fit=crop" alt="Gaming — neon lights and esports atmosphere" class="carousel-slide" width="1200" height="320" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200&amp;h=320&amp;fit=crop" alt="PC gaming — keyboard and competitive play" class="carousel-slide" width="1200" height="320" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&amp;h=320&amp;fit=crop" alt="Beach travel" class="carousel-slide" width="1200" height="320" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&amp;h=320&amp;fit=crop" alt="Mountain landscape" class="carousel-slide" width="1200" height="320" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=1200&amp;h=320&amp;fit=crop" alt="City skyline" class="carousel-slide" width="1200" height="320" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&amp;h=320&amp;fit=crop" alt="Shopping store" class="carousel-slide" width="1200" height="320" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&amp;h=320&amp;fit=crop" alt="Fashion and style" class="carousel-slide" width="1200" height="320" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&amp;h=320&amp;fit=crop" alt="Tech and electronics" class="carousel-slide" width="1200" height="320" loading="lazy">
-                <button class="carousel-nav carousel-prev" onclick="carouselPrev()">&#10094;</button>
-                <button class="carousel-nav carousel-next" onclick="carouselNext()">&#10095;</button>
-                <div class="carousel-dots" id="carouselDots"></div>
+        <div class="blog-carousel blog-carousel--video" id="heroVideoCarousel">
+            <div class="carousel-inner" id="carouselInner">
+                <div class="carousel-slide carousel-slide--video active" aria-hidden="false">
+                    <video class="carousel-video" src="assets/banner/banner-navimow.mp4" muted playsinline loop preload="auto" width="1200" height="480" aria-label="Navimow robot lawn mower"></video>
+                    <div class="carousel-video-shade" aria-hidden="true"></div>
+                    <div class="carousel-video-ui">
+                        <span class="carousel-video-tag">Navimow</span>
+                        <span class="carousel-video-caption">Wire-free smart mowing</span>
+                        <button type="button" class="carousel-video-play" aria-label="Pause video"><span class="carousel-video-play-icon" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+                <div class="carousel-slide carousel-slide--video" aria-hidden="true">
+                    <video class="carousel-video" src="assets/banner/banner-laifen-mini.mp4" muted playsinline loop preload="metadata" width="1200" height="480" aria-label="Laifen Mini hair dryer"></video>
+                    <div class="carousel-video-shade" aria-hidden="true"></div>
+                    <div class="carousel-video-ui">
+                        <span class="carousel-video-tag carousel-video-tag--laifen">Laifen</span>
+                        <span class="carousel-video-caption">Mini · high-speed dryer</span>
+                        <button type="button" class="carousel-video-play is-paused" aria-label="Play video"><span class="carousel-video-play-icon" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+                <div class="carousel-slide carousel-slide--video" aria-hidden="true">
+                    <video class="carousel-video" src="assets/banner/banner-laifen-every-love.mp4" muted playsinline loop preload="metadata" width="1200" height="480" aria-label="Laifen Every Love Every Stage"></video>
+                    <div class="carousel-video-shade" aria-hidden="true"></div>
+                    <div class="carousel-video-ui">
+                        <span class="carousel-video-tag carousel-video-tag--laifen">Laifen</span>
+                        <span class="carousel-video-caption">Every love, every stage</span>
+                        <button type="button" class="carousel-video-play is-paused" aria-label="Play video"><span class="carousel-video-play-icon" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+                <div class="carousel-slide carousel-slide--video" aria-hidden="true">
+                    <video class="carousel-video" src="assets/banner/banner-laifen-air.mp4" muted playsinline loop preload="metadata" width="1200" height="480" aria-label="Laifen Air hair dryer"></video>
+                    <div class="carousel-video-shade" aria-hidden="true"></div>
+                    <div class="carousel-video-ui">
+                        <span class="carousel-video-tag carousel-video-tag--laifen">Laifen</span>
+                        <span class="carousel-video-caption">Air · light in palm</span>
+                        <button type="button" class="carousel-video-play is-paused" aria-label="Play video"><span class="carousel-video-play-icon" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+                <button type="button" class="carousel-nav carousel-prev" onclick="carouselPrev()" aria-label="Previous slide">&#10094;</button>
+                <button type="button" class="carousel-nav carousel-next" onclick="carouselNext()" aria-label="Next slide">&#10095;</button>
+                <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Banner slides"></div>
             </div>
         </div>
 
@@ -878,20 +905,7 @@
         </div>
     </footer>
 
-    <script defer>
-        (function(){
-        let slideIndex=0,slides,dc;
-        function init(){
-        slides=document.querySelectorAll('.carousel-slide');dc=document.getElementById('carouselDots');
-        for(let i=0;i<slides.length;i++){const d=document.createElement('button');d.className='carousel-dot'+(i===0?' active':'');d.onclick=function(){showSlide(i);};dc.appendChild(d);}
-        window.carouselPrev=function(){showSlide((slideIndex-1+slides.length)%slides.length);};
-        window.carouselNext=function(){showSlide((slideIndex+1)%slides.length);};
-        setInterval(window.carouselNext,5000);
-        }
-        function showSlide(n){slideIndex=n;slides.forEach((s,i)=>s.classList.toggle('active',i===n));dc.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===n));}
-        if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
-        })();
-    </script>
+    <script src="assets/carousel-video.js" defer></script>
     <script type="text/javascript" src="https://s.skimresources.com/js/299649X1787445.skimlinks.js"></script>
     <script>
         (function(){
