@@ -262,6 +262,7 @@
         [px + 'index.html#shopping', ui.footerShopping],
         [px + 'index.html#travel', ui.footerTravel],
         [px + 'about.html', ui.footerAbout],
+        [px + 'contact.html', ui.footerContact || 'Contact'],
         [px + 'privacy.html', ui.footerPrivacy]
       ];
       fl.innerHTML = links
