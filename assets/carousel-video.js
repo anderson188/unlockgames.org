@@ -13,6 +13,10 @@
     return slide ? slide.querySelector('video.carousel-video') : null;
   }
 
+  function isControlTarget(el) {
+    return el && el.closest && el.closest('.carousel-nav, .carousel-dot');
+  }
+
   function lockSeeking(video) {
     if (!video || video.dataset.seekLocked) return;
     video.dataset.seekLocked = '1';
@@ -24,7 +28,7 @@
     });
     video.addEventListener('seeking', () => {
       const last = lastTimes.get(video) ?? 0;
-      if (Math.abs(video.currentTime - last) > 0.35) {
+      if (video.currentTime > last + 0.35) {
         video.currentTime = last;
       }
     });
@@ -35,15 +39,13 @@
 
   slides.forEach((slide, i) => {
     const video = getVideo(slide);
-    if (video) lockSeeking(video);
-
-    const btn = slide.querySelector('.carousel-video-play');
-    if (btn) {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (i !== slideIndex) return;
-        togglePlay(slide);
+    if (video) {
+      video.loop = false;
+      video.removeAttribute('loop');
+      lockSeeking(video);
+      video.addEventListener('ended', () => {
+        if (slideIndex !== i) return;
+        showSlide(slideIndex + 1);
       });
     }
 
@@ -52,42 +54,39 @@
       d.type = 'button';
       d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
       d.setAttribute('aria-label', 'Slide ' + (i + 1));
-      d.addEventListener('click', () => showSlide(i));
+      d.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        showSlide(i);
+      });
       dotsHost.appendChild(d);
     }
   });
 
-  function setPlayIcon(slide, playing) {
-    const btn = slide.querySelector('.carousel-video-play');
-    if (!btn) return;
-    btn.classList.toggle('is-paused', !playing);
-    btn.setAttribute('aria-label', playing ? 'Pause video' : 'Play video');
-  }
+  inner.querySelectorAll('.carousel-nav').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (btn.classList.contains('carousel-prev')) showSlide(slideIndex - 1);
+      else showSlide(slideIndex + 1);
+    });
+  });
 
   function pauseAll() {
     slides.forEach((slide) => {
       const v = getVideo(slide);
       if (v && !v.paused) v.pause();
-      setPlayIcon(slide, false);
     });
   }
 
   function playSlide(slide) {
     const v = getVideo(slide);
     if (!v) return;
+    try {
+      v.currentTime = 0;
+    } catch (_) {}
     const p = v.play();
     if (p && p.catch) p.catch(() => {});
-    setPlayIcon(slide, true);
-  }
-
-  function togglePlay(slide) {
-    const v = getVideo(slide);
-    if (!v) return;
-    if (v.paused) playSlide(slide);
-    else {
-      v.pause();
-      setPlayIcon(slide, false);
-    }
   }
 
   function showSlide(n) {
@@ -97,10 +96,7 @@
       slide.classList.toggle('active', active);
       slide.setAttribute('aria-hidden', active ? 'false' : 'true');
       const v = getVideo(slide);
-      if (!active && v) {
-        v.pause();
-        setPlayIcon(slide, false);
-      }
+      if (!active && v) v.pause();
     });
     if (dotsHost) {
       dotsHost.querySelectorAll('.carousel-dot').forEach((d, i) => {
@@ -130,25 +126,26 @@
       const dx = e.changedTouches[0].screenX - touchStartX;
       const dy = e.changedTouches[0].screenY - touchStartY;
       if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
-      if (dx > 0) window.carouselPrev();
-      else window.carouselNext();
+      if (dx > 0) showSlide(slideIndex - 1);
+      else showSlide(slideIndex + 1);
     },
     { passive: true }
   );
 
   let dragX = 0;
   inner.addEventListener('pointerdown', (e) => {
-    if (e.pointerType === 'touch') return;
+    if (e.pointerType === 'touch' || isControlTarget(e.target)) return;
     dragX = e.clientX;
     inner.setPointerCapture(e.pointerId);
   });
   inner.addEventListener('pointerup', (e) => {
-    if (e.pointerType === 'touch' || !dragX) return;
+    if (e.pointerType === 'touch' || isControlTarget(e.target)) return;
+    if (!dragX) return;
     const dx = e.clientX - dragX;
     dragX = 0;
     if (Math.abs(dx) < 40) return;
-    if (dx > 0) window.carouselPrev();
-    else window.carouselNext();
+    if (dx > 0) showSlide(slideIndex - 1);
+    else showSlide(slideIndex + 1);
   });
 
   showSlide(0);

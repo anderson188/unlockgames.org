@@ -1302,14 +1302,16 @@ body {
 }
 
 .blog-carousel--video .carousel-nav {
-  z-index: 3;
+  z-index: 4;
   border-radius: 0;
   backdrop-filter: blur(4px);
+  pointer-events: auto;
 }
 
 .blog-carousel--video .carousel-dots {
-  z-index: 3;
+  z-index: 4;
   bottom: 0.5rem;
+  pointer-events: auto;
 }
 
 @media (max-width: 992px) {
