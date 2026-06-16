@@ -275,8 +275,12 @@
     if (fb.length && ui.footerDisclosure) {
       fb[0].innerHTML = ui.footerDisclosure;
     }
-    if (fb.length > 1 && ui.footerDisclosureBottom) {
-      fb[1].textContent = ui.footerDisclosureBottom;
+    if (fb.length > 2 && ui.footerLegal) {
+      fb[1].innerHTML = ui.footerLegal;
+    }
+    var copyrightIdx = fb.length > 2 ? 2 : 1;
+    if (fb.length > copyrightIdx && ui.footerDisclosureBottom) {
+      fb[copyrightIdx].textContent = ui.footerDisclosureBottom;
     }
   }
 

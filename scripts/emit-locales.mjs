@@ -93,6 +93,8 @@ const uiDE = {
   footerPrivacy: 'Datenschutz',
   footerDisclosure:
     '<strong>Hinweis:</strong> Wir können eine Provision erhalten, wenn Sie über unsere Links einkaufen, ohne Mehrkosten für Sie. <a href="privacy.html">Datenschutz</a> | <a href="terms.html">AGB</a>',
+  footerLegal:
+    '<strong>Legal entity (business licence):</strong> 武汉经济技术开发区泓蒙电子产品商行<br>\n<strong>Registered address:</strong> 武汉经济技术开发区9C2地块和居大厦B栋16层21-1室',
   srMainHeading: 'unLockGames – Markengeschichten & Shopping-Guides',
   articleBodyEnglishNote:
     'Der Artikeltext ist derzeit auf Englisch; die Oberfläche ist auf Deutsch. Vollständige Übersetzungen folgen.',
@@ -188,6 +190,8 @@ const uiFR = {
   footerPrivacy: 'Confidentialité',
   footerDisclosure:
     '<strong>Divulgation :</strong> nous pouvons percevoir une commission via nos liens, sans surcoût pour vous. <a href="privacy.html">Confidentialité</a> | <a href="terms.html">Conditions</a>',
+  footerLegal:
+    '<strong>Legal entity (business licence):</strong> 武汉经济技术开发区泓蒙电子产品商行<br>\n<strong>Registered address:</strong> 武汉经济技术开发区9C2地块和居大厦B栋16层21-1室',
   srMainHeading: 'unLockGames – Histoires de marques & guides shopping',
   articleBodyEnglishNote:
     'L’article est pour l’instant en anglais ; l’interface est en français. Traductions complètes à venir.',
@@ -283,6 +287,8 @@ const uiES = {
   footerPrivacy: 'Privacidad',
   footerDisclosure:
     '<strong>Aviso:</strong> podemos ganar una comisión si compras con nuestros enlaces, sin coste extra para ti. <a href="privacy.html">Privacidad</a> | <a href="terms.html">Términos</a>',
+  footerLegal:
+    '<strong>Legal entity (business licence):</strong> 武汉经济技术开发区泓蒙电子产品商行<br>\n<strong>Registered address:</strong> 武汉经济技术开发区9C2地块和居大厦B栋16层21-1室',
   srMainHeading: 'unLockGames – Historias de marca y guías de compras',
   articleBodyEnglishNote:
     'El artículo sigue en inglés; la interfaz está en español. Traducciones completas próximamente.',
@@ -378,6 +384,8 @@ const uiJA = {
   footerPrivacy: 'プライバシー',
   footerDisclosure:
     '<strong>開示：</strong> リンク経由の購入で手数料を得る場合があります（追加料金なし）。<a href="privacy.html">プライバシー</a> | <a href="terms.html">規約</a>',
+  footerLegal:
+    '<strong>Legal entity (business licence):</strong> 武汉经济技术开发区泓蒙电子产品商行<br>\n<strong>Registered address:</strong> 武汉经济技术开发区9C2地块和居大厦B栋16层21-1室',
   srMainHeading: 'unLockGames – ブランドストーリーとショッピングガイド',
   articleBodyEnglishNote:
     '記事本文は現在英語です。UIは日本語です。全文翻訳は順次追加予定です。',
@@ -470,6 +478,8 @@ const uiKO = {
   footerPrivacy: '개인정보',
   footerDisclosure:
     '<strong>고지:</strong> 링크를 통한 구매 시 수수료를 받을 수 있으며 추가 비용은 없습니다. <a href="privacy.html">개인정보</a> | <a href="terms.html">약관</a>',
+  footerLegal:
+    '<strong>Legal entity (business licence):</strong> 武汉经济技术开发区泓蒙电子产品商行<br>\n<strong>Registered address:</strong> 武汉经济技术开发区9C2地块和居大厦B栋16层21-1室',
   srMainHeading: 'unLockGames – 브랜드 스토리 & 쇼핑 가이드',
   articleBodyEnglishNote:
     '기사 본문은 현재 영어입니다. 인터페이스는 한국어입니다. 전체 번역은 순차 제공됩니다.',
@@ -562,6 +572,8 @@ const uiRU = {
   footerPrivacy: 'Конфиденциальность',
   footerDisclosure:
     '<strong>Раскрытие:</strong> мы можем получать комиссию по ссылкам без доп. затрат для вас. <a href="privacy.html">Конфиденциальность</a> | <a href="terms.html">Условия</a>',
+  footerLegal:
+    '<strong>Legal entity (business licence):</strong> 武汉经济技术开发区泓蒙电子产品商行<br>\n<strong>Registered address:</strong> 武汉经济技术开发区9C2地块和居大厦B栋16层21-1室',
   srMainHeading: 'unLockGames – истории брендов и гиды по покупкам',
   articleBodyEnglishNote:
     'Текст статьи пока на английском; интерфейс на русском. Полные переводы появятся позже.',

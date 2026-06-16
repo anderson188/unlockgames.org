@@ -9,6 +9,45 @@ const blogsDir = path.join(root, 'blogs');
 const BASE = 'https://unlockgames.org';
 const today = '2026-05-27';
 
+const BANNER_VIDEOS = [
+  {
+    title: 'Laifen – Every love, every stage',
+    description: 'Laifen high-speed hair care brand video on unLockGames homepage.',
+    content: '/assets/banner/banner-laifen-every-love.mp4',
+    thumb: '/assets/banner/banner-laifen-every-love-poster.jpg',
+    pub: '2026-06-11',
+  },
+  {
+    title: 'Segway Navimow – Wire-free smart mowing',
+    description: 'Navimow robot lawn mower brand video on unLockGames homepage.',
+    content: '/assets/banner/banner-navimow.mp4',
+    thumb: '/assets/banner/banner-navimow-poster.jpg',
+    pub: '2026-06-11',
+  },
+  {
+    title: 'Laifen Mini – High-speed hair dryer',
+    description: 'Laifen Mini hair dryer brand video on unLockGames homepage.',
+    content: '/assets/banner/banner-laifen-mini.mp4',
+    thumb: '/assets/banner/banner-laifen-mini-poster.jpg',
+    pub: '2026-06-11',
+  },
+  {
+    title: 'Laifen Air – Light in palm',
+    description: 'Laifen Air hair dryer brand video on unLockGames homepage.',
+    content: '/assets/banner/banner-laifen-air.mp4',
+    thumb: '/assets/banner/banner-laifen-air-poster.jpg',
+    pub: '2026-06-11',
+  },
+];
+
+function escXml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 // Pages that should NOT be in sitemap
 const EXCLUDE = new Set([
   // Noindex pages
@@ -65,10 +104,30 @@ function url(loc, lastmod, freq, prio) {
     </url>`;
 }
 
+function homeUrlWithVideos(lastmod) {
+  const videoBlocks = BANNER_VIDEOS.map(
+    (v) => `        <video:video>
+            <video:thumbnail_loc>${BASE}${v.thumb}</video:thumbnail_loc>
+            <video:title>${escXml(v.title)}</video:title>
+            <video:description>${escXml(v.description)}</video:description>
+            <video:content_loc>${BASE}${v.content}</video:content_loc>
+            <video:publication_date>${v.pub}</video:publication_date>
+            <video:family_friendly>yes</video:family_friendly>
+        </video:video>`
+  ).join('\n');
+  return `    <url>
+        <loc>${BASE}/</loc>
+        <lastmod>${lastmod}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+${videoBlocks}
+    </url>`;
+}
+
 const urls = [];
 
-// 1. Homepage (canonical /)
-urls.push(url(`${BASE}/`, today, 'daily', '1.0'));
+// 1. Homepage (canonical /) with banner videos for Google Video indexing
+urls.push(homeUrlWithVideos(today));
 
 // 2. Main section pages
 urls.push(url(`${BASE}/index-coupon.html`, today, 'daily', '0.9'));
@@ -107,7 +166,7 @@ for (const f of blogFiles) {
 }
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 ${urls.join('\n')}
 </urlset>`;
 

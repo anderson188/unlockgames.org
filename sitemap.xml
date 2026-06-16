@@ -1,10 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
         <loc>https://unlockgames.org/</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
+        <video:video>
+            <video:thumbnail_loc>https://unlockgames.org/assets/banner/banner-laifen-every-love-poster.jpg</video:thumbnail_loc>
+            <video:title>Laifen – Every love, every stage</video:title>
+            <video:description>Laifen high-speed hair care brand video on unLockGames homepage.</video:description>
+            <video:content_loc>https://unlockgames.org/assets/banner/banner-laifen-every-love.mp4</video:content_loc>
+            <video:publication_date>2026-06-11</video:publication_date>
+            <video:family_friendly>yes</video:family_friendly>
+        </video:video>
+        <video:video>
+            <video:thumbnail_loc>https://unlockgames.org/assets/banner/banner-navimow-poster.jpg</video:thumbnail_loc>
+            <video:title>Segway Navimow – Wire-free smart mowing</video:title>
+            <video:description>Navimow robot lawn mower brand video on unLockGames homepage.</video:description>
+            <video:content_loc>https://unlockgames.org/assets/banner/banner-navimow.mp4</video:content_loc>
+            <video:publication_date>2026-06-11</video:publication_date>
+            <video:family_friendly>yes</video:family_friendly>
+        </video:video>
+        <video:video>
+            <video:thumbnail_loc>https://unlockgames.org/assets/banner/banner-laifen-mini-poster.jpg</video:thumbnail_loc>
+            <video:title>Laifen Mini – High-speed hair dryer</video:title>
+            <video:description>Laifen Mini hair dryer brand video on unLockGames homepage.</video:description>
+            <video:content_loc>https://unlockgames.org/assets/banner/banner-laifen-mini.mp4</video:content_loc>
+            <video:publication_date>2026-06-11</video:publication_date>
+            <video:family_friendly>yes</video:family_friendly>
+        </video:video>
+        <video:video>
+            <video:thumbnail_loc>https://unlockgames.org/assets/banner/banner-laifen-air-poster.jpg</video:thumbnail_loc>
+            <video:title>Laifen Air – Light in palm</video:title>
+            <video:description>Laifen Air hair dryer brand video on unLockGames homepage.</video:description>
+            <video:content_loc>https://unlockgames.org/assets/banner/banner-laifen-air.mp4</video:content_loc>
+            <video:publication_date>2026-06-11</video:publication_date>
+            <video:family_friendly>yes</video:family_friendly>
+        </video:video>
     </url>
     <url>
         <loc>https://unlockgames.org/index-coupon.html</loc>
@@ -559,6 +591,24 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://unlockgames.org/blogs/blog-fifa-collect-beginners-guide.html</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://unlockgames.org/blogs/blog-fifa-collect-packs-marketplace.html</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://unlockgames.org/blogs/blog-fifa-collect-world-cup-2026-rtt.html</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://unlockgames.org/blogs/blog-flightcentre-1.html</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>monthly</changefreq>
@@ -770,6 +820,42 @@
     </url>
     <url>
         <loc>https://unlockgames.org/blogs/blog-kohls-3.html</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://unlockgames.org/blogs/blog-laifen-curly-hair-diffuser-guide.html</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://unlockgames.org/blogs/blog-laifen-dryer-worth-it-2026.html</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://unlockgames.org/blogs/blog-laifen-gift-guide-2026.html</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://unlockgames.org/blogs/blog-laifen-p3-pro-vs-t1-pro.html</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://unlockgames.org/blogs/blog-laifen-se2-vs-swift-vs-selite.html</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://unlockgames.org/blogs/blog-laifen-wave-pro-toothbrush-guide.html</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
