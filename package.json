@@ -10,11 +10,13 @@
     "check:articles-i18n": "node scripts/check-articles-i18n.mjs",
     "build:sitemap": "node scripts/generate-sitemap.mjs",
     "build:sitemap:latest": "node scripts/generate-sitemap-latest.mjs",
-    "build:game-keys": "node scripts/generate-game-keys-articles.mjs"
+    "build:game-keys": "node scripts/generate-game-keys-articles.mjs",
+    "optimize:agoda-images": "node scripts/optimize-agoda-images.mjs"
   },
   "devDependencies": {
     "cheerio": "^1.2.0",
     "google-translate-api-x": "^10.7.2",
-    "puppeteer": "^21.0.0"
+    "puppeteer": "^21.0.0",
+    "sharp": "^0.35.2"
   }
 }
