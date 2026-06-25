@@ -11,7 +11,8 @@
     "build:sitemap": "node scripts/generate-sitemap.mjs",
     "build:sitemap:latest": "node scripts/generate-sitemap-latest.mjs",
     "build:game-keys": "node scripts/generate-game-keys-articles.mjs",
-    "optimize:agoda-images": "node scripts/optimize-agoda-images.mjs"
+    "optimize:agoda-images": "node scripts/optimize-agoda-images.mjs",
+    "generate:travel-partners": "node scripts/generate-travel-partners-articles.mjs && node scripts/install-travel-photos.mjs"
   },
   "devDependencies": {
     "cheerio": "^1.2.0",
